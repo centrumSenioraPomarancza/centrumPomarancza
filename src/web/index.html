@@ -13,6 +13,13 @@
   <a href="#" class="nav-logo">
     <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
   </a>
+  <div class="nav-links">
+    <a href="#o-nas">O nas</a>
+    <a href="#dla-seniora">Dla Seniora</a>
+    <a href="#dom">Pomarańczowy Dom</a>
+    <a href="#cennik">Cennik</a>
+    <a href="#galeria">Galeria</a>
+  </div>
   <div style="display:flex;align-items:center;gap:.6rem;">
     <a href="#kontakt" class="nav-cta">Kontakt</a>
     <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
@@ -25,6 +32,8 @@
   <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-left">
+      <span class="hero-tagline">Dodajemy życiu koloru.</span>
+      <h1 class="hero-title">Dobre życie nie ma wieku</h1>
       <p class="hero-sub">Dzienny dom pobytu dla seniorów — opieka, aktywność i godność każdego dnia.</p>
       <div class="hero-pills">
         <span class="pill"><span class="pill-dot"></span>Terapia zajęciowa</span>
@@ -37,9 +46,15 @@
 </div>
 
 <div class="content">
-  <section class="reveal">
+  <section id="o-nas" class="reveal">
     <span class="section-tag"><span class="tag-dot"></span>O nas</span>
-    <h2>Zasady działania i organizacja</h2>
+    <h2>Fundacja Inicjatyw Społecznych „Pomarańcza”</h2>
+    <p>Fundacja Inicjatyw Społecznych „Pomarańcza” powstała z potrzeby tworzenia rzeczy ważnych i bliskich ludziom. Jednym z najważniejszych kierunków naszych działań jest wspieranie Seniorów – ich samodzielności, aktywności, relacji z innymi i poczucia, że nadal są ważną częścią lokalnej społeczności.</p>
+    <p>Wiemy, że wraz z wiekiem zmieniają się potrzeby, tempo życia i codzienne możliwości. Nie oznacza to jednak rezygnacji z pasji, przyjaźni, rozwoju czy dobrej zabawy. Czasem wystarczy odpowiednie miejsce i życzliwi ludzie, żeby znów częściej wychodzić z domu, poznawać nowych znajomych i mieć na co czekać w kolejnym tygodniu.</p>
+    <p>Dlatego Pomarańcza ma być miejscem otwartym, serdecznym i bez zbędnego dystansu. Chcemy znać naszych uczestników po imieniu, słuchać ich pomysłów i tworzyć program razem z nimi. Senior nie jest u nas biernym odbiorcą zajęć – jest częścią społeczności.</p>
+    <p>Naszym celem jest również przeciwdziałanie samotności. Rozmowa przy kawie, wspólne śniadanie, telefon od znajomej osoby, urodziny obchodzone razem czy zwykłe pytanie „jak się dziś czujesz?” potrafią znaczyć więcej niż najbardziej rozbudowany program zajęć.</p>
+
+    <h3 class="sub-h">Zasady działania i organizacja</h3>
     <p>Organizacja Dziennego Domu Seniora oraz zakres i poziom świadczonych w nim usług uwzględnia w szczególności wolność, intymność, godność i poczucie bezpieczeństwa podopiecznych oraz stopień ich fizycznej i psychicznej sprawności.</p>
     <p>Dzienny Dom Seniora funkcjonuje w sposób zapewniający właściwy zakres usług, zgodny z określonymi wskazaniami w oparciu o indywidualne potrzeby jego uczestników.</p>
     <p><strong>W organizowaniu życia Seniorów uwzględniane są:</strong></p>
@@ -50,6 +65,58 @@
       <li>Kształtowanie relacji międzyludzkich na zasadach partnerstwa</li>
       <li>Współpraca z rodzinami</li>
     </ul>
+  </section>
+
+  <section id="dla-seniora" class="reveal">
+    <span class="section-tag"><span class="tag-dot"></span>Dla Seniora</span>
+    <h2>Co znajdziesz w Pomarańczy?</h2>
+    <p>Każdy dzień może wyglądać trochę inaczej. Nie chcemy, aby pobyt u nas kojarzył się ze sztywnym planem. Proponujemy różne aktywności, ale pozostawiamy przestrzeń na odpoczynek, rozmowę i własne zainteresowania. Można być aktywnym przez cały dzień, a można wybrać tylko to, na co ma się ochotę.</p>
+    <div class="zajecia-grid">
+      <div class="zajecie-card">
+        <div class="zajecie-title">Muzykoterapia i spotkania z muzyką</div>
+        <p>Znane piosenki, wspólne śpiewanie, rytm, proste instrumenty i muzyczne wspomnienia. Planujemy także spotkania z muzyką na żywo, karaoke, wieczory piosenki oraz tematyczne podróże muzyczne.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Fizjoterapia, gimnastyka i zdrowy ruch</div>
+        <p>Łagodne ćwiczenia ogólnousprawniające, gimnastyka, ćwiczenia równowagi i koordynacji, rozciąganie, spacery oraz inne formy aktywności prowadzone w bezpieczny i przyjazny sposób.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Dogoterapia i spotkania ze zwierzętami</div>
+        <p>Spotkania z odpowiednio przygotowanym zespołem człowiek–pies zachęcają do rozmowy, ruchu i kontaktu z innymi — czas na głaskanie, proste aktywności i budowanie dobrej relacji ze zwierzęciem.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Arteterapia i pracownia twórcza</div>
+        <p>Nie trzeba umieć malować ani mieć zdolności artystycznych. Malarstwo, dekoracje sezonowe, rękodzieło, ceramika, decoupage, szydełkowanie i robótki ręczne — gotowe prace prezentujemy na wystawach i kiermaszach.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Trening pamięci i sprawności umysłowej</div>
+        <p>Quizy, gry słowne, łamigłówki, wspomnienia, ćwiczenia koncentracji, planszówki i zabawy zespołowe — z humorem, rozmową i ciekawością, bez szkolnej atmosfery i oceniania.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Senior Online – technologia bez stresu</div>
+        <p>Jak wysłać zdjęcie wnukowi, odebrać wideorozmowę czy korzystać z internetu bezpiecznie? Tłumaczymy wszystko spokojnie, krok po kroku i tyle razy, ile będzie trzeba.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Pomarańczowa Kawiarenka</div>
+        <p>Przestrzeń, w której nie trzeba zapisywać się na żadne zajęcia. Można przyjść na kawę lub herbatę, poczytać, porozmawiać, zagrać w karty, szachy albo planszówkę.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Kuchnia pełna wspomnień</div>
+        <p>Wspólne gotowanie i pieczenie, rodzinne przepisy, smaki dzieciństwa, sezonowe potrawy i wspólne nakrywanie stołu — pretekst do rozmowy, wspomnień i poznawania się.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Taniec, spacery i wyjścia</div>
+        <p>Muzyka i ruch, spacery, nordic walking, potańcówki, wyjścia do kina, teatru, muzeum, kawiarni czy na lokalne wydarzenia — Pomarańcza wychodzi także poza własne drzwi.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Spotkania z ciekawymi ludźmi</div>
+        <p>Zapraszamy specjalistów, artystów, podróżników, lokalnych pasjonatów i osoby z ciekawą historią do opowiedzenia — o zdrowiu, bezpieczeństwie, kulturze, podróżach i historii regionu.</p>
+      </div>
+      <div class="zajecie-card">
+        <div class="zajecie-title">Spotkania międzypokoleniowe</div>
+        <p>Seniorzy mają ogromną wiedzę i doświadczenie, którym mogą dzielić się z młodszymi — spotkania z dziećmi i młodzieżą, wspólne warsztaty, rozmowy, gotowanie i rękodzieło.</p>
+      </div>
+    </div>
   </section>
 </div>
 
@@ -70,6 +137,85 @@
 </div>
 
 <div class="content">
+  <section id="dom" class="reveal">
+    <span class="section-tag"><span class="tag-dot"></span>Pomarańczowy Dom</span>
+    <h2>Blisko ludzi, ale na własnych zasadach</h2>
+    <p>„Pomarańczowy Dom” chcemy stworzyć z myślą o Seniorach, którzy nadal chcą żyć po swojemu, ale nie chcą być sami. To propozycja dla osób ceniących własną przestrzeń i niezależność, a jednocześnie chcących mieć blisko innych ludzi, wspólne miejsca i możliwość uczestniczenia w codziennym życiu społeczności.</p>
+    <p>Najważniejsze jest dla nas poczucie domu. Własny pokój lub mieszkanie ma być prywatną przestrzenią mieszkańca. To on decyduje, czy chce odpocząć u siebie, czy dołączyć do innych. Wspólny salon, kuchnia lub jadalnia, ogród czy taras mają natomiast zachęcać do spontanicznych spotkań – kawy, rozmowy, wspólnego filmu czy gry.</p>
+    <p>Nie chcemy, aby życie mieszkańców było podporządkowane instytucjonalnemu rytmowi. Każdy człowiek ma swoje przyzwyczajenia, zainteresowania i potrzeby. Dlatego idea Pomarańczowego Domu opiera się na szacunku do prywatności i samodzielności oraz na możliwości korzystania z dodatkowego wsparcia w takim zakresie, jaki rzeczywiście zostanie uzgodniony i ustalony w umowie.</p>
+    <p><strong>Jak może wyglądać codzienność?</strong></p>
+    <ul class="zasady">
+      <li>Spokojny poranek i wspólna kawa dla tych, którzy mają ochotę zacząć dzień razem</li>
+      <li>Zajęcia ruchowe lub twórcze, ale bez przymusu uczestnictwa</li>
+      <li>Czas na własne sprawy, odpoczynek, wizytę rodziny czy wyjście na spacer</li>
+      <li>Wspólny obiad lub spotkanie przy stole, jeżeli dany wariant oferty obejmuje wyżywienie</li>
+      <li>Popołudniowa kawiarenka, muzyka, film, planszówki lub warsztaty</li>
+      <li>Urodziny, imieniny, święta i małe okazje celebrowane wspólnie</li>
+      <li>Wyjścia, wycieczki i wydarzenia organizowane zgodnie z możliwościami mieszkańców</li>
+    </ul>
+    <p style="margin-top:1rem;"><em>Pomarańczowy Dom: masz swoją przestrzeń, swój rytm dnia i ludzi obok, kiedy masz ochotę na towarzystwo.</em></p>
+  </section>
+
+  <section id="cennik" class="reveal">
+    <span class="section-tag"><span class="tag-dot"></span>Cennik</span>
+    <h2>Cennik pobytu dziennego / zajęć</h2>
+    <p>Chcemy, aby rodzina i Senior od początku wiedzieli, jaki wariant uczestnictwa wybierają. Dlatego proponujemy trzy czytelne pakiety:</p>
+    <div class="cennik-grid">
+      <div class="cennik-card">
+        <div class="cennik-name">Pomarańczowy Start</div>
+        <div class="cennik-freq">2 razy w tygodniu</div>
+        <div class="cennik-price">1 700 zł<span>/ miesiąc</span></div>
+      </div>
+      <div class="cennik-card cennik-featured">
+        <div class="cennik-name">Pomarańczowy Plus</div>
+        <div class="cennik-freq">3 razy w tygodniu</div>
+        <div class="cennik-price">2 600 zł<span>/ miesiąc</span></div>
+      </div>
+      <div class="cennik-card">
+        <div class="cennik-name">Pomarańczowy Pełny</div>
+        <div class="cennik-freq">pełny miesiąc</div>
+        <div class="cennik-price">3 400 zł<span>/ miesiąc</span></div>
+      </div>
+    </div>
+    <p style="margin-top:1.25rem;">Przy każdym pakiecie liczba godzin pobytu, świadczenia wliczone w cenę, zasady wyżywienia, zajęcia dodatkowe, ewentualny transport oraz zasady nieobecności zostaną dokładnie ustalone indywidualnie.</p>
+    <p>Cennik „Pomarańczowego Domu” – oferty mieszkaniowej – zostanie przygotowany oddzielnie po ustaleniu standardu zakwaterowania i dokładnego zakresu świadczeń.</p>
+  </section>
+
+  <section id="galeria" class="reveal">
+    <span class="section-tag"><span class="tag-dot"></span>Galeria</span>
+    <h2>Chwile z Pomarańczy</h2>
+    <div class="galeria-grid">
+      <figure class="galeria-item">
+        <img src="img/galeria-kawa.jpg" alt="Seniorzy przy wspólnej kawie i rozmowie"/>
+        <figcaption>
+          <span class="galeria-title">Wspólne chwile przy kawie</span>
+          <span class="galeria-desc">Rozmowa, śmiech i zwykła obecność drugiego człowieka są ważną częścią naszej Pomarańczowej społeczności.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/galeria-muzyka.jpg" alt="Wspólne śpiewanie i gra na instrumentach"/>
+        <figcaption>
+          <span class="galeria-title">Muzyka, która łączy</span>
+          <span class="galeria-desc">Wspólne śpiewanie, instrumenty i znane melodie tworzą atmosferę radości i integracji.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/galeria-aktywnosc.jpg" alt="Zajęcia ruchowe w grupie"/>
+        <figcaption>
+          <span class="galeria-title">Aktywność w każdym wieku</span>
+          <span class="galeria-desc">Łagodny ruch i zajęcia grupowe pomagają zachować sprawność, a przy okazji dają mnóstwo dobrej energii.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/galeria-dogoterapia.jpg" alt="Dogoterapia — kontakt z psem"/>
+        <figcaption>
+          <span class="galeria-title">Dogoterapia i bliskość</span>
+          <span class="galeria-desc">Kontakt ze zwierzęciem może być źródłem radości, spokoju i naturalnej aktywizacji.</span>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section id="kontakt" class="reveal">
     <span class="section-tag"><span class="tag-dot"></span>Kontakt</span>
     <h2>Skontaktuj się z nami</h2>
@@ -82,6 +228,7 @@
       <span style="font-size:1.2rem">🕗</span>
       <span><strong>Godziny pracy:</strong> poniedziałek – piątek, 8:00 – 16:00</span>
     </div>
+    <p class="kontakt-outro">Zadzwoń, odwiedź nas i zobacz, czy Pomarańcza jest miejscem dla Ciebie.</p>
   </section>
 </div>
       
