@@ -12,6 +12,28 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'Inter', sans-serif; color: var(--text); background: #fff; line-height: 1.7; }
 
+    /* TOPBAR */
+    .topbar { background: var(--navy); }
+    .topbar-inner {
+      max-width: 1100px; margin: 0 auto;
+      padding: .45rem 2rem;
+      display: flex; align-items: center; gap: 1.5rem;
+      font-size: .78rem;
+    }
+    .topbar-item {
+      color: rgba(255,255,255,.75); text-decoration: none;
+      display: flex; align-items: center; gap: .4rem;
+      transition: color .15s;
+      white-space: nowrap;
+    }
+    .topbar-item .topbar-icon { font-size: .85rem; }
+    a.topbar-item:hover { color: #fb923c; }
+    .topbar-hours { margin-left: auto; }
+    @media (max-width: 700px) {
+      .topbar-inner { padding: .45rem 1rem; gap: .9rem; }
+      .topbar-hours { display: none; }
+    }
+
     /* NAV */
     nav {
       position: sticky; top: 0; z-index: 100;
@@ -32,6 +54,7 @@
       white-space: nowrap;
     }
     .nav-links a:hover { color: var(--orange); }
+    .nav-links a.active { color: var(--orange-dk); }
     @media (max-width: 900px) {
       .nav-links { display: none; }
     }
@@ -109,6 +132,25 @@
     }
     .pill-dot { width: 6px; height: 6px; background: #fb923c; border-radius: 50%; }
 
+    .hero-pain { margin-bottom: .9rem; display: flex; flex-direction: column; gap: .35rem; }
+    .hero-pain-line {
+      color: rgba(255,255,255,.85); font-size: .95rem; font-weight: 500;
+      padding-left: .75rem; border-left: 2px solid #fb923c;
+    }
+
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
+    .cta-btn {
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: .65rem 1.4rem; border-radius: 100px;
+      font-size: .88rem; font-weight: 600; text-decoration: none;
+      transition: background .18s, color .18s, border-color .18s, transform .18s;
+      white-space: nowrap;
+    }
+    .cta-btn-solid { background: var(--orange); color: #fff; }
+    .cta-btn-solid:hover { background: var(--orange-dk); transform: translateY(-1px); }
+    .cta-btn-outline { background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.5); }
+    .cta-btn-outline:hover { border-color: #fb923c; color: #fb923c; }
+
     /* pasek fundacji na dole hero */
     .hero-footer {
       position: relative; z-index: 2;
@@ -140,6 +182,68 @@
       .hero-footer { padding: .75rem 1.25rem; flex-wrap: wrap; gap: .75rem; }
       .hfi-name { font-size: .7rem; }
       .hfi-data { font-size: .65rem; }
+    }
+
+    /* PAGE HERO (subpages) */
+    .page-hero {
+      background: linear-gradient(135deg, var(--navy) 0%, #16324f 100%);
+      padding: 3rem 1.75rem;
+    }
+    .page-hero-inner { max-width: 900px; margin: 0 auto; }
+    .page-hero-tag { background: rgba(255,255,255,.12); color: #fb923c; }
+    .page-hero-title {
+      font-family: 'Playfair Display', serif;
+      color: #fff;
+      font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+      line-height: 1.25; margin-bottom: .6rem;
+    }
+    .page-hero-sub { color: rgba(255,255,255,.75); font-size: 1rem; margin-bottom: 0; }
+
+    /* QUICK LINKS (strona główna) */
+    .quicklinks-wrap {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 1.75rem;
+    }
+    .quicklinks-inner { max-width: 900px; margin: 0 auto; }
+    .quicklink-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.1rem; margin-top: 1.5rem;
+    }
+    .quicklink-card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 14px; padding: 1.25rem 1.35rem;
+      text-decoration: none; display: block;
+      transition: border-color .18s, transform .18s;
+    }
+    .quicklink-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .quicklink-icon { font-size: 1.4rem; margin-bottom: .5rem; }
+    .quicklink-title { font-weight: 700; color: var(--navy); font-size: .95rem; margin-bottom: .35rem; }
+    .quicklink-desc { font-size: .85rem; color: var(--muted); line-height: 1.5; }
+
+    /* CTA SECTION (podstrony) */
+    .cta-section {
+      margin-top: 2rem; text-align: center;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 2rem 1.5rem;
+    }
+    .cta-section p { margin-bottom: 1.1rem; }
+
+    /* BENEFITS (Dla kogo) */
+    .benefits-wrap {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 3.5rem 1.75rem;
+    }
+    .benefits-inner { max-width: 900px; margin: 0 auto; }
+    .benefits-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem; margin-top: 1.5rem;
+    }
+    .benefit-col-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem; color: var(--orange-dk); margin-bottom: .85rem;
     }
 
     /* CONTENT */
@@ -215,6 +319,15 @@
     .galeria-item figcaption { padding: 1rem 1.15rem; display: flex; flex-direction: column; gap: .35rem; }
     .galeria-title { font-weight: 700; color: var(--navy); font-size: .93rem; }
     .galeria-desc { font-size: .85rem; color: var(--muted); line-height: 1.55; }
+
+    .galeria-empty {
+      margin-top: 1.5rem;
+      border: 1px dashed var(--border); border-radius: 16px;
+      padding: 2.5rem 1.5rem;
+      display: flex; flex-direction: column; align-items: center; gap: .6rem;
+      color: var(--muted); font-size: .9rem; font-weight: 500;
+    }
+    .galeria-empty-icon { font-size: 1.8rem; opacity: .5; }
 
     /* KONTAKT OUTRO */
     .kontakt-outro {
@@ -380,6 +493,8 @@
     body.a11y-large-text .zajecie-card p, body.a11y-large-text .galeria-desc,
     body.a11y-large-text .cennik-freq { font-size: 1.1rem !important; }
     body.a11y-large-text .nav-cta, body.a11y-large-text .pill { font-size: 1rem !important; }
+    body.a11y-large-text .hero-pain-line, body.a11y-large-text .cta-btn,
+    body.a11y-large-text .topbar-item { font-size: 1.05rem !important; }
 
     /* 2. Wysoki kontrast */
     body.a11y-contrast {
@@ -432,6 +547,24 @@
     body.a11y-contrast .galeria-title { color: #ff0 !important; }
     body.a11y-contrast .galeria-desc { color: #fff !important; }
     body.a11y-contrast .kontakt-outro { color: #ff0 !important; }
+    body.a11y-contrast .topbar { background: #000 !important; border-bottom: 1px solid #ff0; }
+    body.a11y-contrast .topbar-item { color: #fff !important; }
+    body.a11y-contrast .hero-pain-line { color: #fff !important; border-left-color: #ff0 !important; }
+    body.a11y-contrast .cta-btn-solid { background: #ff0 !important; color: #000 !important; }
+    body.a11y-contrast .cta-btn-outline { color: #fff !important; border-color: #ff0 !important; }
+    body.a11y-contrast .benefits-wrap { background: #000 !important; }
+    body.a11y-contrast .benefit-col-title { color: #ff0 !important; }
+    body.a11y-contrast .galeria-empty { border-color: #ff0 !important; color: #fff !important; }
+    body.a11y-contrast .page-hero { background: #000 !important; border-bottom: 1px solid #ff0; }
+    body.a11y-contrast .page-hero-title { color: #ff0 !important; }
+    body.a11y-contrast .page-hero-sub { color: #fff !important; }
+    body.a11y-contrast .page-hero-tag { color: #ff0 !important; background: #222 !important; }
+    body.a11y-contrast .quicklinks-wrap { background: #000 !important; }
+    body.a11y-contrast .quicklink-card { background: #111 !important; border-color: #ff0 !important; }
+    body.a11y-contrast .quicklink-title { color: #ff0 !important; }
+    body.a11y-contrast .quicklink-desc { color: #fff !important; }
+    body.a11y-contrast .cta-section { background: #111 !important; border-color: #ff0 !important; }
+    body.a11y-contrast .nav-links a.active { color: #ff0 !important; }
 
     /* 3. Podkreślenie linków */
     body.a11y-links a {

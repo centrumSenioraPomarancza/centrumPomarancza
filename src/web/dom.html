@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pomarańczowy Dom — Centrum Seniora Pomarańcza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="tel:+48000000000" class="topbar-item"><span class="topbar-icon">📞</span> Zadzwoń do nas</a>
+    <a href="/cdn-cgi/l/email-protection#066d696872676d724676696b67746768657c6728766a" class="topbar-item"><span class="topbar-icon">✉️</span> Napisz e-mail</a>
+    <span class="topbar-item topbar-hours"><span class="topbar-icon">🕗</span> Pon–Pt, 8:00–16:00</span>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
+  </a>
+  <div class="nav-links">
+    <a href="o-nas.html">O nas</a>
+    <a href="oferta.html">Oferta</a>
+    <a href="dom.html" class="active">Pomarańczowy Dom</a>
+    <a href="cennik.html">Cennik</a>
+    <a href="galeria.html">Galeria</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:.6rem;">
+    <a href="kontakt.html" class="nav-cta">Kontakt</a>
+    <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Pomarańczowy Dom</span>
+    <h1 class="page-hero-title">Blisko ludzi, ale na własnych zasadach</h1>
+    <p class="page-hero-sub">Propozycja mieszkaniowa dla Seniorów, którzy cenią własną przestrzeń i niezależność.</p>
+  </div>
+</div>
+
+<div class="content">
+  <section class="reveal">
+    <p>„Pomarańczowy Dom” chcemy stworzyć z myślą o Seniorach, którzy nadal chcą żyć po swojemu, ale nie chcą być sami. To propozycja dla osób ceniących własną przestrzeń i niezależność, a jednocześnie chcących mieć blisko innych ludzi, wspólne miejsca i możliwość uczestniczenia w codziennym życiu społeczności.</p>
+    <p>Najważniejsze jest dla nas poczucie domu. Własny pokój lub mieszkanie ma być prywatną przestrzenią mieszkańca. To on decyduje, czy chce odpocząć u siebie, czy dołączyć do innych. Wspólny salon, kuchnia lub jadalnia, ogród czy taras mają natomiast zachęcać do spontanicznych spotkań – kawy, rozmowy, wspólnego filmu czy gry.</p>
+    <p>Nie chcemy, aby życie mieszkańców było podporządkowane instytucjonalnemu rytmowi. Każdy człowiek ma swoje przyzwyczajenia, zainteresowania i potrzeby. Dlatego idea Pomarańczowego Domu opiera się na szacunku do prywatności i samodzielności oraz na możliwości korzystania z dodatkowego wsparcia w takim zakresie, jaki rzeczywiście zostanie uzgodniony i ustalony w umowie.</p>
+    <p><strong>Jak może wyglądać codzienność?</strong></p>
+    <ul class="zasady">
+      <li>Spokojny poranek i wspólna kawa dla tych, którzy mają ochotę zacząć dzień razem</li>
+      <li>Zajęcia ruchowe lub twórcze, ale bez przymusu uczestnictwa</li>
+      <li>Czas na własne sprawy, odpoczynek, wizytę rodziny czy wyjście na spacer</li>
+      <li>Wspólny obiad lub spotkanie przy stole, jeżeli dany wariant oferty obejmuje wyżywienie</li>
+      <li>Popołudniowa kawiarenka, muzyka, film, planszówki lub warsztaty</li>
+      <li>Urodziny, imieniny, święta i małe okazje celebrowane wspólnie</li>
+      <li>Wyjścia, wycieczki i wydarzenia organizowane zgodnie z możliwościami mieszkańców</li>
+    </ul>
+    <p style="margin-top:1rem;"><em>Pomarańczowy Dom: masz swoją przestrzeń, swój rytm dnia i ludzi obok, kiedy masz ochotę na towarzystwo.</em></p>
+
+    <div class="cta-section">
+      <p>Zastanawiasz się, czy Pomarańczowy Dom jest dla Twojego bliskiego?</p>
+      <a href="kontakt.html" class="cta-btn cta-btn-solid">Zapytaj o dostępność</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-fundacja">
+      <img class="footer-fundacja-logo" src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+      <div class="footer-fundacja-info">
+        <div class="footer-fundacja-name">FUNDACJA ROZWOJU INICJATYW SPOŁECZNYCH „POMARAŃCZA”</div>
+        <div class="footer-fundacja-meta">KRS: 0001221165 &nbsp;&middot;&nbsp; REGON: 543877889 &nbsp;&middot;&nbsp; NIP: 8692020157</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    © 2025 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.
+  </div>
+</footer>
+
+<!-- WIDGET DOSTĘPNOŚCI -->
+
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności">
+  <div class="a11y-panel-title">Dostępność</div>
+
+  <div class="a11y-option" id="opt-text" onclick="toggleA11y('large-text', 'opt-text')">
+    <span>🔤 Większy tekst</span>
+    <span class="icon" id="icon-text">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-contrast" onclick="toggleA11y('contrast', 'opt-contrast')">
+    <span>◑ Wysoki kontrast</span>
+    <span class="icon" id="icon-contrast">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-links" onclick="toggleA11y('links', 'opt-links')">
+    <span>🔗 Podkreśl linki</span>
+    <span class="icon" id="icon-links">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-spacing" onclick="toggleA11y('spacing', 'opt-spacing')">
+    <span>↕ Większe odstępy</span>
+    <span class="icon" id="icon-spacing">○</span>
+  </div>
+
+  <button class="a11y-reset" onclick="resetA11y()">↺ Resetuj ustawienia</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>

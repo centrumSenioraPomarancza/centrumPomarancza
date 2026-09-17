@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cennik — Centrum Seniora Pomarańcza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="tel:+48000000000" class="topbar-item"><span class="topbar-icon">📞</span> Zadzwoń do nas</a>
+    <a href="/cdn-cgi/l/email-protection#066d696872676d724676696b67746768657c6728766a" class="topbar-item"><span class="topbar-icon">✉️</span> Napisz e-mail</a>
+    <span class="topbar-item topbar-hours"><span class="topbar-icon">🕗</span> Pon–Pt, 8:00–16:00</span>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
+  </a>
+  <div class="nav-links">
+    <a href="o-nas.html">O nas</a>
+    <a href="oferta.html">Oferta</a>
+    <a href="dom.html">Pomarańczowy Dom</a>
+    <a href="cennik.html" class="active">Cennik</a>
+    <a href="galeria.html">Galeria</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:.6rem;">
+    <a href="kontakt.html" class="nav-cta">Kontakt</a>
+    <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Cennik</span>
+    <h1 class="page-hero-title">Cennik pobytu dziennego i zajęć</h1>
+    <p class="page-hero-sub">Przejrzyste pakiety uczestnictwa — bez niejasności i skomplikowanych regulaminów.</p>
+  </div>
+</div>
+
+<div class="content">
+  <section class="reveal">
+    <p>Chcemy, aby rodzina i Senior od początku wiedzieli, jaki wariant uczestnictwa wybierają. Dlatego proponujemy trzy czytelne pakiety:</p>
+    <div class="cennik-grid">
+      <div class="cennik-card">
+        <div class="cennik-name">Pomarańczowy Start</div>
+        <div class="cennik-freq">2 razy w tygodniu</div>
+        <div class="cennik-price">1 700 zł<span>/ miesiąc</span></div>
+      </div>
+      <div class="cennik-card">
+        <div class="cennik-name">Pomarańczowy Plus</div>
+        <div class="cennik-freq">3 razy w tygodniu</div>
+        <div class="cennik-price">2 600 zł<span>/ miesiąc</span></div>
+      </div>
+      <div class="cennik-card">
+        <div class="cennik-name">Pomarańczowy Pełny</div>
+        <div class="cennik-freq">pełny miesiąc</div>
+        <div class="cennik-price">3 400 zł<span>/ miesiąc</span></div>
+      </div>
+    </div>
+    <p style="margin-top:1.25rem;">Przy każdym pakiecie liczba godzin pobytu, świadczenia wliczone w cenę, zasady wyżywienia, zajęcia dodatkowe, ewentualny transport oraz zasady nieobecności zostaną dokładnie ustalone indywidualnie.</p>
+    <p>Cennik „Pomarańczowego Domu” – oferty mieszkaniowej – zostanie przygotowany oddzielnie po ustaleniu standardu zakwaterowania i dokładnego zakresu świadczeń.</p>
+
+    <div class="cta-section">
+      <p>Masz pytania dotyczące cennika lub chcesz umówić wizytę?</p>
+      <a href="kontakt.html" class="cta-btn cta-btn-solid">Skontaktuj się z nami</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-fundacja">
+      <img class="footer-fundacja-logo" src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+      <div class="footer-fundacja-info">
+        <div class="footer-fundacja-name">FUNDACJA ROZWOJU INICJATYW SPOŁECZNYCH „POMARAŃCZA”</div>
+        <div class="footer-fundacja-meta">KRS: 0001221165 &nbsp;&middot;&nbsp; REGON: 543877889 &nbsp;&middot;&nbsp; NIP: 8692020157</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    © 2025 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.
+  </div>
+</footer>
+
+<!-- WIDGET DOSTĘPNOŚCI -->
+
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności">
+  <div class="a11y-panel-title">Dostępność</div>
+
+  <div class="a11y-option" id="opt-text" onclick="toggleA11y('large-text', 'opt-text')">
+    <span>🔤 Większy tekst</span>
+    <span class="icon" id="icon-text">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-contrast" onclick="toggleA11y('contrast', 'opt-contrast')">
+    <span>◑ Wysoki kontrast</span>
+    <span class="icon" id="icon-contrast">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-links" onclick="toggleA11y('links', 'opt-links')">
+    <span>🔗 Podkreśl linki</span>
+    <span class="icon" id="icon-links">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-spacing" onclick="toggleA11y('spacing', 'opt-spacing')">
+    <span>↕ Większe odstępy</span>
+    <span class="icon" id="icon-spacing">○</span>
+  </div>
+
+  <button class="a11y-reset" onclick="resetA11y()">↺ Resetuj ustawienia</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
