@@ -21,7 +21,7 @@
   <a href="index.html" class="nav-logo">
     <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
   </a>
-  <div class="nav-links">
+  <div class="nav-links" id="nav-links">
     <a href="o-nas.html" class="active">O nas</a>
     <a href="oferta.html">Oferta</a>
     <a href="dom.html">Pomarańczowy Dom</a>
@@ -31,6 +31,9 @@
   <div style="display:flex;align-items:center;gap:.6rem;">
     <a href="kontakt.html" class="nav-cta">Kontakt</a>
     <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
+    <button class="menu-toggler" id="menu-toggler" onclick="toggleMenu()" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
   </div>
 </nav>
 
