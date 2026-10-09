@@ -322,6 +322,10 @@
       transition: border-color .18s, transform .18s;
     }
     .zajecie-card:hover { border-color: var(--orange); transform: translateY(-2px); }
+    .zajecie-card-img {
+      display: block; width: calc(100% + 2.5rem); height: 150px; object-fit: cover;
+      margin: -1.1rem -1.25rem .9rem; border-radius: 13px 13px 0 0;
+    }
     .zajecie-title { font-weight: 700; color: var(--navy); font-size: .95rem; margin-bottom: .4rem; }
     .zajecie-card p { font-size: .88rem; margin-bottom: 0; }
 
