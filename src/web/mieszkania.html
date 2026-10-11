@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mieszkania dla seniorów — Centrum Seniora Pomarańcza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <a href="kontakt.html#dane-kontaktowe" class="topbar-item"><span class="topbar-icon">📞</span> Zadzwoń do nas</a>
+    <a href="mailto:centrumpomarancza@gmail.com" class="topbar-item"><span class="topbar-icon">✉️</span> Napisz e-mail</a>
+    <span class="topbar-item topbar-hours"><span class="topbar-icon">🕗</span> Pon–Pt, 8:00–16:00</span>
+  </div>
+</div>
+
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
+  </a>
+  <div class="nav-links" id="nav-links">
+    <a href="oferta.html">Oferta</a>
+    <a href="dom.html">Pomarańczowy Dom</a>
+    <a href="mieszkania.html" class="active">Mieszkania</a>
+    <a href="galeria.html">Galeria</a>
+    <a href="aktualnosci.html">Aktualności</a>
+    <a href="o-nas.html">O nas</a>
+  </div>
+  <div style="display:flex;align-items:center;gap:.6rem;">
+    <a href="kontakt.html" class="nav-cta">Kontakt</a>
+    <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
+    <button class="menu-toggler" id="menu-toggler" onclick="toggleMenu()" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-links">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Mieszkania dla seniorów</span>
+    <h1 class="page-hero-title">Komfort. Bezpieczeństwo. Niezależność.</h1>
+    <p class="page-hero-sub">Mieszkania na wynajem przystosowane do potrzeb Seniorów.</p>
+  </div>
+</div>
+
+<div class="content">
+  <section class="reveal">
+    <p>Przygotowujemy ofertę wynajmu mieszkań dla Seniorów, którzy chcą mieszkać samodzielnie, we własnym rytmie, a jednocześnie w przestrzeni zaprojektowanej z myślą o wygodzie i bezpieczeństwie na co dzień.</p>
+    <p>Jasne, przytulne wnętrza, łazienki bez barier i przemyślane udogodnienia sprawiają, że codzienne czynności są prostsze, a mieszkańcy i ich bliscy mogą czuć się spokojniej.</p>
+
+    <div class="galeria-grid mieszkania-grid">
+      <figure class="galeria-item">
+        <img src="img/mieszkanie-pokoj.jpg" alt="Jasny pokój mieszkalny z łóżkiem, fotelami i wyjściem na balkon" loading="lazy"/>
+        <figcaption>
+          <span class="galeria-title">Pokój mieszkalny</span>
+          <span class="galeria-desc">Przestronny, jasny pokój z wyjściem na balkon, miejscem do odpoczynku i stołem.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/mieszkanie-przedpokoj.jpg" alt="Szeroki przedpokój z poręczą na ścianie" loading="lazy"/>
+        <figcaption>
+          <span class="galeria-title">Przedpokój</span>
+          <span class="galeria-desc">Szerokie przejście i poręcz ułatwiająca bezpieczne poruszanie się.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/mieszkanie-lazienka.jpg" alt="Łazienka z umywalką, uchwytami i podświetlanym lustrem" loading="lazy"/>
+        <figcaption>
+          <span class="galeria-title">Łazienka z udogodnieniami</span>
+          <span class="galeria-desc">Umywalka dostępna z każdej strony, uchwyty i dobre oświetlenie.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/mieszkanie-prysznic.jpg" alt="Prysznic bez brodzika z poręczą na ścianie" loading="lazy"/>
+        <figcaption>
+          <span class="galeria-title">Prysznic bez barier</span>
+          <span class="galeria-desc">Wejście bez progu i poręcze zapewniające stabilne oparcie.</span>
+        </figcaption>
+      </figure>
+      <figure class="galeria-item">
+        <img src="img/mieszkanie-toaleta.jpg" alt="Toaleta z uchwytem dla osób starszych" loading="lazy"/>
+        <figcaption>
+          <span class="galeria-title">Toaleta z udogodnieniami</span>
+          <span class="galeria-desc">Uchwyt przy toalecie ułatwiający siadanie i wstawanie.</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p style="margin-top:2rem;"><strong>Co wyróżnia nasze mieszkania?</strong></p>
+    <ul class="zasady">
+      <li>Własna, prywatna przestrzeń i pełna samodzielność</li>
+      <li>Łazienki bez progów, z poręczami i uchwytami</li>
+      <li>Szerokie przejścia i wygodny układ pomieszczeń</li>
+      <li>Jasne, ciepłe wnętrza sprzyjające odpoczynkowi</li>
+      <li>Bliskość Centrum Seniora Pomarańcza – zajęcia i towarzystwo, kiedy masz na nie ochotę</li>
+    </ul>
+
+    <div class="cta-section">
+      <p>Chcesz dowiedzieć się więcej o wynajmie lub obejrzeć mieszkanie?</p>
+      <a href="kontakt.html" class="cta-btn cta-btn-solid">Zapytaj o mieszkanie</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-fundacja">
+      <img class="footer-fundacja-logo" src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+      <div class="footer-fundacja-info">
+        <div class="footer-fundacja-name">FUNDACJA ROZWOJU INICJATYW SPOŁECZNYCH „POMARAŃCZA”</div>
+        <div class="footer-fundacja-meta">KRS: 0001221165 &nbsp;&middot;&nbsp; REGON: 543877889 &nbsp;&middot;&nbsp; NIP: 8692020157</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom-bar">
+    © 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.
+  </div>
+</footer>
+
+<!-- WIDGET DOSTĘPNOŚCI -->
+
+<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności">
+  <div class="a11y-panel-title">Dostępność</div>
+
+  <div class="a11y-option" id="opt-text" onclick="toggleA11y('large-text', 'opt-text')">
+    <span>🔤 Większy tekst</span>
+    <span class="icon" id="icon-text">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-contrast" onclick="toggleA11y('contrast', 'opt-contrast')">
+    <span>◑ Wysoki kontrast</span>
+    <span class="icon" id="icon-contrast">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-links" onclick="toggleA11y('links', 'opt-links')">
+    <span>🔗 Podkreśl linki</span>
+    <span class="icon" id="icon-links">○</span>
+  </div>
+
+  <div class="a11y-option" id="opt-spacing" onclick="toggleA11y('spacing', 'opt-spacing')">
+    <span>↕ Większe odstępy</span>
+    <span class="icon" id="icon-spacing">○</span>
+  </div>
+
+  <button class="a11y-reset" onclick="resetA11y()">↺ Resetuj ustawienia</button>
+</div>
+
+<script src="js/script.js"></script>
+</body>
+</html>
