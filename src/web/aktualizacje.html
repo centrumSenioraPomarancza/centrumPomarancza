@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cennik — Centrum Seniora Pomarańcza</title>
+  <title>Aktualizacje — Centrum Seniora Pomarańcza</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="css/style.css"/>
 </head>
@@ -25,8 +25,8 @@
     <a href="o-nas.html">O nas</a>
     <a href="oferta.html">Oferta</a>
     <a href="dom.html">Pomarańczowy Dom</a>
-    <a href="cennik.html" class="active">Cennik</a>
     <a href="galeria.html">Galeria</a>
+    <a href="aktualizacje.html" class="active">Aktualizacje</a>
   </div>
   <div style="display:flex;align-items:center;gap:.6rem;">
     <a href="kontakt.html" class="nav-cta">Kontakt</a>
@@ -39,38 +39,39 @@
 
 <div class="page-hero">
   <div class="page-hero-inner">
-    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Cennik</span>
-    <h1 class="page-hero-title">Cennik pobytu dziennego i zajęć</h1>
-    <p class="page-hero-sub">Przejrzyste pakiety uczestnictwa — bez niejasności i skomplikowanych regulaminów.</p>
+    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Aktualizacje</span>
+    <h1 class="page-hero-title">Co słychać w Pomarańczy</h1>
+    <p class="page-hero-sub">Nowości, wydarzenia i relacje z życia Centrum Seniora.</p>
   </div>
 </div>
 
 <div class="content">
   <section class="reveal">
-    <p>Chcemy, aby rodzina i Senior od początku wiedzieli, jaki wariant uczestnictwa wybierają. Dlatego proponujemy trzy czytelne pakiety:</p>
-    <div class="cennik-grid">
-      <div class="cennik-card">
-        <div class="cennik-name">Pomarańczowy Start</div>
-        <div class="cennik-freq">2 razy w tygodniu</div>
-        <div class="cennik-price">1 700 zł<span>/ miesiąc</span></div>
-      </div>
-      <div class="cennik-card">
-        <div class="cennik-name">Pomarańczowy Plus</div>
-        <div class="cennik-freq">3 razy w tygodniu</div>
-        <div class="cennik-price">2 600 zł<span>/ miesiąc</span></div>
-      </div>
-      <div class="cennik-card">
-        <div class="cennik-name">Pomarańczowy Pełny</div>
-        <div class="cennik-freq">pełny miesiąc</div>
-        <div class="cennik-price">3 400 zł<span>/ miesiąc</span></div>
-      </div>
-    </div>
-    <p style="margin-top:1.25rem;">Przy każdym pakiecie liczba godzin pobytu, świadczenia wliczone w cenę, zasady wyżywienia, zajęcia dodatkowe, ewentualny transport oraz zasady nieobecności zostaną dokładnie ustalone indywidualnie.</p>
-    <p>Cennik „Pomarańczowego Domu” – oferty mieszkaniowej – zostanie przygotowany oddzielnie po ustaleniu standardu zakwaterowania i dokładnego zakresu świadczeń.</p>
+    <p>Tutaj będziemy publikować najnowsze informacje oraz posty z naszych mediów społecznościowych.</p>
 
-    <div class="cta-section">
-      <p>Masz pytania dotyczące cennika lub chcesz umówić wizytę?</p>
-      <a href="kontakt.html" class="cta-btn cta-btn-solid">Skontaktuj się z nami</a>
+    <!--
+      Miejsce na posty z Facebooka / Instagrama.
+      Każdy wklejony kod embed umieść w osobnym <div class="aktualizacje-item">…</div>
+      wewnątrz <div class="aktualizacje-feed">, a następnie usuń blok .galeria-empty poniżej.
+
+      Facebook – cała strona (oś czasu), bez logowania i tokenów (podmień ADRES_STRONY):
+        <div class="aktualizacje-item">
+          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FADRES_STRONY&tabs=timeline&width=500&height=700&small_header=true"
+                  width="500" height="700" style="border:none;overflow:hidden;max-width:100%"
+                  scrolling="no" frameborder="0" loading="lazy"
+                  allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
+                  title="Facebook – Centrum Seniora Pomarańcza"></iframe>
+        </div>
+
+      Facebook / Instagram – pojedynczy post:
+        na poście kliknij „…” → „Osadź” (Embed), skopiuj kod i wklej go do <div class="aktualizacje-item">.
+        Kod z Instagrama zawiera <script async src="//www.instagram.com/embed.js"></script> – wystarczy raz na stronie.
+    -->
+    <div class="aktualizacje-feed"></div>
+
+    <div class="galeria-empty">
+      <span class="galeria-empty-icon">📰</span>
+      <span>Pierwsze aktualizacje pojawią się wkrótce</span>
     </div>
   </section>
 </div>

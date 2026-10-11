@@ -370,6 +370,15 @@
     }
     .galeria-empty-icon { font-size: 1.8rem; opacity: .5; }
 
+    /* AKTUALIZACJE */
+    .aktualizacje-feed {
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .aktualizacje-feed:empty { display: none; }
+    .aktualizacje-item { max-width: 100%; }
+    .aktualizacje-item iframe, .aktualizacje-item .instagram-media { max-width: 100% !important; }
+
     /* KONTAKT OUTRO */
     .kontakt-outro {
       margin-top: 1.5rem; text-align: center;
