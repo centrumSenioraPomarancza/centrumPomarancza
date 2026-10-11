@@ -140,7 +140,7 @@
       align-items: flex-start;
     }
     .hero-left {
-      max-width: 640px;
+      max-width: 700px;
       background: rgba(255,255,255,.85);
       backdrop-filter: blur(6px);
       border-radius: 18px;
@@ -173,12 +173,16 @@
       font-size: 1rem; color: #374151;
       font-weight: 400; margin-bottom: 1.75rem; line-height: 1.6;
     }
-    .hero-pills { display: flex; flex-wrap: wrap; gap: .55rem; }
+    .hero-pills { display: flex; flex-wrap: nowrap; gap: .45rem; }
+    @media (max-width: 760px) {
+      .hero-pills { flex-wrap: wrap; }
+    }
     .pill {
       background: rgba(255,255,255,.6); border: 1px solid rgba(47,54,64,.15);
       color: var(--heading); font-size: .78rem; font-weight: 500;
-      padding: .35rem 1rem; border-radius: 100px;
+      padding: .35rem .85rem; border-radius: 100px;
       display: flex; align-items: center; gap: .4rem;
+      white-space: nowrap;
     }
     .pill-dot { width: 6px; height: 6px; background: #fb923c; border-radius: 50%; }
 
@@ -561,6 +565,7 @@
     body.a11y-large-text .zajecie-card p, body.a11y-large-text .galeria-desc,
     body.a11y-large-text .cennik-freq { font-size: 1.1rem !important; }
     body.a11y-large-text .nav-cta, body.a11y-large-text .pill { font-size: 1rem !important; }
+    body.a11y-large-text .hero-pills { flex-wrap: wrap; }
     body.a11y-large-text .hero-pain-line, body.a11y-large-text .cta-btn,
     body.a11y-large-text .topbar-item { font-size: 1.05rem !important; }
 
