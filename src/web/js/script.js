@@ -1,3 +1,80 @@
+  // Makiety kolorystyczne: wejście z ?motyw=nazwa (np. index.html?motyw=granat) włącza
+  // paletę z css/motywy.css oraz pływający panel 🎨 do przełączania palet jednym kliknięciem.
+  // Wybór jest pamiętany do końca sesji (działa po przejściu na inne podstrony).
+  // Na stronach z <body data-makiety> (na razie strona główna) panel jest dostępny zawsze, zwinięty.
+  // Na pozostałych stronach bez parametru i bez wybranej palety odwiedzający nie widzą ani panelu, ani zmian.
+  // W podglądach (iframe) nie zapisujemy i nie pokazujemy panelu, żeby makiety sobie nie przeszkadzały.
+  const MOTYWY = [
+    { id: 'domyslny', nazwa: 'Obecna',   kolory: ['#f97316', '#d6dadf', '#2f3640'] },
+    { id: 'terakota', nazwa: 'Terakota', kolory: ['#d9622b', '#ece3d9', '#4a3428'] },
+    { id: 'granat',   nazwa: 'Granat',   kolory: ['#f28c28', '#dde4ee', '#1e3a5f'] },
+    { id: 'szalwia',  nazwa: 'Szałwia',  kolory: ['#ee7d30', '#dde7da', '#2f4a3a'] },
+    { id: 'zielen',   nazwa: 'Zieleń',   kolory: ['#f97316', '#cfe5d3', '#1f5135'] },
+    { id: 'miod',     nazwa: 'Miód',     kolory: ['#e8912c', '#efe7d3', '#3d3426'] },
+    { id: 'sliwka',   nazwa: 'Śliwka',   kolory: ['#f07c2a', '#e6dfe9', '#4b2e4f'] },
+  ];
+
+  (function () {
+    const wPodgladzie = window !== window.top;
+    const zAdresu = new URLSearchParams(location.search).get('motyw');
+    let motyw = zAdresu;
+    try {
+      if (motyw) { if (!wPodgladzie) sessionStorage.setItem('motyw', motyw); }
+      else motyw = sessionStorage.getItem('motyw');
+    } catch (e) {}
+    const panelZawsze = document.body.hasAttribute('data-makiety');
+    if (!motyw && !panelZawsze) return;
+
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = 'css/motywy.css';
+    document.head.appendChild(link);
+    if (motyw) ustawMotyw(motyw);
+    if (!wPodgladzie) zbudujPanelMotywow(!!zAdresu);
+  })();
+
+  function ustawMotyw(id) {
+    if (id === 'domyslny') delete document.documentElement.dataset.motyw;
+    else document.documentElement.dataset.motyw = id;
+  }
+
+  function wybierzMotyw(id) {
+    ustawMotyw(id);
+    try { sessionStorage.setItem('motyw', id); } catch (e) {}
+    const url = new URL(location.href);
+    url.searchParams.set('motyw', id);
+    history.replaceState(null, '', url);
+    document.querySelectorAll('.motyw-opcja').forEach(b => b.classList.toggle('on', b.dataset.motyw === id));
+  }
+
+  function zakonczMakiety() {
+    try { sessionStorage.removeItem('motyw'); } catch (e) {}
+    const url = new URL(location.href);
+    url.searchParams.delete('motyw');
+    location.replace(url);
+  }
+
+  function zbudujPanelMotywow(otwarty) {
+    const aktywny = document.documentElement.dataset.motyw || 'domyslny';
+    const panel = document.createElement('div');
+    panel.className = 'motyw-panel' + (otwarty ? ' open' : '');
+    panel.innerHTML = `
+      <button class="motyw-toggle" type="button" aria-label="Makiety kolorystyczne" title="Makiety kolorystyczne">🎨</button>
+      <div class="motyw-body">
+        <div class="motyw-title">Makiety kolorystyczne</div>
+        ${MOTYWY.map(m => `
+          <button type="button" class="motyw-opcja${m.id === aktywny ? ' on' : ''}" data-motyw="${m.id}">
+            <span class="motyw-kropki">${m.kolory.map(k => `<span style="background:${k}"></span>`).join('')}</span>
+            ${m.nazwa}
+          </button>`).join('')}
+        <button type="button" class="motyw-koniec">✕ Zakończ podgląd</button>
+      </div>`;
+    panel.querySelector('.motyw-toggle').addEventListener('click', () => panel.classList.toggle('open'));
+    panel.querySelectorAll('.motyw-opcja').forEach(b => b.addEventListener('click', () => wybierzMotyw(b.dataset.motyw)));
+    panel.querySelector('.motyw-koniec').addEventListener('click', zakonczMakiety);
+    document.body.appendChild(panel);
+  }
+
   function toggleMenu() {
     const links = document.getElementById('nav-links');
     const btn = document.getElementById('menu-toggler');

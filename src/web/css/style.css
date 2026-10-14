@@ -2,6 +2,7 @@
     :root {
       --orange:    #f97316;
       --orange-dk: #ea580c;
+      --orange-md: #fb923c;
       --orange-lt: #fff7ed;
       --gray-lt:   #d6dadf;   /* jasnoszary jak na koszulce */
       --gray-lt2:  #e6e9ec;
@@ -120,13 +121,13 @@
       z-index: 0;
     }
     .hero-bg-alt {
-      opacity: 0;
+      opacity: 1;
       animation: hero-fade 16s ease-in-out infinite;
     }
     @keyframes hero-fade {
-      0%, 40%  { opacity: 0; }
-      50%, 90% { opacity: 1; }
-      100%     { opacity: 0; }
+      0%, 40%  { opacity: 1; }
+      50%, 90% { opacity: 0; }
+      100%     { opacity: 1; }
     }
     @media (prefers-reduced-motion: reduce) {
       .hero-bg-alt { animation: none; }
@@ -184,12 +185,12 @@
       display: flex; align-items: center; gap: .4rem;
       white-space: nowrap;
     }
-    .pill-dot { width: 6px; height: 6px; background: #fb923c; border-radius: 50%; }
+    .pill-dot { width: 6px; height: 6px; background: var(--orange-md); border-radius: 50%; }
 
     .hero-pain { margin-bottom: .9rem; display: flex; flex-direction: column; gap: .35rem; }
     .hero-pain-line {
       color: var(--heading); font-size: .95rem; font-weight: 500;
-      padding-left: .75rem; border-left: 2px solid #fb923c;
+      padding-left: .75rem; border-left: 2px solid var(--orange-md);
     }
 
     .hero-ctas { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.75rem; }
