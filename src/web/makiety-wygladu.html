@@ -14,9 +14,6 @@
     header p { color: #6b7280; max-width: 720px; margin-bottom: 1.25rem; }
     .obecna { display: inline-block; background: #ea580c; color: #fff; text-decoration: none; font-weight: 600; padding: .7rem 1.25rem; border-radius: 999px; }
     .obecna:hover { background: #c2410c; }
-    .obecna.kolory { background: #2f3640; margin-left: .4rem; }
-    .obecna.kolory:hover { background: #1f2937; }
-    .makieta-linki { display: flex; flex-direction: column; align-items: flex-end; gap: .2rem; }
     main {
       max-width: 1200px; margin: 0 auto; padding: 0 1rem 3rem;
       display: grid; grid-template-columns: 1fr; gap: 2rem;
@@ -42,20 +39,19 @@
   <h1>Makiety wyglądu</h1>
   <p>Trzy propozycje nowego układu strony głównej Centrum Seniora Pomarańcza. Treści i zdjęcia są te same co na stronie, zmienia się kompozycja. Pomarańcz zostaje głównym akcentem w każdym wariancie. Każdy podgląd można przewijać.</p>
   <a class="obecna" href="index.html" target="_blank" rel="noopener">Obecna strona główna ↗</a>
-  <a class="obecna kolory" href="makiety-wygladu-kolory.html">🎨 Te układy w innych kolorach →</a>
 </header>
 
 <main id="makiety"></main>
 
 <script>
   const MAKIETY = [
-    { plik: 'makieta-uklad-magazyn.html', id: 'magazyn', nazwa: 'Magazyn',
+    { plik: 'makieta-uklad-magazyn.html', nazwa: 'Magazyn',
       opis: 'Elegancko i ciepło: dzielony hero (tekst + duże zdjęcie w łuku), ciemny pasek usług, kolaż zdjęć przy „O nas” i karty podstron ze zdjęciami.',
       cechy: ['hero tekst + zdjęcie', 'kremowe tło', 'karty ze zdjęciami', 'kolaż'] },
-    { plik: 'makieta-uklad-kafle.html', id: 'kafle', nazwa: 'Duże kafle',
+    { plik: 'makieta-uklad-kafle.html', nazwa: 'Duże kafle',
       opis: 'Najczytelniejsza dla seniorów: większa czcionka, telefon na samej górze, wielkie kafle nawigacji tuż pod zdjęciem, plan dnia jako oś czasu i pomarańczowy pasek „Zadzwoń”.',
       cechy: ['duży tekst', 'kafle zamiast menu', 'oś czasu dnia', 'telefon na wierzchu'] },
-    { plik: 'makieta-uklad-mozaika.html', id: 'mozaika', nazwa: 'Mozaika',
+    { plik: 'makieta-uklad-mozaika.html', nazwa: 'Mozaika',
       opis: 'Nowocześnie: cała strona główna jako mozaika kafli różnej wielkości (pomarańczowy blok z hasłem, zdjęcia, skróty), pływający nagłówek-pigułka i taśma zdjęć.',
       cechy: ['siatka bento', 'pływający nagłówek', 'duże zaokrąglenia', 'taśma zdjęć'] },
   ];
@@ -67,10 +63,7 @@
     el.innerHTML = `
       <div class="makieta-head">
         <div><div class="makieta-name"><b>${'ABC'[i]}</b>${m.nazwa}</div><div class="makieta-desc">${m.opis}</div></div>
-        <div class="makieta-linki">
-          <a class="makieta-link" href="${m.plik}" target="_blank" rel="noopener">Otwórz pełną stronę ↗</a>
-          <a class="makieta-link" href="makiety-wygladu-kolory.html?uklad=${m.id}">🎨 Zobacz w innych kolorach →</a>
-        </div>
+        <a class="makieta-link" href="${m.plik}" target="_blank" rel="noopener">Otwórz pełną stronę ↗</a>
       </div>
       <div class="cechy">${m.cechy.map(c => `<span>${c}</span>`).join('')}</div>
       <div class="podglad"><iframe src="${m.plik}" title="Podgląd: ${m.nazwa}" loading="lazy"></iframe></div>`;

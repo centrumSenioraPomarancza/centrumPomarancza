@@ -26,4 +26,7 @@ const PALETY_MAKIET = {
   s.setProperty('--bg', p.bg);
   s.setProperty('--cream', p.bg);
   s.setProperty('--gray-lt', p.szary);
+  s.setProperty('--hover', p.heading);
+  s.setProperty('--ring', p.orangeLt);
+  s.setProperty('--line', p.orangeMd);
 })();

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex"/>
+  <title>Makiety wyglądu — Centrum Seniora Pomarańcza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: #1f2937; background: #f3f4f6; line-height: 1.6; }
+    header { max-width: 1200px; margin: 0 auto; padding: 2.5rem 1rem 1.5rem; }
+    h1 { font-family: 'Playfair Display', serif; font-size: 2rem; color: #2f3640; margin-bottom: .5rem; }
+    header p { color: #6b7280; max-width: 720px; margin-bottom: 1.25rem; }
+    .obecna { display: inline-block; background: #ea580c; color: #fff; text-decoration: none; font-weight: 600; padding: .7rem 1.25rem; border-radius: 999px; }
+    .obecna:hover { background: #c2410c; }
+    .obecna.kolory { background: #2f3640; margin-left: .4rem; }
+    .obecna.kolory:hover { background: #1f2937; }
+    .makieta-linki { display: flex; flex-direction: column; align-items: flex-end; gap: .2rem; }
+    main {
+      max-width: 1200px; margin: 0 auto; padding: 0 1rem 3rem;
+      display: grid; grid-template-columns: 1fr; gap: 2rem;
+    }
+    .makieta { background: #fff; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,.08); overflow: hidden; }
+    .makieta-head { padding: 1rem 1.25rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; }
+    .makieta-name { font-weight: 600; font-size: 1.05rem; color: #2f3640; }
+    .makieta-name b { display: inline-grid; place-items: center; width: 1.6rem; height: 1.6rem; border-radius: 50%; background: #fff7ed; color: #ea580c; margin-right: .4rem; font-size: .85rem; }
+    .makieta-desc { font-size: .85rem; color: #6b7280; max-width: 760px; }
+    .makieta-link { font-size: .82rem; color: #ea580c; white-space: nowrap; text-decoration: none; font-weight: 500; }
+    .makieta-link:hover { text-decoration: underline; }
+    .cechy { display: flex; gap: .4rem; padding: 0 1.25rem 1rem; flex-wrap: wrap; }
+    .cechy span { font-size: .75rem; background: #f3f4f6; color: #4b5563; padding: .25rem .65rem; border-radius: 999px; }
+    /* podgląd strony: 1280×900 pomniejszone do szerokości karty; iframe da się przewijać */
+    .podglad { position: relative; width: 100%; aspect-ratio: 1280 / 900; overflow: hidden; border-top: 1px solid #e5e7eb; }
+    .podglad iframe { position: absolute; top: 0; left: 0; width: 1280px; height: 900px; border: 0; transform-origin: 0 0; }
+    @media (max-width: 600px) { .makieta-head { flex-direction: column; } }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Makiety wyglądu</h1>
+  <p>Trzy propozycje nowego układu strony głównej Centrum Seniora Pomarańcza. Treści i zdjęcia są te same co na stronie, zmienia się kompozycja. Pomarańcz zostaje głównym akcentem w każdym wariancie. Każdy podgląd można przewijać.</p>
+  <a class="obecna" href="index.html" target="_blank" rel="noopener">Obecna strona główna ↗</a>
+  <a class="obecna kolory" href="makiety-wygladu-kolory.html">🎨 Te układy w innych kolorach →</a>
+</header>
+
+<main id="makiety"></main>
+
+<script>
+  const MAKIETY = [
+    { plik: 'makieta-uklad-magazyn.html', id: 'magazyn', nazwa: 'Magazyn',
+      opis: 'Elegancko i ciepło: dzielony hero (tekst + duże zdjęcie w łuku), ciemny pasek usług, kolaż zdjęć przy „O nas” i karty podstron ze zdjęciami.',
+      cechy: ['hero tekst + zdjęcie', 'kremowe tło', 'karty ze zdjęciami', 'kolaż'] },
+    { plik: 'makieta-uklad-kafle.html', id: 'kafle', nazwa: 'Duże kafle',
+      opis: 'Najczytelniejsza dla seniorów: większa czcionka, telefon na samej górze, wielkie kafle nawigacji tuż pod zdjęciem, plan dnia jako oś czasu i pomarańczowy pasek „Zadzwoń”.',
+      cechy: ['duży tekst', 'kafle zamiast menu', 'oś czasu dnia', 'telefon na wierzchu'] },
+    { plik: 'makieta-uklad-mozaika.html', id: 'mozaika', nazwa: 'Mozaika',
+      opis: 'Nowocześnie: cała strona główna jako mozaika kafli różnej wielkości (pomarańczowy blok z hasłem, zdjęcia, skróty), pływający nagłówek-pigułka i taśma zdjęć.',
+      cechy: ['siatka bento', 'pływający nagłówek', 'duże zaokrąglenia', 'taśma zdjęć'] },
+  ];
+
+  const main = document.getElementById('makiety');
+  MAKIETY.forEach((m, i) => {
+    const el = document.createElement('section');
+    el.className = 'makieta';
+    el.innerHTML = `
+      <div class="makieta-head">
+        <div><div class="makieta-name"><b>${'ABC'[i]}</b>${m.nazwa}</div><div class="makieta-desc">${m.opis}</div></div>
+        <div class="makieta-linki">
+          <a class="makieta-link" href="${m.plik}" target="_blank" rel="noopener">Otwórz pełną stronę ↗</a>
+          <a class="makieta-link" href="makiety-wygladu-kolory.html?uklad=${m.id}">🎨 Zobacz w innych kolorach →</a>
+        </div>
+      </div>
+      <div class="cechy">${m.cechy.map(c => `<span>${c}</span>`).join('')}</div>
+      <div class="podglad"><iframe src="${m.plik}" title="Podgląd: ${m.nazwa}" loading="lazy"></iframe></div>`;
+    main.appendChild(el);
+  });
+
+  function skaluj() {
+    document.querySelectorAll('.podglad').forEach(p => {
+      p.querySelector('iframe').style.transform = `scale(${p.clientWidth / 1280})`;
+    });
+  }
+  window.addEventListener('resize', skaluj);
+  skaluj();
+</script>
+</body>
+</html>
