@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex"/>
+  <title>Makieta układu C „Mozaika” — Centrum Seniora Pomarańcza</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    /* MAKIETA C „Mozaika”: nowocześnie — strona główna jako siatka kafli (bento) różnej wielkości,
+       ze zdjęciami i kolorowymi polami; pływający, zaokrąglony nagłówek. */
+    :root {
+      --orange: #f97316; --orange-dk: #ea580c; --orange-lt: #fff7ed; --orange-md: #fdba74;
+      --heading: #2f3640; --text: #1f2937; --muted: #6b7280; --gray-lt: #e6e9ec; --bg: #f4f2ef;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--bg); line-height: 1.55; font-size: 17px; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1240px; margin: 0 auto; padding: 0 1.25rem; }
+    h1, h2, h3 { font-family: 'Playfair Display', serif; line-height: 1.12; }
+
+    /* pływający nagłówek-pigułka */
+    header { position: sticky; top: 0; z-index: 10; padding: 1rem 0; }
+    .pigulka { display: flex; align-items: center; justify-content: space-between; gap: 1rem; background: rgba(255,255,255,.92); backdrop-filter: blur(8px); border-radius: 999px; padding: .5rem .6rem .5rem 1.4rem; box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+    .pigulka img { height: 44px; }
+    .pigulka nav { display: flex; gap: .3rem; font-size: .92rem; font-weight: 500; }
+    .pigulka nav a { padding: .5rem .9rem; border-radius: 999px; }
+    .pigulka nav a:hover { background: var(--orange-lt); color: var(--orange-dk); }
+    .pigulka .kontakt { background: var(--orange); color: #fff; padding: .7rem 1.3rem; border-radius: 999px; font-weight: 600; }
+
+    /* siatka bento */
+    .bento { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 200px; gap: 1rem; padding: .5rem 0 1rem; }
+    .kafel { border-radius: 28px; overflow: hidden; position: relative; padding: 1.6rem; display: flex; flex-direction: column; justify-content: flex-end; transition: transform .2s; }
+    a.kafel:hover { transform: scale(1.015); }
+    .foto { background-size: cover; background-position: center; color: #fff; }
+    .foto::before { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(20,20,20,.65), rgba(20,20,20,0) 60%); }
+    .foto > * { position: relative; }
+    .kafel h3 { font-size: 1.5rem; }
+    .kafel p { font-size: .92rem; opacity: .9; }
+    .strzalka { position: absolute; top: 1.2rem; right: 1.2rem; width: 42px; height: 42px; border-radius: 50%; background: #fff; color: var(--orange-dk); display: grid; place-items: center; font-weight: 700; }
+
+    .k-hero { grid-column: span 2; grid-row: span 3; background: var(--orange); color: #fff; justify-content: space-between; }
+    .k-hero .motto { font-size: .85rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; opacity: .9; }
+    .k-hero h1 { font-size: 4rem; margin: 1rem 0; }
+    .k-hero p { font-size: 1.15rem; max-width: 440px; }
+    .k-hero .btny { display: flex; gap: .7rem; flex-wrap: wrap; margin-top: 1.6rem; }
+    .k-hero .btn { background: #fff; color: var(--orange-dk); padding: .85rem 1.4rem; border-radius: 999px; font-weight: 600; }
+    .k-hero .btn.ciemny { background: var(--heading); color: #fff; }
+    .k-zdj-duze { grid-column: span 2; grid-row: span 2; background-image: url('img/hero-spotkanie-seniorow.jpg'); }
+    .k-oferta { background-image: url('img/galeria-aktywnosc.jpg'); }
+    .k-dom { background-image: url('img/mieszkania%20seniora.jpg'); }
+    .k-ciemny { background: var(--heading); color: #fff; }
+    .k-jasny { background: #fff; }
+    .k-jasny h3 { color: var(--heading); }
+    .k-jasny p { color: var(--muted); opacity: 1; }
+    .k-pomlt { background: var(--orange-lt); }
+    .k-pomlt h3 { color: var(--heading); }
+    .k-szeroki { grid-column: span 2; }
+    .uslugi { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: auto; }
+    .uslugi span { background: rgba(255,255,255,.12); padding: .4rem .85rem; border-radius: 999px; font-size: .88rem; }
+    .liczba { font-family: 'Playfair Display', serif; font-size: 3.4rem; color: var(--orange-dk); line-height: 1; }
+
+    /* dla kogo */
+    .sekcja { padding: 4rem 0 2rem; }
+    .sekcja h2 { font-size: 2.6rem; color: var(--heading); max-width: 620px; margin-bottom: 2rem; }
+    .dla { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .dla > div { border-radius: 28px; padding: 2.2rem; background: #fff; }
+    .dla > div:last-child { background: var(--heading); color: #e5e7eb; }
+    .dla > div:last-child h3 { color: var(--orange-md); }
+    .dla h3 { font-size: 1.7rem; color: var(--orange-dk); margin-bottom: 1rem; }
+    .dla li { list-style: none; display: flex; gap: .8rem; padding: .55rem 0; border-top: 1px solid rgba(127,127,127,.18); }
+    .dla li b { color: var(--orange); }
+
+    /* pasek zdjęć */
+    .tasma { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; padding: 2rem 0 4rem; }
+    .tasma img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; }
+    .tasma img:nth-child(even) { margin-top: 2rem; }
+
+    footer { background: var(--heading); color: #cbd2d9; border-radius: 28px 28px 0 0; padding: 2.6rem 0; font-size: .9rem; }
+    footer .wrap { display: flex; gap: 2rem; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+    footer img { height: 58px; background: #fff; border-radius: 12px; padding: 6px; }
+
+    @media (max-width: 960px) {
+      .pigulka nav { display: none; }
+      .bento { grid-template-columns: 1fr 1fr; grid-auto-rows: 180px; }
+      .k-hero { grid-row: span 3; }
+      .k-hero h1 { font-size: 2.6rem; }
+      .dla { grid-template-columns: 1fr; }
+      .tasma { grid-template-columns: repeat(3, 1fr); }
+      .tasma img:nth-child(n+4) { display: none; }
+    }
+    @media (max-width: 560px) {
+      .bento { grid-template-columns: 1fr; }
+      .k-hero, .k-zdj-duze, .k-szeroki { grid-column: span 1; }
+      .k-hero { grid-row: span 3; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="pigulka">
+      <a href="index.html"><img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/></a>
+      <nav>
+        <a href="oferta.html">Oferta</a><a href="dom.html">Pomarańczowy Dom</a><a href="mieszkania.html">Mieszkania</a>
+        <a href="galeria.html">Galeria</a><a href="aktualnosci.html">Aktualności</a><a href="o-nas.html">O nas</a>
+      </nav>
+      <a class="kontakt" href="kontakt.html">Kontakt</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div class="bento">
+    <div class="kafel k-hero">
+      <span class="motto">🍊 Dodajemy życiu koloru</span>
+      <div>
+        <h1>Dobre życie nie ma wieku</h1>
+        <p>Dzienny dom pobytu dla seniorów — opieka, aktywność i godność każdego dnia.</p>
+        <div class="btny">
+          <a href="oferta.html" class="btn">Zobacz ofertę</a>
+          <a href="o-nas.html" class="btn ciemny">Poznaj Fundację</a>
+        </div>
+      </div>
+    </div>
+    <div class="kafel foto k-zdj-duze" role="img" aria-label="Radosne spotkanie seniorów w ogrodzie">
+      <p>„Twoi bliscy coraz częściej spędzają dni w samotności? U nas czeka na nich towarzystwo.”</p>
+    </div>
+    <a class="kafel foto k-oferta" href="oferta.html"><span class="strzalka">↗</span><h3>Oferta</h3><p>Zajęcia i terapie</p></a>
+    <a class="kafel foto k-dom" href="dom.html"><span class="strzalka">↗</span><h3>Pomarańczowy Dom</h3><p>Własna przestrzeń</p></a>
+
+    <div class="kafel k-ciemny k-szeroki">
+      <h3>Codziennie u nas</h3>
+      <div class="uslugi"><span>🎨 Terapia zajęciowa</span><span>💪 Fizjoterapia</span><span>🩺 Pielęgniarka</span><span>🍲 Ciepły posiłek</span></div>
+    </div>
+    <a class="kafel k-jasny" href="mieszkania.html"><span class="strzalka" style="background:var(--orange-lt)">↗</span><h3>Mieszkania</h3><p>Na wynajem, bez barier</p></a>
+    <a class="kafel k-pomlt" href="kontakt.html"><span class="liczba">8–16</span><h3>Pon–Pt</h3><p style="color:var(--muted)">ul. Sosnowa 83, Sterkowiec</p></a>
+    <a class="kafel k-jasny k-szeroki" href="galeria.html"><span class="strzalka" style="background:var(--orange-lt)">↗</span><h3>Galeria</h3><p>Zdjęcia z życia Centrum</p></a>
+    <a class="kafel k-jasny k-szeroki" href="aktualnosci.html"><span class="strzalka" style="background:var(--orange-lt)">↗</span><h3>Aktualności</h3><p>Wydarzenia i nowości</p></a>
+  </div>
+
+  <section class="sekcja">
+    <h2>Wsparcie dla Seniora i spokój dla rodziny</h2>
+    <div class="dla">
+      <div>
+        <h3>Dla Seniora</h3>
+        <ul>
+          <li><b>01</b>Bezpieczny i przewidywalny dzień w gronie znajomych osób</li>
+          <li><b>02</b>Aktywność, terapia i rozwój — na tyle, na ile jest ochota</li>
+          <li><b>03</b>Towarzystwo i rozmowa, które przeciwdziałają samotności</li>
+          <li><b>04</b>Poczucie, że wciąż jest się ważną częścią społeczności</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Dla Rodziny</h3>
+        <ul>
+          <li><b>01</b>Spokój i pewność, że bliska osoba jest w dobrych rękach</li>
+          <li><b>02</b>Czas na pracę, odpoczynek i własne obowiązki</li>
+          <li><b>03</b>Stały kontakt i informacja o tym, jak minął dzień</li>
+          <li><b>04</b>Wsparcie w codziennych, często niełatwych decyzjach</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <div class="tasma">
+    <img src="img/galeria-kawa.jpg" alt="Wspólna kawa"/>
+    <img src="img/Radosny%20taniec%20senior%C3%B3w%20w%C5%9Br%C3%B3d%20przyjaci%C3%B3%C5%82-5.png" alt="Taniec seniorów"/>
+    <img src="img/galeria-muzyka.jpg" alt="Zajęcia muzyczne"/>
+    <img src="img/Wsp%C3%B3lne%20wspomnienia%20przy%20albumie-6.png" alt="Wspomnienia przy albumie"/>
+    <img src="img/galeria-dogoterapia.jpg" alt="Dogoterapia"/>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+    <div>KRS: 0001221165 · REGON: 543877889 · NIP: 8692020157</div>
+    <div>© 2026 Fundacja Pomarańcza</div>
+  </div>
+</footer>
+
+</body>
+</html>
