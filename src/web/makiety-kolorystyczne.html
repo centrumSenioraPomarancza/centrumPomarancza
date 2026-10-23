@@ -38,7 +38,7 @@ jes<!DOCTYPE html>
 <header>
   <h1>Makiety kolorystyczne</h1>
   <p>Warianty kolorów strony Centrum Seniora Pomarańcza. Każdy podgląd to prawdziwa strona główna w innej palecie — można ją przewijać. Na pełnej stronie w lewym dolnym rogu jest panel 🎨, którym przełącza się palety jednym kliknięciem, także na podstronach.</p>
-  <a class="na-zywo" href="index.html?motyw=domyslny" target="_blank" rel="noopener">🎨 Przełączaj palety na żywej stronie ↗</a>
+  <a class="na-zywo" href="stara/index.html?motyw=domyslny" target="_blank" rel="noopener">🎨 Przełączaj palety na żywej stronie ↗</a>
 </header>
 
 <main id="makiety"></main>
@@ -64,7 +64,7 @@ jes<!DOCTYPE html>
 
   const main = document.getElementById('makiety');
   MAKIETY.forEach(m => {
-    const url = 'index.html?motyw=' + m.id;
+    const url = 'stara/index.html?motyw=' + m.id;
     const el = document.createElement('section');
     el.className = 'makieta';
     el.innerHTML = `

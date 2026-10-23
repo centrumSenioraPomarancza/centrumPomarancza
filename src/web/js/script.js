@@ -27,7 +27,7 @@
 
     const link = document.createElement('link');
     link.rel = 'stylesheet';
-    link.href = 'css/motywy.css';
+    link.href = '../css/motywy.css'; // skrypt używa już tylko stara wersja strony (stara/)
     document.head.appendChild(link);
     if (motyw) ustawMotyw(motyw);
     if (!wPodgladzie) zbudujPanelMotywow(!!zAdresu);

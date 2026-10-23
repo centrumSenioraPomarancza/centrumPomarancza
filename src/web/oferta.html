@@ -3,178 +3,105 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Zajęcia, terapie i plan dnia w Centrum Seniora Pomarańcza."/>
   <title>Oferta — Centrum Seniora Pomarańcza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/makiety-palety.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/magazyn.css"/>
 </head>
 <body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <a href="kontakt.html#dane-kontaktowe" class="topbar-item"><span class="topbar-icon">📞</span> Zadzwoń do nas</a>
-    <a href="mailto:centrumpomarancza@gmail.com" class="topbar-item"><span class="topbar-icon">✉️</span> Napisz e-mail</a>
-    <span class="topbar-item topbar-hours"><span class="topbar-icon">🕗</span> Pon–Pt, 8:00–16:00</span>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza — strona główna"/></a>
+    <nav id="menu" aria-label="Menu główne"><a href="oferta.html" aria-current="page">Oferta</a><a href="dom.html">Pomarańczowy Dom</a><a href="mieszkania.html">Mieszkania</a><a href="galeria.html">Galeria</a><a href="aktualnosci.html">Aktualności</a><a href="o-nas.html">O nas</a><a href="kontakt.html">Kontakt</a></nav>
+    <a class="tel" href="kontakt.html">Pon–Pt, 8:00–16:00<strong>📞 Zadzwoń do nas</strong></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">☰ Menu</button>
   </div>
-</div>
+</header>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
-  </a>
-  <div class="nav-links" id="nav-links">
-    <a href="oferta.html" class="active">Oferta</a>
-    <a href="dom.html">Pomarańczowy Dom</a>
-    <a href="mieszkania.html">Mieszkania</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="aktualnosci.html">Aktualności</a>
-    <a href="o-nas.html">O nas</a>
-  </div>
-  <div style="display:flex;align-items:center;gap:.6rem;">
-    <a href="kontakt.html" class="nav-cta">Kontakt</a>
-    <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
-    <button class="menu-toggler" id="menu-toggler" onclick="toggleMenu()" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Oferta</span>
-    <h1 class="page-hero-title">Co znajdziesz w Pomarańczy?</h1>
-    <p class="page-hero-sub">Zajęcia, terapie i codzienna aktywność dopasowane do potrzeb i możliwości każdego Seniora.</p>
-  </div>
-</div>
-
-<div class="content">
-  <section class="reveal">
-    <p>Każdy dzień może wyglądać trochę inaczej. Nie chcemy, aby pobyt u nas kojarzył się ze sztywnym planem. Proponujemy różne aktywności, ale pozostawiamy przestrzeń na odpoczynek, rozmowę i własne zainteresowania. Można być aktywnym przez cały dzień, a można wybrać tylko to, na co ma się ochotę.</p>
-    <div class="zajecia-grid">
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/galeria-muzyka.jpg" alt="Muzyka, która łączy"/>
-        <div class="zajecie-title">Muzykoterapia i spotkania z muzyką</div>
-        <p>Znane piosenki, wspólne śpiewanie, rytm, proste instrumenty i muzyczne wspomnienia. Planujemy także spotkania z muzyką na żywo, karaoke, wieczory piosenki oraz tematyczne podróże muzyczne.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/galeria-aktywnosc.jpg" alt="Aktywność w każdym wieku"/>
-        <div class="zajecie-title">Fizjoterapia, gimnastyka i zdrowy ruch</div>
-        <p>Łagodne ćwiczenia ogólnousprawniające, gimnastyka, ćwiczenia równowagi i koordynacji, rozciąganie, spacery oraz inne formy aktywności prowadzone w bezpieczny i przyjazny sposób.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/galeria-dogoterapia.jpg" alt="Dogoterapia i bliskość"/>
-        <div class="zajecie-title">Dogoterapia i spotkania ze zwierzętami</div>
-        <p>Spotkania z odpowiednio przygotowanym zespołem człowiek–pies zachęcają do rozmowy, ruchu i kontaktu z innymi — czas na głaskanie, proste aktywności i budowanie dobrej relacji ze zwierzęciem.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Radosne%20warsztaty%20rękodzieła%20seniorów-1.png" alt="Radosne warsztaty rękodzieła seniorów"/>
-        <div class="zajecie-title">Arteterapia i pracownia twórcza</div>
-        <p>Nie trzeba umieć malować ani mieć zdolności artystycznych. Malarstwo, dekoracje sezonowe, rękodzieło, ceramika, decoupage, szydełkowanie i robótki ręczne — gotowe prace prezentujemy na wystawach i kiermaszach.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Seniorzy%20przy%20wspólnym%20stole%20gier-2.png" alt="Seniorzy przy wspólnym stole gier"/>
-        <div class="zajecie-title">Trening pamięci i sprawności umysłowej</div>
-        <p>Quizy, gry słowne, łamigłówki, wspomnienia, ćwiczenia koncentracji, planszówki i zabawy zespołowe — z humorem, rozmową i ciekawością, bez szkolnej atmosfery i oceniania.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Międzypokoleniowa%20nauka%20przy%20tablecie-3.png" alt="Międzypokoleniowa nauka przy tablecie"/>
-        <div class="zajecie-title">Senior Online – technologia bez stresu</div>
-        <p>Jak wysłać zdjęcie wnukowi, odebrać wideorozmowę czy korzystać z internetu bezpiecznie? Tłumaczymy wszystko spokojnie, krok po kroku i tyle razy, ile będzie trzeba.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/galeria-kawa.jpg" alt="Wspólne chwile przy kawie"/>
-        <div class="zajecie-title">Pomarańczowa Kawiarenka</div>
-        <p>Przestrzeń, w której nie trzeba zapisywać się na żadne zajęcia. Można przyjść na kawę lub herbatę, poczytać, porozmawiać, zagrać w karty, szachy albo planszówkę.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Wspólne%20pieczenie%20w%20kuchni-4.png" alt="Wspólne pieczenie w kuchni"/>
-        <div class="zajecie-title">Kuchnia pełna wspomnień</div>
-        <p>Wspólne gotowanie i pieczenie, rodzinne przepisy, smaki dzieciństwa, sezonowe potrawy i wspólne nakrywanie stołu — pretekst do rozmowy, wspomnień i poznawania się.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Radosny%20taniec%20seniorów%20wśród%20przyjaciół-5.png" alt="Radosny taniec seniorów wśród przyjaciół"/>
-        <div class="zajecie-title">Taniec, spacery i wyjścia</div>
-        <p>Muzyka i ruch, spacery, nordic walking, potańcówki, wyjścia do kina, teatru, muzeum, kawiarni czy na lokalne wydarzenia — Pomarańcza wychodzi także poza własne drzwi.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Wspólne%20wspomnienia%20przy%20albumie-6.png" alt="Wspólne wspomnienia przy albumie"/>
-        <div class="zajecie-title">Spotkania z ciekawymi ludźmi</div>
-        <p>Zapraszamy specjalistów, artystów, podróżników, lokalnych pasjonatów i osoby z ciekawą historią do opowiedzenia — o zdrowiu, bezpieczeństwie, kulturze, podróżach i historii regionu.</p>
-      </div>
-      <div class="zajecie-card">
-        <img class="zajecie-card-img" src="img/Międzypokoleniowa%20zabawa%20w%20papierowe%20rękodzieło-7.png" alt="Międzypokoleniowa zabawa w papierowe rękodzieło"/>
-        <div class="zajecie-title">Spotkania międzypokoleniowe</div>
-        <p>Seniorzy mają ogromną wiedzę i doświadczenie, którym mogą dzielić się z młodszymi — spotkania z dziećmi i młodzieżą, wspólne warsztaty, rozmowy, gotowanie i rękodzieło.</p>
-      </div>
+<main id="tresc">
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <div class="okruszki"><a href="index.html">Strona główna</a> › Oferta</div>
+      <span class="tag">Oferta</span>
+      <h1>Co znajdziesz <em>w Pomarańczy?</em></h1>
+      <p class="sub">Zajęcia, terapie i codzienna aktywność dopasowane do potrzeb i możliwości każdego Seniora.</p>
     </div>
-  </section>
-</div>
+    <img src="img/galeria-muzyka.jpg" alt="Wspólne zajęcia muzyczne seniorów"/>
+  </div>
+</section>
 
-<div class="plan-wrap reveal">
-  <div class="plan-inner">
-    <span class="section-tag"><span class="tag-dot"></span>Harmonogram</span>
-    <h2>Plan dnia</h2>
-    <div class="timeline">
-      <div class="tl-row"><span class="tl-time">7:00</span><span class="tl-dot"></span><span class="tl-label">Przyjazd podopiecznych</span></div>
-      <div class="tl-row"><span class="tl-time">8:00</span><span class="tl-dot"></span><span class="tl-label">Śniadanie</span></div>
-      <div class="tl-row"><span class="tl-time">8:30</span><span class="tl-dot"></span><span class="tl-label">Terapia zajęciowa</span></div>
-      <div class="tl-row"><span class="tl-time">10:00</span><span class="tl-dot"></span><span class="tl-label">Fizjoterapia</span></div>
-      <div class="tl-row"><span class="tl-time">11:45</span><span class="tl-dot"></span><span class="tl-label">Odpoczynek</span></div>
-      <div class="tl-row"><span class="tl-time">12:30</span><span class="tl-dot"></span><span class="tl-label">Terapia zajęciowa</span></div>
-      <div class="tl-row"><span class="tl-time">14:00</span><span class="tl-dot"></span><span class="tl-label">Wyjazd podopiecznych</span></div>
+<section class="sekcja">
+  <div class="wrap">
+    <p class="lead">Każdy dzień może wyglądać trochę inaczej. Nie chcemy, aby pobyt u nas kojarzył się ze sztywnym planem. Proponujemy różne aktywności, ale pozostawiamy przestrzeń na odpoczynek, rozmowę i własne zainteresowania. Można być aktywnym przez cały dzień, a można wybrać tylko to, na co ma się ochotę.</p>
+    <div class="karty">
+      <article class="karta"><img src="img/galeria-muzyka.jpg" alt="" loading="lazy"/><div><h3>Muzykoterapia i spotkania z muzyką</h3><p>Znane piosenki, wspólne śpiewanie, rytm, proste instrumenty i muzyczne wspomnienia. Planujemy także spotkania z muzyką na żywo, karaoke, wieczory piosenki oraz tematyczne podróże muzyczne.</p></div></article>
+      <article class="karta"><img src="img/galeria-aktywnosc.jpg" alt="" loading="lazy"/><div><h3>Fizjoterapia, gimnastyka i zdrowy ruch</h3><p>Łagodne ćwiczenia ogólnousprawniające, gimnastyka, ćwiczenia równowagi i koordynacji, rozciąganie, spacery oraz inne formy aktywności prowadzone w bezpieczny i przyjazny sposób.</p></div></article>
+      <article class="karta"><img src="img/galeria-dogoterapia.jpg" alt="" loading="lazy"/><div><h3>Dogoterapia i spotkania ze zwierzętami</h3><p>Spotkania z odpowiednio przygotowanym zespołem człowiek–pies zachęcają do rozmowy, ruchu i kontaktu z innymi — czas na głaskanie, proste aktywności i budowanie dobrej relacji ze zwierzęciem.</p></div></article>
+      <article class="karta"><img src="img/Radosne%20warsztaty%20r%C4%99kodzie%C5%82a%20senior%C3%B3w-1.png" alt="" loading="lazy"/><div><h3>Arteterapia i pracownia twórcza</h3><p>Nie trzeba umieć malować ani mieć zdolności artystycznych. Malarstwo, dekoracje sezonowe, rękodzieło, ceramika, decoupage, szydełkowanie i robótki ręczne — gotowe prace prezentujemy na wystawach i kiermaszach.</p></div></article>
+      <article class="karta"><img src="img/Seniorzy%20przy%20wsp%C3%B3lnym%20stole%20gier-2.png" alt="" loading="lazy"/><div><h3>Trening pamięci i sprawności umysłowej</h3><p>Quizy, gry słowne, łamigłówki, wspomnienia, ćwiczenia koncentracji, planszówki i zabawy zespołowe — z humorem, rozmową i ciekawością, bez szkolnej atmosfery i oceniania.</p></div></article>
+      <article class="karta"><img src="img/Mi%C4%99dzypokoleniowa%20nauka%20przy%20tablecie-3.png" alt="" loading="lazy"/><div><h3>Senior Online – technologia bez stresu</h3><p>Jak wysłać zdjęcie wnukowi, odebrać wideorozmowę czy korzystać z internetu bezpiecznie? Tłumaczymy wszystko spokojnie, krok po kroku i tyle razy, ile będzie trzeba.</p></div></article>
+      <article class="karta"><img src="img/galeria-kawa.jpg" alt="" loading="lazy"/><div><h3>Pomarańczowa Kawiarenka</h3><p>Przestrzeń, w której nie trzeba zapisywać się na żadne zajęcia. Można przyjść na kawę lub herbatę, poczytać, porozmawiać, zagrać w karty, szachy albo planszówkę.</p></div></article>
+      <article class="karta"><img src="img/Wsp%C3%B3lne%20pieczenie%20w%20kuchni-4.png" alt="" loading="lazy"/><div><h3>Kuchnia pełna wspomnień</h3><p>Wspólne gotowanie i pieczenie, rodzinne przepisy, smaki dzieciństwa, sezonowe potrawy i wspólne nakrywanie stołu — pretekst do rozmowy, wspomnień i poznawania się.</p></div></article>
+      <article class="karta"><img src="img/Radosny%20taniec%20senior%C3%B3w%20w%C5%9Br%C3%B3d%20przyjaci%C3%B3%C5%82-5.png" alt="" loading="lazy"/><div><h3>Taniec, spacery i wyjścia</h3><p>Muzyka i ruch, spacery, nordic walking, potańcówki, wyjścia do kina, teatru, muzeum, kawiarni czy na lokalne wydarzenia — Pomarańcza wychodzi także poza własne drzwi.</p></div></article>
+      <article class="karta"><img src="img/Wsp%C3%B3lne%20wspomnienia%20przy%20albumie-6.png" alt="" loading="lazy"/><div><h3>Spotkania z ciekawymi ludźmi</h3><p>Zapraszamy specjalistów, artystów, podróżników, lokalnych pasjonatów i osoby z ciekawą historią do opowiedzenia — o zdrowiu, bezpieczeństwie, kulturze, podróżach i historii regionu.</p></div></article>
+      <article class="karta"><img src="img/Mi%C4%99dzypokoleniowa%20zabawa%20w%20papierowe%20r%C4%99kodzie%C5%82o-7.png" alt="" loading="lazy"/><div><h3>Spotkania międzypokoleniowe</h3><p>Seniorzy mają ogromną wiedzę i doświadczenie, którym mogą dzielić się z młodszymi — spotkania z dziećmi i młodzieżą, wspólne warsztaty, rozmowy, gotowanie i rękodzieło.</p></div></article>
     </div>
   </div>
-</div>
+</section>
 
-<div class="content">
-  <div class="cta-section reveal">
-    <p>Chcesz poznać warunki uczestnictwa lub umówić wizytę?</p>
-    <a href="kontakt.html" class="cta-btn cta-btn-solid">Skontaktuj się z nami</a>
+<section class="sekcja plan">
+  <div class="wrap">
+    <div class="sekcja-head">
+      <span class="tag">Harmonogram</span>
+      <h2>Plan dnia</h2>
+    </div>
+    <div class="os"><div><b>7:00</b><span>Przyjazd podopiecznych</span></div><div><b>8:00</b><span>Śniadanie</span></div><div><b>8:30</b><span>Terapia zajęciowa</span></div><div><b>10:00</b><span>Fizjoterapia</span></div><div><b>11:45</b><span>Odpoczynek</span></div><div><b>12:30</b><span>Terapia zajęciowa</span></div><div><b>14:00</b><span>Wyjazd podopiecznych</span></div></div>
   </div>
-</div>
+</section>
+</main>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-fundacja">
-      <img class="footer-fundacja-logo" src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
-      <div class="footer-fundacja-info">
-        <div class="footer-fundacja-name">FUNDACJA ROZWOJU INICJATYW SPOŁECZNYCH „POMARAŃCZA”</div>
-        <div class="footer-fundacja-meta">KRS: 0001221165 &nbsp;&middot;&nbsp; REGON: 543877889 &nbsp;&middot;&nbsp; NIP: 8692020157</div>
+<section class="zaproszenie">
+  <div class="wrap">
+    <div>
+      <h2>Wpadnij do nas na kawę</h2>
+      <p>Pokażemy Centrum, opowiemy o zajęciach i odpowiemy na każde pytanie — bez zobowiązań.</p>
+    </div>
+    <a href="kontakt.html" class="btn">Umów się na wizytę</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="stopka-kol">
+      <div>
+        <img src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+        <p><strong>Fundacja Rozwoju Inicjatyw Społecznych „Pomarańcza”</strong></p>
+        <p>KRS: 0001221165 · REGON: 543877889 · NIP: 8692020157</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li>ul. Sosnowa 83, 32-800 Sterkowiec</li>
+          <li><a href="mailto:centrumpomarancza@gmail.com">centrumpomarancza@gmail.com</a></li>
+          <li>Pon–Pt, 8:00–16:00</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Na stronie</h3>
+        <ul><li><a href="oferta.html">Oferta</a></li><li><a href="dom.html">Pomarańczowy Dom</a></li><li><a href="mieszkania.html">Mieszkania</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="aktualnosci.html">Aktualności</a></li><li><a href="o-nas.html">O nas</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom-bar">
-    © 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.
+    <div class="stopka-dol">
+      <span>© 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.</span>
+      <span>Dodajemy życiu koloru 🍊</span>
+    </div>
   </div>
 </footer>
 
-<!-- WIDGET DOSTĘPNOŚCI -->
-
-<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności">
-  <div class="a11y-panel-title">Dostępność</div>
-
-  <div class="a11y-option" id="opt-text" onclick="toggleA11y('large-text', 'opt-text')">
-    <span>🔤 Większy tekst</span>
-    <span class="icon" id="icon-text">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-contrast" onclick="toggleA11y('contrast', 'opt-contrast')">
-    <span>◑ Wysoki kontrast</span>
-    <span class="icon" id="icon-contrast">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-links" onclick="toggleA11y('links', 'opt-links')">
-    <span>🔗 Podkreśl linki</span>
-    <span class="icon" id="icon-links">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-spacing" onclick="toggleA11y('spacing', 'opt-spacing')">
-    <span>↕ Większe odstępy</span>
-    <span class="icon" id="icon-spacing">○</span>
-  </div>
-
-  <button class="a11y-reset" onclick="resetA11y()">↺ Resetuj ustawienia</button>
-</div>
-
-<script src="js/script.js"></script>
+<script src="js/magazyn.js"></script>
 </body>
 </html>

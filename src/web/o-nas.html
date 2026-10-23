@@ -3,118 +3,115 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Fundacja Inicjatyw Społecznych „Pomarańcza” — ludzie, wartości i zasady Centrum Seniora."/>
   <title>O nas — Centrum Seniora Pomarańcza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/makiety-palety.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/magazyn.css"/>
 </head>
 <body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <a href="kontakt.html#dane-kontaktowe" class="topbar-item"><span class="topbar-icon">📞</span> Zadzwoń do nas</a>
-    <a href="mailto:centrumpomarancza@gmail.com" class="topbar-item"><span class="topbar-icon">✉️</span> Napisz e-mail</a>
-    <span class="topbar-item topbar-hours"><span class="topbar-icon">🕗</span> Pon–Pt, 8:00–16:00</span>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza — strona główna"/></a>
+    <nav id="menu" aria-label="Menu główne"><a href="oferta.html">Oferta</a><a href="dom.html">Pomarańczowy Dom</a><a href="mieszkania.html">Mieszkania</a><a href="galeria.html">Galeria</a><a href="aktualnosci.html">Aktualności</a><a href="o-nas.html" aria-current="page">O nas</a><a href="kontakt.html">Kontakt</a></nav>
+    <a class="tel" href="kontakt.html">Pon–Pt, 8:00–16:00<strong>📞 Zadzwoń do nas</strong></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">☰ Menu</button>
   </div>
-</div>
+</header>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
-  </a>
-  <div class="nav-links" id="nav-links">
-    <a href="oferta.html">Oferta</a>
-    <a href="dom.html">Pomarańczowy Dom</a>
-    <a href="mieszkania.html">Mieszkania</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="aktualnosci.html">Aktualności</a>
-    <a href="o-nas.html" class="active">O nas</a>
-  </div>
-  <div style="display:flex;align-items:center;gap:.6rem;">
-    <a href="kontakt.html" class="nav-cta">Kontakt</a>
-    <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
-    <button class="menu-toggler" id="menu-toggler" onclick="toggleMenu()" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>O nas</span>
-    <h1 class="page-hero-title">Fundacja Inicjatyw Społecznych „Pomarańcza”</h1>
-    <p class="page-hero-sub">Poznaj ludzi, wartości i zasady, które stoją za Centrum Seniora Pomarańcza.</p>
-  </div>
-</div>
-
-<div class="content">
-  <section class="reveal">
-    <p>Fundacja Inicjatyw Społecznych „Pomarańcza” powstała z potrzeby tworzenia rzeczy ważnych i bliskich ludziom. Jednym z najważniejszych kierunków naszych działań jest wspieranie Seniorów – ich samodzielności, aktywności, relacji z innymi i poczucia, że nadal są ważną częścią lokalnej społeczności.</p>
-    <p>Wiemy, że wraz z wiekiem zmieniają się potrzeby, tempo życia i codzienne możliwości. Nie oznacza to jednak rezygnacji z pasji, przyjaźni, rozwoju czy dobrej zabawy. Czasem wystarczy odpowiednie miejsce i życzliwi ludzie, żeby znów częściej wychodzić z domu, poznawać nowych znajomych i mieć na co czekać w kolejnym tygodniu.</p>
-    <p>Dlatego Pomarańcza ma być miejscem otwartym, serdecznym i bez zbędnego dystansu. Chcemy znać naszych uczestników po imieniu, słuchać ich pomysłów i tworzyć program razem z nimi. Senior nie jest u nas biernym odbiorcą zajęć – jest częścią społeczności.</p>
-    <p>Naszym celem jest również przeciwdziałanie samotności. Rozmowa przy kawie, wspólne śniadanie, telefon od znajomej osoby, urodziny obchodzone razem czy zwykłe pytanie „jak się dziś czujesz?” potrafią znaczyć więcej niż najbardziej rozbudowany program zajęć.</p>
-
-    <h3 class="sub-h">Zasady działania i organizacja</h3>
-    <p>Organizacja Dziennego Domu Seniora oraz zakres i poziom świadczonych w nim usług uwzględnia w szczególności wolność, intymność, godność i poczucie bezpieczeństwa podopiecznych oraz stopień ich fizycznej i psychicznej sprawności.</p>
-    <p>Dzienny Dom Seniora funkcjonuje w sposób zapewniający właściwy zakres usług, zgodny z określonymi wskazaniami w oparciu o indywidualne potrzeby jego uczestników.</p>
-    <p><strong>W organizowaniu życia Seniorów uwzględniane są:</strong></p>
-    <ul class="zasady">
-      <li>Potrzeby podmiotowego traktowania oraz poszanowania praw i godności</li>
-      <li>Potrzeby indywidualnego podejścia do osobistych spraw każdego Seniora</li>
-      <li>Zasady współżycia społecznego</li>
-      <li>Kształtowanie relacji międzyludzkich na zasadach partnerstwa</li>
-      <li>Współpraca z rodzinami</li>
-    </ul>
-
-    <div class="cta-section">
-      <p>Chcesz zobaczyć, jak wygląda u nas codzienność?</p>
-      <a href="oferta.html" class="cta-btn cta-btn-solid">Zobacz naszą ofertę</a>
+<main id="tresc">
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <div class="okruszki"><a href="index.html">Strona główna</a> › O nas</div>
+      <span class="tag">O nas</span>
+      <h1>Fundacja Inicjatyw Społecznych <em>„Pomarańcza”</em></h1>
+      <p class="sub">Poznaj ludzi, wartości i zasady, które stoją za Centrum Seniora Pomarańcza.</p>
     </div>
-  </section>
-</div>
+    <img src="img/Radosne%20spotkanie%20senior%C3%B3w%20w%20ogrodzie.png" alt="Radosne spotkanie seniorów w ogrodzie"/>
+  </div>
+</section>
 
-<footer>
-  <div class="footer-inner">
-    <div class="footer-fundacja">
-      <img class="footer-fundacja-logo" src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
-      <div class="footer-fundacja-info">
-        <div class="footer-fundacja-name">FUNDACJA ROZWOJU INICJATYW SPOŁECZNYCH „POMARAŃCZA”</div>
-        <div class="footer-fundacja-meta">KRS: 0001221165 &nbsp;&middot;&nbsp; REGON: 543877889 &nbsp;&middot;&nbsp; NIP: 8692020157</div>
+<section class="sekcja">
+  <div class="wrap rozklad">
+    <div>
+      <span class="tag">Kim jesteśmy</span>
+      <h2>Z potrzeby tworzenia rzeczy ważnych i bliskich ludziom</h2>
+      <p>Fundacja Inicjatyw Społecznych „Pomarańcza” powstała z potrzeby tworzenia rzeczy ważnych i bliskich ludziom. Jednym z najważniejszych kierunków naszych działań jest wspieranie Seniorów – ich samodzielności, aktywności, relacji z innymi i poczucia, że nadal są ważną częścią lokalnej społeczności.</p>
+      <p>Wiemy, że wraz z wiekiem zmieniają się potrzeby, tempo życia i codzienne możliwości. Nie oznacza to jednak rezygnacji z pasji, przyjaźni, rozwoju czy dobrej zabawy. Czasem wystarczy odpowiednie miejsce i życzliwi ludzie, żeby znów częściej wychodzić z domu, poznawać nowych znajomych i mieć na co czekać w kolejnym tygodniu.</p>
+    </div>
+    <div class="kolaz">
+      <img src="img/Wsp%C3%B3lne%20wspomnienia%20przy%20albumie-6.png" alt="Wspólne wspomnienia przy albumie"/>
+      <img src="img/Radosny%20taniec%20senior%C3%B3w%20w%C5%9Br%C3%B3d%20przyjaci%C3%B3%C5%82-5.png" alt="Taniec seniorów"/>
+      <img src="img/Mi%C4%99dzypokoleniowa%20nauka%20przy%20tablecie-3.png" alt="Nauka przy tablecie"/>
+    </div>
+  </div>
+</section>
+
+<section class="sekcja krem">
+  <div class="wrap">
+    <p class="cytat">Senior nie jest u nas biernym odbiorcą zajęć – jest częścią społeczności.</p>
+    <p class="lead" style="margin-top:2rem;margin-bottom:0">Pomarańcza ma być miejscem otwartym, serdecznym i bez zbędnego dystansu. Chcemy znać naszych uczestników po imieniu, słuchać ich pomysłów i tworzyć program razem z nimi. Naszym celem jest również przeciwdziałanie samotności — rozmowa przy kawie, wspólne śniadanie, urodziny obchodzone razem czy zwykłe pytanie „jak się dziś czujesz?” potrafią znaczyć więcej niż najbardziej rozbudowany program zajęć.</p>
+  </div>
+</section>
+
+<section class="sekcja">
+  <div class="wrap rozklad">
+    <div>
+      <span class="tag">Zasady działania</span>
+      <h2>Wolność, intymność, godność i bezpieczeństwo</h2>
+      <p>Organizacja Dziennego Domu Seniora oraz zakres i poziom świadczonych w nim usług uwzględnia w szczególności wolność, intymność, godność i poczucie bezpieczeństwa podopiecznych oraz stopień ich fizycznej i psychicznej sprawności.</p>
+      <p>Dzienny Dom Seniora funkcjonuje w sposób zapewniający właściwy zakres usług, zgodny z określonymi wskazaniami w oparciu o indywidualne potrzeby jego uczestników.</p>
+      <a href="oferta.html" class="btn btn-solid">Zobacz naszą ofertę</a>
+    </div>
+    <div class="dla-kol">
+      <h3>W organizowaniu życia Seniorów uwzględniamy</h3>
+      <ul class="lista"><li>Potrzeby podmiotowego traktowania oraz poszanowania praw i godności</li><li>Potrzeby indywidualnego podejścia do osobistych spraw każdego Seniora</li><li>Zasady współżycia społecznego</li><li>Kształtowanie relacji międzyludzkich na zasadach partnerstwa</li><li>Współpracę z rodzinami</li></ul>
+    </div>
+  </div>
+</section>
+</main>
+
+<section class="zaproszenie">
+  <div class="wrap">
+    <div>
+      <h2>Wpadnij do nas na kawę</h2>
+      <p>Pokażemy Centrum, opowiemy o zajęciach i odpowiemy na każde pytanie — bez zobowiązań.</p>
+    </div>
+    <a href="kontakt.html" class="btn">Umów się na wizytę</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="stopka-kol">
+      <div>
+        <img src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+        <p><strong>Fundacja Rozwoju Inicjatyw Społecznych „Pomarańcza”</strong></p>
+        <p>KRS: 0001221165 · REGON: 543877889 · NIP: 8692020157</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li>ul. Sosnowa 83, 32-800 Sterkowiec</li>
+          <li><a href="mailto:centrumpomarancza@gmail.com">centrumpomarancza@gmail.com</a></li>
+          <li>Pon–Pt, 8:00–16:00</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Na stronie</h3>
+        <ul><li><a href="oferta.html">Oferta</a></li><li><a href="dom.html">Pomarańczowy Dom</a></li><li><a href="mieszkania.html">Mieszkania</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="aktualnosci.html">Aktualności</a></li><li><a href="o-nas.html">O nas</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
       </div>
     </div>
-  </div>
-  <div class="footer-bottom-bar">
-    © 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.
+    <div class="stopka-dol">
+      <span>© 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.</span>
+      <span>Dodajemy życiu koloru 🍊</span>
+    </div>
   </div>
 </footer>
 
-<!-- WIDGET DOSTĘPNOŚCI -->
-
-<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności">
-  <div class="a11y-panel-title">Dostępność</div>
-
-  <div class="a11y-option" id="opt-text" onclick="toggleA11y('large-text', 'opt-text')">
-    <span>🔤 Większy tekst</span>
-    <span class="icon" id="icon-text">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-contrast" onclick="toggleA11y('contrast', 'opt-contrast')">
-    <span>◑ Wysoki kontrast</span>
-    <span class="icon" id="icon-contrast">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-links" onclick="toggleA11y('links', 'opt-links')">
-    <span>🔗 Podkreśl linki</span>
-    <span class="icon" id="icon-links">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-spacing" onclick="toggleA11y('spacing', 'opt-spacing')">
-    <span>↕ Większe odstępy</span>
-    <span class="icon" id="icon-spacing">○</span>
-  </div>
-
-  <button class="a11y-reset" onclick="resetA11y()">↺ Resetuj ustawienia</button>
-</div>
-
-<script src="js/script.js"></script>
+<script src="js/magazyn.js"></script>
 </body>
 </html>

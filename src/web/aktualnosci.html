@@ -3,123 +3,103 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Nowości, wydarzenia i relacje z życia Centrum Seniora Pomarańcza."/>
   <title>Aktualności — Centrum Seniora Pomarańcza</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="css/style.css"/>
+  <script src="js/makiety-palety.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/magazyn.css"/>
 </head>
 <body>
+<a class="skip" href="#tresc">Przejdź do treści</a>
 
-<div class="topbar">
-  <div class="topbar-inner">
-    <a href="kontakt.html#dane-kontaktowe" class="topbar-item"><span class="topbar-icon">📞</span> Zadzwoń do nas</a>
-    <a href="mailto:centrumpomarancza@gmail.com" class="topbar-item"><span class="topbar-icon">✉️</span> Napisz e-mail</a>
-    <span class="topbar-item topbar-hours"><span class="topbar-icon">🕗</span> Pon–Pt, 8:00–16:00</span>
+<header class="site-header">
+  <div class="wrap">
+    <a class="logo" href="index.html"><img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza — strona główna"/></a>
+    <nav id="menu" aria-label="Menu główne"><a href="oferta.html">Oferta</a><a href="dom.html">Pomarańczowy Dom</a><a href="mieszkania.html">Mieszkania</a><a href="galeria.html">Galeria</a><a href="aktualnosci.html" aria-current="page">Aktualności</a><a href="o-nas.html">O nas</a><a href="kontakt.html">Kontakt</a></nav>
+    <a class="tel" href="kontakt.html">Pon–Pt, 8:00–16:00<strong>📞 Zadzwoń do nas</strong></a>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">☰ Menu</button>
   </div>
-</div>
+</header>
 
-<nav>
-  <a href="index.html" class="nav-logo">
-    <img src="img/centrum-seniora-logo.png" alt="Centrum Seniora Pomarańcza"/>
-  </a>
-  <div class="nav-links" id="nav-links">
-    <a href="oferta.html">Oferta</a>
-    <a href="dom.html">Pomarańczowy Dom</a>
-    <a href="mieszkania.html">Mieszkania</a>
-    <a href="galeria.html">Galeria</a>
-    <a href="aktualnosci.html" class="active">Aktualności</a>
-    <a href="o-nas.html">O nas</a>
+<main id="tresc">
+<section class="page-hero">
+  <div class="wrap">
+    <div>
+      <div class="okruszki"><a href="index.html">Strona główna</a> › Aktualności</div>
+      <span class="tag">Aktualności</span>
+      <h1>Co słychać <em>w Pomarańczy</em></h1>
+      <p class="sub">Nowości, wydarzenia i relacje z życia Centrum Seniora.</p>
+    </div>
+    <img src="img/Seniorzy%20przy%20wsp%C3%B3lnym%20stole%20gier-2.png" alt="Seniorzy przy wspólnym stole gier"/>
   </div>
-  <div style="display:flex;align-items:center;gap:.6rem;">
-    <a href="kontakt.html" class="nav-cta">Kontakt</a>
-    <button class="a11y-btn" onclick="toggleA11yPanel()" aria-label="Opcje dostępności" title="Opcje dostępności">♿</button>
-    <button class="menu-toggler" id="menu-toggler" onclick="toggleMenu()" aria-label="Otwórz menu" aria-expanded="false" aria-controls="nav-links">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+</section>
 
-<div class="page-hero">
-  <div class="page-hero-inner">
-    <span class="section-tag page-hero-tag"><span class="tag-dot"></span>Aktualności</span>
-    <h1 class="page-hero-title">Co słychać w Pomarańczy</h1>
-    <p class="page-hero-sub">Nowości, wydarzenia i relacje z życia Centrum Seniora.</p>
-  </div>
-</div>
-
-<div class="content">
-  <section class="reveal">
-    <p>Tutaj będziemy publikować najnowsze informacje oraz posty z naszych mediów społecznościowych.</p>
-
+<section class="sekcja">
+  <div class="wrap">
     <!--
       Miejsce na posty z Facebooka / Instagrama.
-      Każdy wklejony kod embed umieść w osobnym <div class="aktualnosci-item">…</div>
-      wewnątrz <div class="aktualnosci-feed">, a następnie usuń blok .galeria-empty poniżej.
-
+      Każdy wklejony kod embed umieść w osobnym <div class="karta">…</div> wewnątrz <div class="feed">,
+      a następnie usuń blok .wkrotce poniżej.
       Facebook – cała strona (oś czasu), bez logowania i tokenów (podmień ADRES_STRONY):
-        <div class="aktualnosci-item">
+        <div class="karta">
           <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FADRES_STRONY&tabs=timeline&width=500&height=700&small_header=true"
                   width="500" height="700" style="border:none;overflow:hidden;max-width:100%"
                   scrolling="no" frameborder="0" loading="lazy"
                   allow="clipboard-write; encrypted-media; picture-in-picture; web-share"
                   title="Facebook – Centrum Seniora Pomarańcza"></iframe>
         </div>
-
       Facebook / Instagram – pojedynczy post:
-        na poście kliknij „…” → „Osadź” (Embed), skopiuj kod i wklej go do <div class="aktualnosci-item">.
+        na poście kliknij „…” → „Osadź” (Embed), skopiuj kod i wklej go do <div class="karta">.
         Kod z Instagrama zawiera <script async src="//www.instagram.com/embed.js"></script> – wystarczy raz na stronie.
     -->
-    <div class="aktualnosci-feed"></div>
-
-    <div class="galeria-empty">
-      <span class="galeria-empty-icon">📰</span>
-      <span>Pierwsze aktualności pojawią się wkrótce</span>
-    </div>
-  </section>
-</div>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-fundacja">
-      <img class="footer-fundacja-logo" src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
-      <div class="footer-fundacja-info">
-        <div class="footer-fundacja-name">FUNDACJA ROZWOJU INICJATYW SPOŁECZNYCH „POMARAŃCZA”</div>
-        <div class="footer-fundacja-meta">KRS: 0001221165 &nbsp;&middot;&nbsp; REGON: 543877889 &nbsp;&middot;&nbsp; NIP: 8692020157</div>
-      </div>
+    <div class="feed"></div>
+    <div class="wkrotce">
+      <span>📰</span>
+      <h3>Pierwsze aktualności pojawią się wkrótce</h3>
+      <p>Tutaj będziemy publikować najnowsze informacje oraz posty z naszych mediów społecznościowych.</p>
     </div>
   </div>
-  <div class="footer-bottom-bar">
-    © 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.
+</section>
+</main>
+
+<section class="zaproszenie">
+  <div class="wrap">
+    <div>
+      <h2>Wpadnij do nas na kawę</h2>
+      <p>Pokażemy Centrum, opowiemy o zajęciach i odpowiemy na każde pytanie — bez zobowiązań.</p>
+    </div>
+    <a href="kontakt.html" class="btn">Umów się na wizytę</a>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="stopka-kol">
+      <div>
+        <img src="img/fundacja-pomarancza-logo.png" alt="Fundacja Pomarańcza"/>
+        <p><strong>Fundacja Rozwoju Inicjatyw Społecznych „Pomarańcza”</strong></p>
+        <p>KRS: 0001221165 · REGON: 543877889 · NIP: 8692020157</p>
+      </div>
+      <div>
+        <h3>Kontakt</h3>
+        <ul>
+          <li>ul. Sosnowa 83, 32-800 Sterkowiec</li>
+          <li><a href="mailto:centrumpomarancza@gmail.com">centrumpomarancza@gmail.com</a></li>
+          <li>Pon–Pt, 8:00–16:00</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Na stronie</h3>
+        <ul><li><a href="oferta.html">Oferta</a></li><li><a href="dom.html">Pomarańczowy Dom</a></li><li><a href="mieszkania.html">Mieszkania</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="aktualnosci.html">Aktualności</a></li><li><a href="o-nas.html">O nas</a></li><li><a href="kontakt.html">Kontakt</a></li></ul>
+      </div>
+    </div>
+    <div class="stopka-dol">
+      <span>© 2026 <strong>Fundacja Pomarańcza</strong>. Wszelkie prawa zastrzeżone.</span>
+      <span>Dodajemy życiu koloru 🍊</span>
+    </div>
   </div>
 </footer>
 
-<!-- WIDGET DOSTĘPNOŚCI -->
-
-<div class="a11y-panel" id="a11y-panel" role="dialog" aria-label="Ustawienia dostępności">
-  <div class="a11y-panel-title">Dostępność</div>
-
-  <div class="a11y-option" id="opt-text" onclick="toggleA11y('large-text', 'opt-text')">
-    <span>🔤 Większy tekst</span>
-    <span class="icon" id="icon-text">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-contrast" onclick="toggleA11y('contrast', 'opt-contrast')">
-    <span>◑ Wysoki kontrast</span>
-    <span class="icon" id="icon-contrast">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-links" onclick="toggleA11y('links', 'opt-links')">
-    <span>🔗 Podkreśl linki</span>
-    <span class="icon" id="icon-links">○</span>
-  </div>
-
-  <div class="a11y-option" id="opt-spacing" onclick="toggleA11y('spacing', 'opt-spacing')">
-    <span>↕ Większe odstępy</span>
-    <span class="icon" id="icon-spacing">○</span>
-  </div>
-
-  <button class="a11y-reset" onclick="resetA11y()">↺ Resetuj ustawienia</button>
-</div>
-
-<script src="js/script.js"></script>
+<script src="js/magazyn.js"></script>
 </body>
 </html>
