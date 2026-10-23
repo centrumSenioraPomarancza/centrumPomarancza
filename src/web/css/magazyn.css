@@ -26,7 +26,9 @@ p + p { margin-top: 1rem; }
 .site-header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
 .site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; height: 84px; }
 .site-header .logo img { height: 54px; }
-.site-header nav { display: flex; gap: 1.6rem; font-weight: 500; font-size: .95rem; }
+.site-header nav { display: flex; align-items: center; gap: 1.4rem; font-weight: 500; font-size: .92rem; line-height: 1.25; white-space: nowrap; }
+/* dłuższe nazwy zakładek w dwóch wierszach */
+.site-header nav a span { display: block; text-align: center; }
 .site-header nav a { padding: .3rem 0; border-bottom: 2px solid transparent; }
 .site-header nav a:hover { color: var(--orange-dk); }
 .site-header nav a[aria-current="page"] { color: var(--orange-dk); border-bottom-color: var(--orange); }
@@ -34,19 +36,15 @@ p + p { margin-top: 1rem; }
 .tel strong { font-size: 1.05rem; color: var(--orange-dk); }
 .menu-btn { display: none; background: none; border: 2px solid var(--border); border-radius: 12px; padding: .5rem .8rem; font: inherit; font-weight: 600; color: var(--heading); cursor: pointer; }
 
-/* hero strony głównej: szerokie zdjęcie widoczne w całości, karta z tekstem nachodzi tylko na jego dolny lewy skraj */
-.hero { padding: 2.5rem 0 4.5rem; }
+/* hero strony głównej: szerokie zdjęcie widoczne w całości, niska karta z tekstem nachodzi tylko na jego dolny skraj */
+.hero { padding: 2.5rem 0 2.5rem; }
 .hero-zdjecie { width: 100%; aspect-ratio: 2048/768; object-fit: cover; border-radius: 28px; }
-.hero-dol { display: grid; grid-template-columns: minmax(0, 1.6fr) 1fr; gap: 3rem; align-items: end; }
-.hero-karta { position: relative; background: #fff; border-radius: 24px; padding: 2.4rem 2.6rem; margin: -5rem 0 0 2.5rem; box-shadow: 0 18px 40px rgba(0,0,0,.1); }
-.hero h1 { font-size: 3.2rem; margin: .3rem 0 1rem; }
+.hero-karta { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem 3rem; align-items: center; background: #fff; border-radius: 22px; padding: 1.6rem 2.4rem; margin: -2.5rem 2.5rem 0; box-shadow: 0 18px 40px rgba(0,0,0,.1); }
+.hero h1 { font-size: 2.8rem; margin-top: .1rem; }
 .hero h1 em { color: var(--orange); font-style: italic; }
-.hero-q { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-style: italic; margin-bottom: 1.2rem; }
-.hero p.sub { font-size: 1.15rem; margin-bottom: 1.8rem; }
-.hero-ctas { display: flex; gap: 1rem; flex-wrap: wrap; }
-.hero-info { list-style: none; display: grid; gap: 1rem; padding-bottom: .5rem; }
-.hero-info li { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-size: .95rem; }
-.hero-info strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--heading); }
+.hero .tag { margin-bottom: .4rem; }
+.hero-q { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-style: italic; margin-bottom: .6rem; }
+.hero p.sub { font-size: 1.1rem; }
 
 /* hero podstron: tytuł obok mniejszego zdjęcia w łuku */
 .page-hero { padding: 3.5rem 0 4rem; border-bottom: 1px solid var(--border); }
@@ -68,6 +66,7 @@ p + p { margin-top: 1rem; }
 /* sekcje */
 .sekcja { padding: 5.5rem 0; }
 .sekcja.krem { background: var(--orange-lt); }
+.sekcja.pod-hero { padding-top: 3.5rem; }
 .sekcja-head { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
 .sekcja-head h2 { font-size: 2.4rem; }
 .sekcja-head p { color: var(--muted); margin-top: .8rem; }
@@ -86,6 +85,13 @@ p + p { margin-top: 1rem; }
 .dla { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .dla-kol { background: #fff; border-radius: 20px; padding: 2.4rem; border-top: 5px solid var(--orange); }
 .dla-kol h3 { font-size: 1.6rem; margin-bottom: 1rem; }
+/* trzy karty-linki pod hero strony głównej */
+.trzy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+.trzy .dla-kol { display: block; padding: 2rem; transition: transform .2s, box-shadow .2s; }
+.trzy .dla-kol:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
+.trzy h3 { font-size: 1.4rem; margin-bottom: .6rem; }
+.trzy p { color: var(--muted); }
+.trzy .wiecej { display: inline-block; margin-top: 1rem; color: var(--orange-dk); font-weight: 600; font-size: .92rem; }
 .lista li { list-style: none; padding: .55rem 0 .55rem 2rem; position: relative; border-bottom: 1px dashed var(--border); }
 .lista li:last-child { border-bottom: 0; }
 .lista li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
@@ -126,6 +132,10 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .fotki figure:first-child img { aspect-ratio: auto; height: calc(100% - 5.5rem); min-height: 300px; }
 .fotki figcaption { padding: 1rem 1.2rem 1.2rem; font-size: .92rem; color: var(--muted); }
 .fotki figcaption strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--heading); margin-bottom: .2rem; }
+/* wariant z czterema równymi zdjęciami (rehabilitacja) */
+.fotki.cztery { grid-template-columns: repeat(4, 1fr); }
+.fotki.cztery figure { grid-column: auto; grid-row: auto; }
+.fotki.cztery figure img { aspect-ratio: 3/2; height: auto; min-height: 0; }
 
 /* puste miejsce „wkrótce” */
 .wkrotce { background: #fff; border: 2px dashed var(--orange-md); border-radius: 24px; padding: 3.5rem 2rem; text-align: center; max-width: 720px; margin: 0 auto; }
@@ -174,40 +184,59 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .a11y-panel button[aria-pressed="true"] { background: var(--orange-lt); border-color: var(--orange); color: var(--orange-dk); font-weight: 600; }
 .a11y-panel .a11y-reset { justify-content: center; background: var(--cream); margin: .4rem 0 0; }
 
+/* TYMCZASOWE: porównanie tła obecnego z tłem palety „Miód” — w wariancie Miód całe tło, także sekcje „krem”, ma jeden kolor */
+html.tlo-miod { --cream: #fbf6ea; }
+html.tlo-miod .sekcja.krem { background: var(--cream); }
+.tlo-btn { position: fixed; left: 1.2rem; bottom: 1.2rem; z-index: 60; border: 2px solid var(--orange-md); border-radius: 999px; background: #fff; color: var(--heading); font: inherit; font-size: .9rem; font-weight: 600; padding: .6rem 1.1rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.12); }
+.tlo-btn b { color: var(--orange-dk); }
+
 body.a11y-large-text { font-size: 20px; }
 body.a11y-spacing { line-height: 2; letter-spacing: .03em; word-spacing: .12em; }
 body.a11y-links a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
 body.a11y-contrast { --heading: #000; --text: #000; --muted: #222; --cream: #fff; --orange-dk: #9a3412; --orange: #c2410c; }
 body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-footer, body.a11y-contrast .godziny { background: #000; }
 
-@media (max-width: 1080px) {
-  .site-header nav { gap: 1rem; font-size: .9rem; }
+@media (max-width: 1240px) {
   .tel { display: none; }
 }
-@media (max-width: 860px) {
-  .menu-btn { display: block; }
+@media (max-width: 1000px) {
+  .menu-btn { display: block; margin-left: auto; }
+  /* na wąskim ekranie telefon wraca jako mały przycisk obok menu */
+  .tel { display: flex; margin-left: auto; border: 2px solid var(--orange-md); border-radius: 12px; padding: .45rem .8rem; }
+  .tel span { display: none; }
+  .tel strong { font-size: .95rem; }
+  .tel + .menu-btn { margin-left: 0; }
+  .site-header .wrap { gap: .6rem; }
   .site-header nav { display: none; position: absolute; top: 84px; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.08); font-size: 1.05rem; }
   .site-header nav.open { display: flex; }
+  .site-header nav { align-items: stretch; }
   .site-header nav a { padding: .8rem 0; border-bottom: 1px solid var(--border); }
+  .site-header nav a span { display: inline; }
   .site-header nav a:last-child { border-bottom: 0; }
   .site-header nav a[aria-current="page"] { border-bottom-color: var(--border); }
+}
+@media (max-width: 1080px) {
+  .hero-karta { grid-template-columns: 1fr; padding: 1.6rem 2rem; }
+}
+@media (max-width: 860px) {
   .hero, .page-hero { padding: 2.5rem 0 3rem; }
+  .hero { padding-bottom: 1.5rem; }
+  .sekcja.pod-hero { padding-top: 2.5rem; }
   .page-hero .wrap, .rozklad, .dla { grid-template-columns: 1fr; gap: 2.5rem; }
-  .hero h1 { font-size: 2.3rem; }
+  .hero h1 { font-size: 2.1rem; }
   .hero-zdjecie { aspect-ratio: 4/3; border-radius: 20px; }
-  .hero-dol { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-karta { margin: -2.5rem .75rem 0; padding: 1.8rem 1.4rem; }
-  .hero-info { grid-template-columns: 1fr 1fr 1fr; padding: 0 .75rem; }
-  .hero-info strong { font-size: 1.1rem; }
+  .hero-karta { margin: -1.5rem .75rem 0; padding: 1.4rem 1.3rem; }
   .page-hero h1 { font-size: 2.2rem; }
   .page-hero img { aspect-ratio: 16/10; border-radius: 120px 120px 18px 18px; }
   .uslugi .wrap { grid-template-columns: 1fr 1fr; }
   .uslugi div:nth-child(2) { border-right: 0; }
-  .karty, .kontakt-karty, .stopka-kol { grid-template-columns: 1fr; }
-  .fotki { grid-template-columns: 1fr 1fr; }
+  .karty, .kontakt-karty, .stopka-kol, .trzy { grid-template-columns: 1fr; }
+  .fotki, .fotki.cztery { grid-template-columns: 1fr 1fr; }
   .fotki figure, .fotki figure:nth-child(n+4) { grid-column: auto; }
   .fotki figure:first-child { grid-column: span 2; grid-row: auto; }
   .fotki figure:first-child img { height: auto; min-height: 0; aspect-ratio: 4/3; }
+  .fotki.cztery figure:first-child { grid-column: auto; }
+  .fotki.cztery figure img { aspect-ratio: 3/2; }
   .sekcja { padding: 3.5rem 0; }
   .sekcja-head h2 { font-size: 1.9rem; }
   .cytat { font-size: 1.45rem; }
@@ -220,8 +249,7 @@ body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-f
 }
 @media (max-width: 520px) {
   .wrap { padding: 0 1rem; }
-  .hero-info { grid-template-columns: 1fr; }
-  .fotki { grid-template-columns: 1fr; }
+  .fotki, .fotki.cztery { grid-template-columns: 1fr; }
   .fotki figure:first-child { grid-column: auto; }
   .kolaz { grid-template-rows: 130px 130px; }
 }

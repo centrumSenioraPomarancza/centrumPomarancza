@@ -10,6 +10,28 @@
     });
   }
 
+  // „Zadzwoń do nas”: na komputerze prowadzi do strony Kontakt, na telefonie od razu wybiera numer.
+  const tel = document.querySelector(".tel[data-tel]");
+  if (tel && window.matchMedia("(hover: none) and (pointer: coarse)").matches) tel.href = tel.dataset.tel;
+
+  // TYMCZASOWE: przełącznik tła „Obecne” / „Miód” do porównania, zapamiętany na wszystkich podstronach.
+  let miod = false;
+  try { miod = localStorage.getItem("tlo") === "miod"; } catch (e) {}
+  const tloBtn = document.createElement("button");
+  tloBtn.className = "tlo-btn";
+  tloBtn.type = "button";
+  const ustawTlo = () => {
+    document.documentElement.classList.toggle("tlo-miod", miod);
+    tloBtn.innerHTML = "Tło: <b>" + (miod ? "Miód" : "Obecne") + "</b> ⇄";
+  };
+  tloBtn.addEventListener("click", () => {
+    miod = !miod;
+    try { miod ? localStorage.setItem("tlo", "miod") : localStorage.removeItem("tlo"); } catch (e) {}
+    ustawTlo();
+  });
+  ustawTlo();
+  document.body.append(tloBtn);
+
   const OPCJE = [
     { id: 'large-text', nazwa: '🔤 Większy tekst' },
     { id: 'contrast',   nazwa: '◑ Wysoki kontrast' },
