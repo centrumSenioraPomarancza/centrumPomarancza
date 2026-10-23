@@ -2,7 +2,7 @@
    Pomarańcz zawsze jest głównym akcentem; palety z js/makiety-palety.js podmieniają zmienne poniżej. */
 :root {
   --orange: #f97316; --orange-dk: #ea580c; --orange-md: #fdba74; --orange-lt: #fff7ed;
-  --heading: #2f3640; --text: #1f2937; --muted: #6b7280; --border: #e5e7eb; --cream: #fdfaf6;
+  --heading: #2f3640; --text: #1f2937; --muted: #6b7280; --border: #e5e7eb; --cream: #fbf6ea;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -24,7 +24,7 @@ p + p { margin-top: 1rem; }
 
 /* nagłówek: logo po lewej, menu na środku, telefon po prawej */
 .site-header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
-.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; height: 84px; }
+.site-header .wrap { max-width: 1320px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 84px; }
 .site-header .logo img { height: 54px; }
 .site-header nav { display: flex; align-items: center; gap: 1.4rem; font-weight: 500; font-size: .92rem; line-height: 1.25; white-space: nowrap; }
 /* dłuższe nazwy zakładek w dwóch wierszach */
@@ -32,7 +32,7 @@ p + p { margin-top: 1rem; }
 .site-header nav a { padding: .3rem 0; border-bottom: 2px solid transparent; }
 .site-header nav a:hover { color: var(--orange-dk); }
 .site-header nav a[aria-current="page"] { color: var(--orange-dk); border-bottom-color: var(--orange); }
-.tel { display: flex; flex-direction: column; text-align: right; font-size: .78rem; color: var(--muted); }
+.tel { display: flex; flex-direction: column; text-align: right; white-space: nowrap; font-size: .78rem; color: var(--muted); }
 .tel strong { font-size: 1.05rem; color: var(--orange-dk); }
 .menu-btn { display: none; background: none; border: 2px solid var(--border); border-radius: 12px; padding: .5rem .8rem; font: inherit; font-weight: 600; color: var(--heading); cursor: pointer; }
 
@@ -43,7 +43,7 @@ p + p { margin-top: 1rem; }
 .hero h1 { font-size: 2.8rem; margin-top: .1rem; }
 .hero h1 em { color: var(--orange); font-style: italic; }
 .hero .tag { margin-bottom: .4rem; }
-.hero-q { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-style: italic; margin-bottom: .6rem; }
+.hero-q { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-style: italic; }
 .hero p.sub { font-size: 1.1rem; }
 
 /* hero podstron: tytuł obok mniejszego zdjęcia w łuku */
@@ -65,7 +65,7 @@ p + p { margin-top: 1rem; }
 
 /* sekcje */
 .sekcja { padding: 5.5rem 0; }
-.sekcja.krem { background: var(--orange-lt); }
+.sekcja.krem { background: var(--cream); } /* tło „Miód”: całe tło strony w jednym kolorze */
 .sekcja.pod-hero { padding-top: 3.5rem; }
 .sekcja-head { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
 .sekcja-head h2 { font-size: 2.4rem; }
@@ -177,18 +177,13 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 /* panel dostępności */
 .a11y-btn { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--heading); color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
 .a11y-btn:hover { background: var(--orange-dk); }
-.a11y-panel { position: fixed; right: 1.2rem; bottom: 5.4rem; z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
+.a11y-panel { position: fixed; right: 1.2rem; top: calc(84px + .6rem); z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
 .a11y-panel.open { display: block; }
+.site-header .a11y-btn { position: static; flex-shrink: 0; width: 46px; height: 46px; font-size: 1.35rem; box-shadow: none; }
 .a11y-panel h3 { font-size: 1.1rem; margin-bottom: .6rem; }
 .a11y-panel button { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: .95rem; text-align: left; padding: .6rem .8rem; margin-bottom: .4rem; border-radius: 10px; border: 1px solid var(--border); background: #fff; color: var(--text); cursor: pointer; }
 .a11y-panel button[aria-pressed="true"] { background: var(--orange-lt); border-color: var(--orange); color: var(--orange-dk); font-weight: 600; }
 .a11y-panel .a11y-reset { justify-content: center; background: var(--cream); margin: .4rem 0 0; }
-
-/* TYMCZASOWE: porównanie tła obecnego z tłem palety „Miód” — w wariancie Miód całe tło, także sekcje „krem”, ma jeden kolor */
-html.tlo-miod { --cream: #fbf6ea; }
-html.tlo-miod .sekcja.krem { background: var(--cream); }
-.tlo-btn { position: fixed; left: 1.2rem; bottom: 1.2rem; z-index: 60; border: 2px solid var(--orange-md); border-radius: 999px; background: #fff; color: var(--heading); font: inherit; font-size: .9rem; font-weight: 600; padding: .6rem 1.1rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.12); }
-.tlo-btn b { color: var(--orange-dk); }
 
 body.a11y-large-text { font-size: 20px; }
 body.a11y-spacing { line-height: 2; letter-spacing: .03em; word-spacing: .12em; }
@@ -196,7 +191,7 @@ body.a11y-links a:not(.btn) { text-decoration: underline; text-underline-offset:
 body.a11y-contrast { --heading: #000; --text: #000; --muted: #222; --cream: #fff; --orange-dk: #9a3412; --orange: #c2410c; }
 body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-footer, body.a11y-contrast .godziny { background: #000; }
 
-@media (max-width: 1240px) {
+@media (max-width: 1260px) {
   .tel { display: none; }
 }
 @media (max-width: 1000px) {

@@ -14,24 +14,6 @@
   const tel = document.querySelector(".tel[data-tel]");
   if (tel && window.matchMedia("(hover: none) and (pointer: coarse)").matches) tel.href = tel.dataset.tel;
 
-  // TYMCZASOWE: przełącznik tła „Obecne” / „Miód” do porównania, zapamiętany na wszystkich podstronach.
-  let miod = false;
-  try { miod = localStorage.getItem("tlo") === "miod"; } catch (e) {}
-  const tloBtn = document.createElement("button");
-  tloBtn.className = "tlo-btn";
-  tloBtn.type = "button";
-  const ustawTlo = () => {
-    document.documentElement.classList.toggle("tlo-miod", miod);
-    tloBtn.innerHTML = "Tło: <b>" + (miod ? "Miód" : "Obecne") + "</b> ⇄";
-  };
-  tloBtn.addEventListener("click", () => {
-    miod = !miod;
-    try { miod ? localStorage.setItem("tlo", "miod") : localStorage.removeItem("tlo"); } catch (e) {}
-    ustawTlo();
-  });
-  ustawTlo();
-  document.body.append(tloBtn);
-
   const OPCJE = [
     { id: 'large-text', nazwa: '🔤 Większy tekst' },
     { id: 'contrast',   nazwa: '◑ Wysoki kontrast' },
@@ -78,5 +60,8 @@
     }
   });
 
-  document.body.append(panel, przycisk);
+  // przycisk siedzi w nagłówku (zawsze widoczny u góry), panel otwiera się tuż pod nagłówkiem
+  const naglowek = document.querySelector(".site-header .wrap");
+  (naglowek || document.body).append(przycisk);
+  document.body.append(panel);
 })();
