@@ -24,8 +24,8 @@ p + p { margin-top: 1rem; }
 
 /* nagłówek: logo po lewej, menu na środku, telefon po prawej */
 .site-header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
-.site-header .wrap { max-width: 1320px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 84px; }
-.site-header .logo img { height: 54px; }
+.site-header .wrap { max-width: 1320px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 116px; }
+.site-header .logo img { height: 100px; }
 .site-header nav { display: flex; align-items: center; gap: 1.4rem; font-weight: 500; font-size: .92rem; line-height: 1.25; white-space: nowrap; }
 /* dłuższe nazwy zakładek w dwóch wierszach */
 .site-header nav a span { display: block; text-align: center; }
@@ -177,7 +177,7 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 /* panel dostępności */
 .a11y-btn { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--heading); color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
 .a11y-btn:hover { background: var(--orange-dk); }
-.a11y-panel { position: fixed; right: 1.2rem; top: calc(84px + .6rem); z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
+.a11y-panel { position: fixed; right: 1.2rem; top: calc(116px + .6rem); z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
 .a11y-panel.open { display: block; }
 .site-header .a11y-btn { position: static; flex-shrink: 0; width: 46px; height: 46px; font-size: 1.35rem; box-shadow: none; }
 .a11y-panel h3 { font-size: 1.1rem; margin-bottom: .6rem; }
@@ -202,7 +202,7 @@ body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-f
   .tel strong { font-size: .95rem; }
   .tel + .menu-btn { margin-left: 0; }
   .site-header .wrap { gap: .6rem; }
-  .site-header nav { display: none; position: absolute; top: 84px; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.08); font-size: 1.05rem; }
+  .site-header nav { display: none; position: absolute; top: 116px; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.08); font-size: 1.05rem; }
   .site-header nav.open { display: flex; }
   .site-header nav { align-items: stretch; }
   .site-header nav a { padding: .8rem 0; border-bottom: 1px solid var(--border); }
