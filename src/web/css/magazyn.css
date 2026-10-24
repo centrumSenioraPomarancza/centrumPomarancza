@@ -217,10 +217,15 @@ body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-f
   .menu-btn { display: block; margin-left: auto; }
   /* na wąskim ekranie telefon wraca jako mały przycisk obok menu */
   .tel { display: flex; margin-left: auto; border: 2px solid var(--orange-md); border-radius: 12px; padding: .45rem .8rem; }
-  .tel span { display: none; }
+  .tel > span { display: none; }
   .tel strong { font-size: .95rem; }
   .tel + .menu-btn { margin-left: 0; }
   .site-header .wrap { gap: .6rem; }
+  /* przycisk dostępności zjeżdża w prawy dolny róg, żeby nie ściskać nagłówka; panel otwiera się nad nim */
+  .site-header .a11y-btn { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); width: 56px; height: 56px; font-size: 1.6rem; box-shadow: 0 8px 22px rgba(0,0,0,.25); }
+  .a11y-panel { top: auto; right: 1rem; bottom: calc(1rem + 56px + .6rem + env(safe-area-inset-bottom)); max-width: calc(100vw - 2rem); max-height: calc(100vh - 160px); overflow-y: auto; }
+  /* stopka kończy się nad przyciskiem, żeby nie zasłaniał ostatniej linijki */
+  .site-footer { padding-bottom: 5.5rem; }
   .site-header nav { display: none; position: absolute; top: 116px; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.08); font-size: 1.05rem; }
   .site-header nav.open { display: flex; }
   .site-header nav { align-items: stretch; }
@@ -264,6 +269,8 @@ body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-f
 }
 @media (max-width: 520px) {
   .wrap { padding: 0 1rem; }
+  /* na wąskim telefonie „Zadzwoń do nas” → „Zadzwoń”, żeby nagłówek mieścił się w ekranie */
+  .tel-dop { display: none; }
   .fotki, .fotki.cztery { grid-template-columns: 1fr; }
   .fotki figure:first-child { grid-column: auto; }
   .galeria { grid-template-columns: 1fr; grid-auto-rows: 240px; }
