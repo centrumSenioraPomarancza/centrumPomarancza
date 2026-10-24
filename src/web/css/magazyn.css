@@ -39,7 +39,7 @@ p + p { margin-top: 1rem; }
 .site-header nav a[aria-current="page"] { color: var(--orange-dk); border-bottom-color: var(--orange); }
 .tel { display: flex; flex-direction: column; text-align: right; white-space: nowrap; font-size: .78rem; color: var(--muted); }
 .tel strong { font-size: 1.05rem; color: var(--orange-dk); }
-.menu-btn { display: none; background: none; border: 2px solid var(--border); border-radius: 12px; padding: .5rem .8rem; font: inherit; font-weight: 600; color: var(--heading); cursor: pointer; }
+.menu-btn { display: none; white-space: nowrap; background: none; border: 2px solid var(--border); border-radius: 12px; padding: .5rem .8rem; font: inherit; font-weight: 600; color: var(--heading); cursor: pointer; }
 
 /* hero strony głównej: szerokie zdjęcie widoczne w całości, niska karta z tekstem nachodzi tylko na jego dolny skraj */
 .hero { padding: 2.5rem 0 2.5rem; }
@@ -79,6 +79,9 @@ p + p { margin-top: 1rem; }
 /* bez pojedynczych słów w ostatnim wierszu (wspiera to też skrypt w magazyn.js) */
 p, li, figcaption { text-wrap: pretty; }
 h1, h2, h3 { text-wrap: balance; }
+/* zabezpieczenie: długi wyraz łamie się zamiast wypychać stronę poza ekran telefonu */
+h1, h2, h3, p { overflow-wrap: break-word; }
+.rozklad > *, .page-hero .wrap > * { min-width: 0; }
 .lead { font-size: 1.2rem; max-width: 760px; margin: 0 auto 3rem; text-align: center; }
 
 /* rozkładówka: tekst + kolaż */
