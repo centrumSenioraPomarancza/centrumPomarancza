@@ -14,6 +14,21 @@
   const tel = document.querySelector(".tel[data-tel]");
   if (tel && window.matchMedia("(hover: none) and (pointer: coarse)").matches) tel.href = tel.dataset.tel;
 
+  // Typografia: jednoliterowe spójniki („w”, „z”, „i”…) i myślnik nie zostają na końcu wiersza,
+  // a ostatnie słowo akapitu nie ląduje samotnie w nowej linii (twarde spacje zamiast zwykłych).
+  document.querySelectorAll('main p, main li, main figcaption, main h1, main h2, main h3').forEach(el => {
+    const wezly = [];
+    const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT);
+    while (walker.nextNode()) wezly.push(walker.currentNode);
+    wezly.forEach(n => {
+      n.nodeValue = n.nodeValue
+        .replace(/(?<=^|[\s(„])([aiouwzAIOUWZ]) /g, '$1 ')
+        .replace(/ ([–—])/g, ' $1');
+    });
+    const ostatni = wezly.reverse().find(n => n.nodeValue.trim());
+    if (ostatni) ostatni.nodeValue = ostatni.nodeValue.replace(/ (\S+\s*)$/, ' $1');
+  });
+
   const OPCJE = [
     { id: 'large-text', nazwa: '🔤 Większy tekst' },
     { id: 'contrast',   nazwa: '◑ Wysoki kontrast' },
