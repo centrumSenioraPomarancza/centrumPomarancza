@@ -40,12 +40,17 @@
 
   OPCJE.forEach(o => document.body.classList.toggle('a11y-' + o.id, czytaj(o.id)));
 
-  const przycisk = document.createElement('button');
-  przycisk.className = 'a11y-btn';
-  przycisk.type = 'button';
-  przycisk.textContent = '♿';
-  przycisk.setAttribute('aria-label', 'Opcje dostępności');
-  przycisk.setAttribute('aria-expanded', 'false');
+  // przycisk ♿ jest już w HTML nagłówka, żeby nagłówek nie przesuwał się po wczytaniu skryptu
+  let przycisk = document.querySelector('.a11y-btn');
+  if (!przycisk) {
+    przycisk = document.createElement('button');
+    przycisk.className = 'a11y-btn';
+    przycisk.type = 'button';
+    przycisk.textContent = '♿';
+    przycisk.setAttribute('aria-label', 'Opcje dostępności');
+    przycisk.setAttribute('aria-expanded', 'false');
+    (document.querySelector('.site-header .wrap') || document.body).append(przycisk);
+  }
 
   const panel = document.createElement('div');
   panel.className = 'a11y-panel';
@@ -76,7 +81,5 @@
   });
 
   // przycisk siedzi w nagłówku (zawsze widoczny u góry), panel otwiera się tuż pod nagłówkiem
-  const naglowek = document.querySelector(".site-header .wrap");
-  (naglowek || document.body).append(przycisk);
   document.body.append(panel);
 })();
