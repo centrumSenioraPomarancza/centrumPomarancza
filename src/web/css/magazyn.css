@@ -189,7 +189,7 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 /* stopka */
 .site-footer { background: var(--heading); color: #cbd2d9; padding: 3.5rem 0 1.5rem; font-size: .92rem; }
 .stopka-kol { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.12); }
-.site-footer img { height: 64px; background: #fff; border-radius: 10px; padding: 6px; margin-bottom: 1rem; }
+.site-footer img { height: 100px; background: #fff; border-radius: 10px; padding: 6px; margin-bottom: 1rem; }
 .site-footer h3 { color: #fff; font-size: 1.1rem; margin-bottom: .8rem; }
 .site-footer li { list-style: none; padding: .2rem 0; }
 .site-footer a:hover { color: var(--orange-md); }
