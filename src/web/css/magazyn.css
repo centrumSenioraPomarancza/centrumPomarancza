@@ -170,6 +170,8 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .feed:empty { display: none; }
 .social-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.4rem; }
 .wkrotce .social-btns .btn { margin-top: 0; }
+.social-btns .btn { display: inline-flex; align-items: center; gap: .55rem; }
+.social-btns svg { width: 1.25em; height: 1.25em; fill: currentColor; flex-shrink: 0; }
 
 /* kontakt */
 .kontakt-karty { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
