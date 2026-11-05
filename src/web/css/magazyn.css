@@ -88,6 +88,7 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .rozklad { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .rozklad h2 { font-size: 2.2rem; margin-bottom: 1.2rem; }
 .rozklad .btn { margin-top: 1.6rem; }
+.rozklad-foto { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; }
 .kolaz { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; gap: 1rem; }
 .kolaz img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
 .kolaz img:first-child { grid-row: span 2; }
