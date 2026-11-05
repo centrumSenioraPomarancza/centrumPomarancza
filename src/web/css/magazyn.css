@@ -167,9 +167,8 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .wkrotce .btn { margin-top: 1.4rem; }
 .feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
 .feed:empty { display: none; }
-.feed-fb { grid-template-columns: minmax(0, 500px); justify-content: center; }
-.feed-fb iframe { display: block; margin: 0 auto; }
-.fb-link { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.6rem; }
+.social-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.4rem; }
+.wkrotce .social-btns .btn { margin-top: 0; }
 
 /* kontakt */
 .kontakt-karty { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
