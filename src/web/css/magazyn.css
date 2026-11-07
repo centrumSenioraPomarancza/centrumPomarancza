@@ -273,7 +273,11 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .a11y-panel h3 { font-size: 1.1rem; margin-bottom: .6rem; }
 .a11y-panel button { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: .95rem; text-align: left; padding: .6rem .8rem; margin-bottom: .4rem; border-radius: 10px; border: 1px solid var(--border); background: #fff; color: var(--text); cursor: pointer; }
 .a11y-panel button[aria-pressed="true"] { background: var(--orange-lt); border-color: var(--orange); color: var(--orange-dk); font-weight: 600; }
-.a11y-panel .a11y-reset { background: var(--cream); margin: .4rem 0 0; }
+/* reset: wygląda jak pozostałe przyciski, oddzielony linią; wyszarzony, gdy nic nie jest włączone */
+.a11y-panel .a11y-reset { margin: .7rem 0 0; position: relative; }
+.a11y-panel .a11y-reset::before { content: ""; position: absolute; left: 0; right: 0; top: calc(-.35rem - 1px); border-top: 1px solid var(--border); }
+.a11y-panel button:not(:disabled):hover { border-color: var(--orange); }
+.a11y-panel .a11y-reset:disabled { opacity: .45; cursor: default; }
 .a11y-panel button > span { display: inline-flex; gap: .55rem; align-items: center; white-space: nowrap; }
 @media (max-width: 400px) { .a11y-panel button > span { white-space: normal; } }
 /* stała kolumna na ikonę – tekst w każdym wierszu zaczyna się w tym samym miejscu */
@@ -305,7 +309,7 @@ html.a11y-contrast .fb-ramka-head { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-header, html.a11y-contrast .page-hero, html.a11y-contrast .zaproszenie, html.a11y-contrast .uslugi { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-footer { border-top: 2px solid #ff0; }
 /* najechanie i aktywne elementy: odwrócone kolory (czarny na żółtym) */
-html.a11y-contrast a:hover, html.a11y-contrast button:hover, html.a11y-contrast .btn:hover,
+html.a11y-contrast a:hover, html.a11y-contrast button:not(:disabled):hover, html.a11y-contrast .btn:hover,
 html.a11y-contrast .a11y-btn, html.a11y-contrast .a11y-panel button[aria-pressed="true"] { background-color: #ff0 !important; color: #000 !important; }
 /* menu: bez podkreślenia, aktualna strona – gruba linia; karty, które są w całości linkiem, bez podkreślenia całego tekstu */
 html.a11y-contrast .site-header nav a, html.a11y-contrast .tel, html.a11y-contrast .logo { text-decoration: none; border-bottom-color: transparent !important; }
@@ -314,7 +318,7 @@ html.a11y-contrast .site-header nav a[aria-current="page"] { border-bottom: 3px 
 html.a11y-contrast a.karta, html.a11y-contrast a.dla-kol { text-decoration: none; }
 html.a11y-contrast a.karta .wiecej, html.a11y-contrast a.dla-kol .wiecej { text-decoration: underline; }
 /* w odwróconych elementach wszystko w środku przejmuje czarny napis na żółtym (bez czarnych prostokątów pod tekstem) */
-html.a11y-contrast a:hover *, html.a11y-contrast button:hover *, html.a11y-contrast .a11y-btn *, html.a11y-contrast .a11y-panel button[aria-pressed="true"] * { background-color: transparent !important; color: inherit !important; }
+html.a11y-contrast a:hover *, html.a11y-contrast button:not(:disabled):hover *, html.a11y-contrast .a11y-btn *, html.a11y-contrast .a11y-panel button[aria-pressed="true"] * { background-color: transparent !important; color: inherit !important; }
 html.a11y-contrast :focus-visible { outline: 3px solid #fff !important; outline-offset: 3px; }
 /* logo ma ciemny napis – dostaje jasne tło, żeby było czytelne */
 html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10px; padding: 4px; }

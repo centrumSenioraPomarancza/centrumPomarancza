@@ -72,14 +72,23 @@
     '<button type="button" class="a11y-reset"><span><span aria-hidden="true">↺</span>Przywróć domyślne</span></button>';
   przycisk.setAttribute('aria-controls', panel.id);
 
+  // „Przywróć domyślne” jest aktywny tylko wtedy, gdy któraś opcja jest włączona
+  const reset = panel.querySelector('.a11y-reset');
+  const odswiezReset = () => { reset.disabled = !OPCJE.some(o => html.classList.contains('a11y-' + o.id)); };
+  odswiezReset();
+
   panel.querySelectorAll('[data-a11y]').forEach(b => b.addEventListener('click', () => {
     const on = html.classList.toggle('a11y-' + b.dataset.a11y);
     b.setAttribute('aria-pressed', on);
     zapisz(b.dataset.a11y, on);
+    odswiezReset();
   }));
-  panel.querySelector('.a11y-reset').addEventListener('click', () => {
+  reset.addEventListener('click', () => {
     OPCJE.forEach(o => { html.classList.remove('a11y-' + o.id); zapisz(o.id, false); });
     panel.querySelectorAll('[data-a11y]').forEach(b => b.setAttribute('aria-pressed', 'false'));
+    odswiezReset();
+    // wyłączony przycisk traci fokus – przenosimy go na pierwszą opcję, żeby klawiatura nie „zgubiła się”
+    panel.querySelector('[data-a11y]').focus();
   });
 
   const otwarty = () => panel.classList.contains('open');
