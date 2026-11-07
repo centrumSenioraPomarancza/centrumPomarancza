@@ -266,15 +266,16 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .a11y-btn svg { width: 62%; height: 62%; fill: currentColor; }
 .a11y-btn[aria-expanded="true"] { background: var(--orange-dk); }
 /* panel rozwija się tuż pod przyciskiem (prawa krawędź równo z przyciskiem, strzałka wskazuje przycisk) */
-.a11y-panel { position: absolute; right: 1.5rem; top: calc(50% + 23px + .7rem); z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
+.a11y-panel { position: absolute; right: 1.5rem; top: calc(50% + 23px + .7rem); z-index: 60; min-width: 16.25rem; width: max-content; max-width: calc(100vw - 2rem); background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
 .a11y-panel::before { content: ""; position: absolute; top: -7px; right: 16px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); border-radius: 3px 0 0 0; }
 .a11y-panel.open { display: block; }
 .site-header .a11y-btn { position: static; flex-shrink: 0; width: 46px; height: 46px; font-size: 1.35rem; box-shadow: none; }
 .a11y-panel h3 { font-size: 1.1rem; margin-bottom: .6rem; }
 .a11y-panel button { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: .95rem; text-align: left; padding: .6rem .8rem; margin-bottom: .4rem; border-radius: 10px; border: 1px solid var(--border); background: #fff; color: var(--text); cursor: pointer; }
 .a11y-panel button[aria-pressed="true"] { background: var(--orange-lt); border-color: var(--orange); color: var(--orange-dk); font-weight: 600; }
-.a11y-panel .a11y-reset { justify-content: center; background: var(--cream); margin: .4rem 0 0; }
-.a11y-panel button > span { display: inline-flex; gap: .55rem; align-items: center; }
+.a11y-panel .a11y-reset { background: var(--cream); margin: .4rem 0 0; }
+.a11y-panel button > span { display: inline-flex; gap: .55rem; align-items: center; white-space: nowrap; }
+@media (max-width: 400px) { .a11y-panel button > span { white-space: normal; } }
 /* stała kolumna na ikonę – tekst w każdym wierszu zaczyna się w tym samym miejscu */
 .a11y-panel button > span > span { flex: 0 0 1.4em; text-align: center; }
 
@@ -285,10 +286,38 @@ html.a11y-large-text { font-size: 125%; }
 @media (min-width: 1001px) { html.a11y-large-text .site-header nav { font-size: .736rem; } html.a11y-large-text .tel { font-size: .624rem; } html.a11y-large-text .tel strong { font-size: .84rem; } }
 html.a11y-spacing body { line-height: 2; letter-spacing: .06em; word-spacing: .16em; }
 html.a11y-spacing p + p { margin-top: 1.6rem; }
+/* nagłówek bez rozstrzelenia liter, inaczej menu, telefon i przycisk dostępności nie mieszczą się w jednej linii */
+html.a11y-spacing .site-header { letter-spacing: normal; word-spacing: normal; line-height: 1.65; }
 html.a11y-links a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
-html.a11y-contrast { --heading: #000; --text: #000; --muted: #222; --cream: #fff; --orange-dk: #9a3412; --orange: #c2410c; --border: #6b7280; }
-html.a11y-contrast .uslugi, html.a11y-contrast .plan, html.a11y-contrast .site-footer, html.a11y-contrast .godziny { background: #000; }
-html.a11y-contrast .site-footer { color: #fff; }
+/* Wysoki kontrast w najpopularniejszym wariancie (jak na stronach urzędów / BIP): żółty tekst na czarnym tle.
+   Zdjęcia, ikony SVG i ramki zewnętrzne (Facebook, mapa) zostają bez zmian. */
+html.a11y-contrast { --heading: #ff0; --text: #ff0; --muted: #ff0; --cream: #000; --border: #ff0; --orange: #ff0; --orange-dk: #ff0; --orange-md: #ff0; --orange-lt: #000; }
+html.a11y-contrast *:not(img):not(svg):not(path):not(circle):not(iframe) { background-color: #000 !important; background-image: none !important; color: #ff0 !important; border-color: #ff0 !important; box-shadow: none !important; text-shadow: none !important; }
+html.a11y-contrast *::before, html.a11y-contrast *::after { color: #ff0 !important; border-color: #ff0 !important; box-shadow: none !important; }
+html.a11y-contrast .fb-wtyczka::after { display: none; }
+html.a11y-contrast .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { border-color: #555 !important; border-top-color: #ff0 !important; }
+/* linki zawsze podkreślone, karty i przyciski z żółtą ramką zamiast cienia */
+html.a11y-contrast a { text-decoration: underline; text-underline-offset: 3px; }
+html.a11y-contrast .btn, html.a11y-contrast .menu-btn, html.a11y-contrast .fb-ramka-head a { border: 2px solid #ff0 !important; text-decoration: none; }
+html.a11y-contrast .karta, html.a11y-contrast .dla-kol, html.a11y-contrast .k-karta, html.a11y-contrast .akt-dzieje, html.a11y-contrast .fb-ramka,
+html.a11y-contrast .hero-karta, html.a11y-contrast .wkrotce, html.a11y-contrast .godziny, html.a11y-contrast .a11y-panel, html.a11y-contrast .fotki figure { border: 2px solid #ff0; }
+html.a11y-contrast .fb-ramka-head { border-bottom: 2px solid #ff0; }
+html.a11y-contrast .site-header, html.a11y-contrast .page-hero, html.a11y-contrast .zaproszenie, html.a11y-contrast .uslugi { border-bottom: 2px solid #ff0; }
+html.a11y-contrast .site-footer { border-top: 2px solid #ff0; }
+/* najechanie i aktywne elementy: odwrócone kolory (czarny na żółtym) */
+html.a11y-contrast a:hover, html.a11y-contrast button:hover, html.a11y-contrast .btn:hover,
+html.a11y-contrast .a11y-btn, html.a11y-contrast .a11y-panel button[aria-pressed="true"] { background-color: #ff0 !important; color: #000 !important; }
+/* menu: bez podkreślenia, aktualna strona – gruba linia; karty, które są w całości linkiem, bez podkreślenia całego tekstu */
+html.a11y-contrast .site-header nav a, html.a11y-contrast .tel, html.a11y-contrast .logo { text-decoration: none; border-bottom-color: transparent !important; }
+html.a11y-contrast .site-header nav a:hover { text-decoration: underline; }
+html.a11y-contrast .site-header nav a[aria-current="page"] { border-bottom: 3px solid #ff0 !important; }
+html.a11y-contrast a.karta, html.a11y-contrast a.dla-kol { text-decoration: none; }
+html.a11y-contrast a.karta .wiecej, html.a11y-contrast a.dla-kol .wiecej { text-decoration: underline; }
+/* w odwróconych elementach wszystko w środku przejmuje czarny napis na żółtym (bez czarnych prostokątów pod tekstem) */
+html.a11y-contrast a:hover *, html.a11y-contrast button:hover *, html.a11y-contrast .a11y-btn *, html.a11y-contrast .a11y-panel button[aria-pressed="true"] * { background-color: transparent !important; color: inherit !important; }
+html.a11y-contrast :focus-visible { outline: 3px solid #fff !important; outline-offset: 3px; }
+/* logo ma ciemny napis – dostaje jasne tło, żeby było czytelne */
+html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10px; padding: 4px; }
 
 @media (max-width: 1260px) {
   .tel { display: none; }
