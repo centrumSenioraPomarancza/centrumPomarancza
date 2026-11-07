@@ -58,8 +58,6 @@ p + p { margin-top: 1rem; }
 .page-hero h1 em { color: var(--orange); font-style: italic; }
 .page-hero p.sub { font-size: 1.15rem; color: var(--muted); max-width: 560px; }
 .page-hero img { border-radius: 160px 160px 20px 20px; aspect-ratio: 5/4; object-fit: cover; width: 100%; }
-.okruszki { font-size: .85rem; color: var(--muted); margin-bottom: 1.2rem; }
-.okruszki a:hover { color: var(--orange-dk); }
 
 /* pasek usług */
 .uslugi { background: var(--heading); color: #fff; }
@@ -168,7 +166,32 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .wkrotce .btn { margin-top: 1.4rem; }
 .feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
 .feed:empty { display: none; }
-/* Facebook Page Plugin w ramce „Bądźmy w kontakcie” */
+/* Aktualności, dwie kolumny. Lewa kolumna rozciąga się do wysokości karty FB: nagłówek u góry, przyciski i telefon u dołu,
+   ramka z listą wypełnia środek, a jej punkty rozkładają się równo w pionie. */
+.akt-uklad { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 460px); gap: 3.5rem; align-items: stretch; }
+.akt-info { display: flex; flex-direction: column; }
+.akt-info h2 { font-size: 2.4rem; margin-bottom: .8rem; }
+.akt-lead { font-size: 1.15rem; color: var(--muted); max-width: 560px; }
+.akt-dzieje { flex: 1; display: flex; flex-direction: column; background: #fff; border-radius: 20px; border-left: 5px solid var(--orange); box-shadow: 0 2px 14px rgba(0,0,0,.06); padding: 1.6rem 1.7rem; margin: 2rem 0; }
+.akt-dzieje ul { flex: 1; list-style: none; display: flex; flex-direction: column; justify-content: space-evenly; }
+.akt-dzieje li { display: flex; align-items: center; gap: 1rem; padding: .9rem 0; }
+.akt-dzieje li + li { border-top: 1px solid var(--border); }
+.akt-dzieje li > span { flex-shrink: 0; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--orange-lt); font-size: 1.45rem; }
+.akt-dzieje strong { display: block; color: var(--heading); font-size: 1.05rem; }
+.akt-dzieje small { display: block; color: var(--muted); font-size: .92rem; line-height: 1.4; }
+.akt-info .social-btns { margin-top: 0; align-self: flex-start; }
+.akt-fb .fb-ramka { margin: 0; max-width: none; }
+@media (max-width: 900px) {
+  .akt-uklad { grid-template-columns: 1fr; gap: 2.5rem; }
+  .akt-fb .fb-ramka { max-width: 500px; margin: 0 auto; }
+}
+@media (max-width: 520px) {
+  .akt-info h2 { font-size: 1.9rem; }
+  .akt-dzieje { padding: 1.3rem 1.1rem; }
+  .akt-dzieje li { padding: .7rem 0; }
+}
+
+/* Facebook Page Plugin – karta z pomarańczowym paskiem */
 .fb-ramka { max-width: 500px; margin: 2.4rem auto 0; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px var(--orange-md), 0 14px 34px rgba(234,88,12,.12); text-align: left; }
 .fb-ramka-head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .85rem 1.1rem; background: linear-gradient(90deg, var(--orange), var(--orange-dk)); color: #fff; }
 .fb-ramka-tytul { display: inline-flex; align-items: center; gap: .55rem; font-weight: 600; }
@@ -178,16 +201,32 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 /* --fb-ukryj: ile px nagłówka FB (Obserwuj / Udostępnij / liczba obserwujących) chowamy nad kartą.
    Gdy wystaje kawałek nagłówka – zwiększ; gdy ucina górę pierwszego posta – zmniejsz.
    Przycinamy dopiero po wyrenderowaniu (fb-xfbml-state="rendered"), więc link zapasowy zawsze jest widoczny. */
-.fb-wtyczka { --fb-ukryj: 80px; position: relative; overflow: hidden; min-height: 160px; background: var(--orange-lt); line-height: 0; }
+/* --fb-wys = data-height z aktualnosci.html (zmieniać razem!). Ramka od razu ma docelową wysokość (wys − ukryty nagłówek), więc nic nie skacze przy wczytywaniu. */
+.fb-wtyczka { --fb-ukryj: 80px; --fb-wys: 720px; position: relative; overflow: hidden; height: calc(var(--fb-wys) - var(--fb-ukryj)); background: var(--orange-lt); line-height: 0; }
 .fb-wtyczka .fb-page[fb-xfbml-state="rendered"] { margin-top: calc(-1 * var(--fb-ukryj)); }
 .fb-wtyczka::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 36px; background: linear-gradient(rgba(255,255,255,0), #fff); pointer-events: none; }
 .fb-wtyczka .fb-page, .fb-wtyczka .fb-page > span, .fb-wtyczka iframe { display: block !important; width: 100% !important; max-width: 100%; }
-.fb-wtyczka blockquote { line-height: 1.5; padding: 3.5rem 1rem; text-align: center; }
+.fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"]) { display: flex !important; height: 100%; align-items: center; justify-content: center; }
+.fb-wtyczka blockquote { line-height: 1.5; padding: 1rem; text-align: center; }
 .fb-wtyczka blockquote a { color: var(--orange-dk); font-weight: 600; }
+/* Loader do czasu wyrenderowania wtyczki. Jeśli FB nie wczyta się w 10 s (adblock, brak sieci),
+   loader znika i pojawia się link zapasowy do strony na Facebooku. */
+.fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"]) { position: relative; }
+.fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { content: ""; position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; margin: -44px 0 0 -23px; border-radius: 50%; border: 4px solid var(--orange-md); border-top-color: var(--orange-dk); animation: fb-kreci .9s linear infinite, fb-znika .3s 10s forwards; }
+.fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::after { content: "Wczytujemy wpisy z Facebooka…"; position: absolute; top: 50%; left: 0; right: 0; margin-top: 18px; text-align: center; line-height: 1.4; font-size: .95rem; color: var(--muted); animation: fb-znika .3s 10s forwards; }
+.fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"]) blockquote { opacity: 0; animation: fb-pojawia .4s 10s forwards; }
+@keyframes fb-kreci { to { transform: rotate(360deg); } }
+@keyframes fb-znika { to { opacity: 0; visibility: hidden; } }
+@keyframes fb-pojawia { to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { animation-duration: 2.4s, .3s; } }
 @media (max-width: 520px) { .wkrotce { padding: 2.5rem 1rem; } .fb-ramka { margin-top: 1.8rem; } }
-.social-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.4rem; }
+/* przyciski FB / IG: równa szerokość (szerokość dłuższego) i równa wysokość */
+.social-btns { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: .8rem; margin-top: 1.4rem; }
 .wkrotce .social-btns .btn { margin-top: 0; }
-.social-btns .btn { display: inline-flex; align-items: center; gap: .55rem; }
+.social-btns .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; white-space: nowrap; }
+.social-btns .btn-solid { border: 2px solid var(--orange); }
+.social-btns .btn-solid:hover { border-color: var(--orange-dk); }
+@media (max-width: 560px) { .social-btns { display: grid; grid-auto-flow: row; } .social-btns .btn { white-space: normal; } }
 .social-btns svg { width: 1.25em; height: 1.25em; fill: currentColor; flex-shrink: 0; }
 
 /* kontakt */
