@@ -162,12 +162,29 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 
 /* puste miejsce „wkrótce” */
 .wkrotce { background: #fff; border: 2px dashed var(--orange-md); border-radius: 24px; padding: 3.5rem 2rem; text-align: center; max-width: 720px; margin: 0 auto; }
-.wkrotce span { display: block; font-size: 3rem; margin-bottom: .6rem; }
+.wkrotce > span { display: block; font-size: 3rem; margin-bottom: .6rem; }
 .wkrotce h3 { font-size: 1.6rem; margin-bottom: .5rem; }
 .wkrotce p { color: var(--muted); }
 .wkrotce .btn { margin-top: 1.4rem; }
 .feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
 .feed:empty { display: none; }
+/* Facebook Page Plugin w ramce „Bądźmy w kontakcie” */
+.fb-ramka { max-width: 500px; margin: 2.4rem auto 0; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px var(--orange-md), 0 14px 34px rgba(234,88,12,.12); text-align: left; }
+.fb-ramka-head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .85rem 1.1rem; background: linear-gradient(90deg, var(--orange), var(--orange-dk)); color: #fff; }
+.fb-ramka-tytul { display: inline-flex; align-items: center; gap: .55rem; font-weight: 600; }
+.fb-ramka-tytul svg { width: 1.2em; height: 1.2em; fill: currentColor; flex-shrink: 0; }
+.fb-ramka-head a { color: #fff; font-size: .9rem; font-weight: 600; padding: .3rem .8rem; border-radius: 999px; background: rgba(255,255,255,.18); white-space: nowrap; transition: background .2s; }
+.fb-ramka-head a:hover { background: rgba(255,255,255,.32); }
+/* --fb-ukryj: ile px nagłówka FB (Obserwuj / Udostępnij / liczba obserwujących) chowamy nad kartą.
+   Gdy wystaje kawałek nagłówka – zwiększ; gdy ucina górę pierwszego posta – zmniejsz.
+   Przycinamy dopiero po wyrenderowaniu (fb-xfbml-state="rendered"), więc link zapasowy zawsze jest widoczny. */
+.fb-wtyczka { --fb-ukryj: 80px; position: relative; overflow: hidden; min-height: 160px; background: var(--orange-lt); line-height: 0; }
+.fb-wtyczka .fb-page[fb-xfbml-state="rendered"] { margin-top: calc(-1 * var(--fb-ukryj)); }
+.fb-wtyczka::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 36px; background: linear-gradient(rgba(255,255,255,0), #fff); pointer-events: none; }
+.fb-wtyczka .fb-page, .fb-wtyczka .fb-page > span, .fb-wtyczka iframe { display: block !important; width: 100% !important; max-width: 100%; }
+.fb-wtyczka blockquote { line-height: 1.5; padding: 3.5rem 1rem; text-align: center; }
+.fb-wtyczka blockquote a { color: var(--orange-dk); font-weight: 600; }
+@media (max-width: 520px) { .wkrotce { padding: 2.5rem 1rem; } .fb-ramka { margin-top: 1.8rem; } }
 .social-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: .8rem; margin-top: 1.4rem; }
 .wkrotce .social-btns .btn { margin-top: 0; }
 .social-btns .btn { display: inline-flex; align-items: center; gap: .55rem; }
