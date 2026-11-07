@@ -7,7 +7,8 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 /* miejsce na pasek przewijania zawsze zarezerwowane — krótkie i długie strony mają nagłówek w tym samym miejscu */
 html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); line-height: 1.65; font-size: 17px; }
+/* rozmiar w rem: szanuje ustawienie czcionki w przeglądarce i rośnie razem z opcją „Większy tekst” (która powiększa html) */
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); line-height: 1.65; font-size: 1.0625rem; }
 a { color: inherit; text-decoration: none; }
 /* opis zdjęcia (alt) zostaje dla czytników ekranu, ale nie miga na ekranie w trakcie ładowania; w tym czasie widać spokojne tło */
 img { display: block; max-width: 100%; color: transparent; }
@@ -27,7 +28,7 @@ p + p { margin-top: 1rem; }
 
 /* nagłówek: logo po lewej, menu na środku, telefon po prawej */
 .site-header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
-.site-header .wrap { max-width: 1320px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 116px; }
+.site-header .wrap { max-width: 1320px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 116px; position: relative; }
 /* gdy brakuje miejsca, logo zmniejsza się proporcjonalnie zamiast spłaszczać */
 .site-header .logo { min-width: 80px; }
 .site-header .logo img { height: 100px; width: auto; object-fit: contain; object-position: left center; }
@@ -179,7 +180,8 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .akt-dzieje li > span { flex-shrink: 0; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--orange-lt); font-size: 1.45rem; }
 .akt-dzieje strong { display: block; color: var(--heading); font-size: 1.05rem; }
 .akt-dzieje small { display: block; color: var(--muted); font-size: .92rem; line-height: 1.4; }
-.akt-info .social-btns { margin-top: 0; align-self: flex-start; }
+/* w lewej kolumnie przyciski stoją obok siebie, a gdy kolumna jest za wąska (np. pół ekranu) – jeden pod drugim, nadal równej szerokości */
+.akt-info .social-btns { margin-top: 0; align-self: stretch; display: grid; grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); max-width: 40rem; }
 .akt-fb .fb-ramka { margin: 0; max-width: none; }
 @media (max-width: 900px) {
   .akt-uklad { grid-template-columns: 1fr; gap: 2.5rem; }
@@ -260,19 +262,33 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 /* panel dostępności */
 .a11y-btn { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--heading); color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
 .a11y-btn:hover { background: var(--orange-dk); }
-.a11y-panel { position: fixed; right: 1.2rem; top: calc(116px + .6rem); z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
+.a11y-btn { display: grid; place-items: center; padding: 0; }
+.a11y-btn svg { width: 62%; height: 62%; fill: currentColor; }
+.a11y-btn[aria-expanded="true"] { background: var(--orange-dk); }
+/* panel rozwija się tuż pod przyciskiem (prawa krawędź równo z przyciskiem, strzałka wskazuje przycisk) */
+.a11y-panel { position: absolute; right: 1.5rem; top: calc(50% + 23px + .7rem); z-index: 60; width: 260px; background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
+.a11y-panel::before { content: ""; position: absolute; top: -7px; right: 16px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); border-radius: 3px 0 0 0; }
 .a11y-panel.open { display: block; }
 .site-header .a11y-btn { position: static; flex-shrink: 0; width: 46px; height: 46px; font-size: 1.35rem; box-shadow: none; }
 .a11y-panel h3 { font-size: 1.1rem; margin-bottom: .6rem; }
 .a11y-panel button { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: .95rem; text-align: left; padding: .6rem .8rem; margin-bottom: .4rem; border-radius: 10px; border: 1px solid var(--border); background: #fff; color: var(--text); cursor: pointer; }
 .a11y-panel button[aria-pressed="true"] { background: var(--orange-lt); border-color: var(--orange); color: var(--orange-dk); font-weight: 600; }
 .a11y-panel .a11y-reset { justify-content: center; background: var(--cream); margin: .4rem 0 0; }
+.a11y-panel button > span { display: inline-flex; gap: .55rem; align-items: center; }
+/* stała kolumna na ikonę – tekst w każdym wierszu zaczyna się w tym samym miejscu */
+.a11y-panel button > span > span { flex: 0 0 1.4em; text-align: center; }
 
-body.a11y-large-text { font-size: 20px; }
-body.a11y-spacing { line-height: 2; letter-spacing: .03em; word-spacing: .12em; }
-body.a11y-links a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
-body.a11y-contrast { --heading: #000; --text: #000; --muted: #222; --cream: #fff; --orange-dk: #9a3412; --orange: #c2410c; }
-body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-footer, body.a11y-contrast .godziny { background: #000; }
+/* opcje panelu: klasy na <html> (ustawiane już w <head>, więc strona nie przeskakuje po wczytaniu) */
+html.a11y-large-text { font-size: 125%; }
+/* przy większym tekście menu zostaje w jednej linii nagłówka */
+/* nagłówek zostaje w dotychczasowym rozmiarze (wartości = zwykłe ÷ 1,25), inaczej menu, telefon i przycisk dostępności nie mieszczą się w jednej linii */
+@media (min-width: 1001px) { html.a11y-large-text .site-header nav { font-size: .736rem; } html.a11y-large-text .tel { font-size: .624rem; } html.a11y-large-text .tel strong { font-size: .84rem; } }
+html.a11y-spacing body { line-height: 2; letter-spacing: .06em; word-spacing: .16em; }
+html.a11y-spacing p + p { margin-top: 1.6rem; }
+html.a11y-links a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
+html.a11y-contrast { --heading: #000; --text: #000; --muted: #222; --cream: #fff; --orange-dk: #9a3412; --orange: #c2410c; --border: #6b7280; }
+html.a11y-contrast .uslugi, html.a11y-contrast .plan, html.a11y-contrast .site-footer, html.a11y-contrast .godziny { background: #000; }
+html.a11y-contrast .site-footer { color: #fff; }
 
 @media (max-width: 1260px) {
   .tel { display: none; }
@@ -287,7 +303,8 @@ body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-f
   .site-header .wrap { gap: .6rem; }
   /* przycisk dostępności zjeżdża w prawy dolny róg, żeby nie ściskać nagłówka; panel otwiera się nad nim */
   .site-header .a11y-btn { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); width: 56px; height: 56px; font-size: 1.6rem; box-shadow: 0 8px 22px rgba(0,0,0,.25); }
-  .a11y-panel { top: auto; right: 1rem; bottom: calc(1rem + 56px + .6rem + env(safe-area-inset-bottom)); max-width: calc(100vw - 2rem); max-height: calc(100vh - 160px); overflow-y: auto; }
+  .a11y-panel { position: fixed; top: auto; right: 1rem; bottom: calc(1rem + 56px + .6rem + env(safe-area-inset-bottom)); max-width: calc(100vw - 2rem); max-height: calc(100vh - 160px); overflow-y: auto; }
+  .a11y-panel::before { display: none; }
   /* stopka kończy się nad przyciskiem, żeby nie zasłaniał ostatniej linijki */
   .site-footer { padding-bottom: 5.5rem; }
   .site-header nav { display: none; position: absolute; top: 116px; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.08); font-size: 1.05rem; }
@@ -340,4 +357,11 @@ body.a11y-contrast .uslugi, body.a11y-contrast .plan, body.a11y-contrast .site-f
   .galeria { grid-template-columns: 1fr; grid-auto-rows: 240px; }
   .galeria a.duze, .galeria a.szerokie { grid-column: auto; grid-row: auto; }
   .kolaz { grid-template-rows: 130px 130px; }
+}
+
+/* systemowe „ogranicz animacje”: bez płynnego przewijania, przejść i unoszenia kart (loader FB ma własną, wolniejszą wersję) */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; }
+  .trzy .dla-kol:hover, a.karta:hover, .galeria a:hover img { transform: none; }
 }
