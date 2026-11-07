@@ -312,7 +312,8 @@ html.a11y-contrast .site-footer { border-top: 2px solid #ff0; }
 html.a11y-contrast a:hover, html.a11y-contrast button:not(:disabled):hover, html.a11y-contrast .btn:hover,
 html.a11y-contrast .a11y-btn, html.a11y-contrast .a11y-panel button[aria-pressed="true"] { background-color: #ff0 !important; color: #000 !important; }
 /* menu: bez podkreślenia, aktualna strona – gruba linia; karty, które są w całości linkiem, bez podkreślenia całego tekstu */
-html.a11y-contrast .site-header nav a, html.a11y-contrast .tel, html.a11y-contrast .logo { text-decoration: none; border-bottom-color: transparent !important; }
+html.a11y-contrast .site-header nav a, html.a11y-contrast .logo { text-decoration: none; border-bottom-color: transparent !important; }
+html.a11y-contrast .tel { text-decoration: none; }
 html.a11y-contrast .site-header nav a:hover { text-decoration: underline; }
 html.a11y-contrast .site-header nav a[aria-current="page"] { border-bottom: 3px solid #ff0 !important; }
 html.a11y-contrast a.karta, html.a11y-contrast a.dla-kol { text-decoration: none; }
