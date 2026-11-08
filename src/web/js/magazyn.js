@@ -23,9 +23,9 @@
     wezly.forEach(n => {
       n.nodeValue = n.nodeValue
         .replace(/(?<=^|[\s(„])([aiouwzAIOUWZ]) /g, '$1 ')
-        .replace(/ ([–—])/g, ' $1');
+        .replace(/ ([–—]|-(?=\s))/g, ' $1');
     });
-    // sklejamy tylko w tekście (nie w nagłówkach — tam działa text-wrap: balance) i tylko krótkie ostatnie słowo,
+    // sklejamy tylko w tekście (nie w nagłówkach - tam działa text-wrap: balance) i tylko krótkie ostatnie słowo,
     // inaczej na telefonie powstaje za szeroki, nierozerwalny kawałek i strona wychodzi poza ekran
     const ostatni = wezly.reverse().find(n => n.nodeValue.trim());
     if (ostatni && !/^H[1-3]$/.test(el.tagName)) ostatni.nodeValue = ostatni.nodeValue.replace(/ (\S{1,10}\s*)$/, ' $1');
