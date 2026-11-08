@@ -24,6 +24,56 @@
     if (ostatni && !/^H[1-3]$/.test(el.tagName)) ostatni.nodeValue = ostatni.nodeValue.replace(/ (\S{1,10}\s*)$/, ' $1');
   });
 
+  const galeria = document.querySelector('.galeria');
+  if (galeria && window.HTMLDialogElement) {
+    const linki = [...galeria.querySelectorAll('a')];
+    const okno = document.createElement('dialog');
+    okno.className = 'lightbox';
+    okno.setAttribute('aria-label', 'Powiększone zdjęcie');
+    okno.innerHTML = '<figure><img alt=""/><figcaption><span class="lb-opis"></span><span class="lb-licznik"></span></figcaption></figure>' +
+      '<button type="button" class="lb-zamknij" aria-label="Zamknij">✕</button>' +
+      '<button type="button" class="lb-strzalka lb-poprz" aria-label="Poprzednie zdjęcie">‹</button>' +
+      '<button type="button" class="lb-strzalka lb-nast" aria-label="Następne zdjęcie">›</button>';
+    document.body.append(okno);
+    const obraz = okno.querySelector('img');
+    const opis = okno.querySelector('.lb-opis');
+    const licznik = okno.querySelector('.lb-licznik');
+    let nr = 0;
+    const pokaz = i => {
+      nr = (i + linki.length) % linki.length;
+      const alt = linki[nr].querySelector('img').alt;
+      obraz.src = linki[nr].href;
+      obraz.alt = alt;
+      opis.textContent = alt;
+      licznik.textContent = `${nr + 1} / ${linki.length}`;
+      [nr - 1, nr + 1].forEach(j => { new Image().src = linki[(j + linki.length) % linki.length].href; });
+    };
+    linki.forEach((a, i) => a.addEventListener('click', e => {
+      e.preventDefault();
+      pokaz(i);
+      okno.showModal();
+    }));
+    okno.querySelector('.lb-poprz').addEventListener('click', () => pokaz(nr - 1));
+    okno.querySelector('.lb-nast').addEventListener('click', () => pokaz(nr + 1));
+    okno.querySelector('.lb-zamknij').addEventListener('click', () => okno.close());
+    okno.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft') pokaz(nr - 1);
+      if (e.key === 'ArrowRight') pokaz(nr + 1);
+    });
+    okno.addEventListener('click', e => {
+      if (e.target === okno || e.target.tagName === 'FIGURE') okno.close();
+    });
+    let startX = null;
+    okno.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+    okno.addEventListener('touchend', e => {
+      if (startX === null) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      if (Math.abs(dx) > 50) pokaz(nr + (dx < 0 ? 1 : -1));
+      startX = null;
+    });
+    okno.addEventListener('close', () => setTimeout(() => linki[nr].focus()));
+  }
+
   const OPCJE = [
     { id: 'large-text', ikona: '🔤', nazwa: 'Większy tekst' },
     { id: 'contrast',   ikona: '◑',  nazwa: 'Wysoki kontrast' },

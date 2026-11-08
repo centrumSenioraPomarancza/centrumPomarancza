@@ -135,6 +135,29 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .galeria a:hover img { transform: scale(1.04); }
 .galeria a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 .galeria-dopisek { margin-top: 2.2rem; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.25rem; color: var(--orange-dk); }
+html:has(.lightbox[open]) { overflow: hidden; }
+.lightbox { width: 100%; height: 100%; max-width: none; max-height: none; border: 0; background: rgba(28, 18, 10, .95); color: #fff; overflow: hidden; }
+.lightbox[open] { display: flex; align-items: center; justify-content: center; }
+.lightbox::backdrop { background: rgba(28, 18, 10, .95); }
+.lightbox figure { display: flex; flex-direction: column; align-items: center; gap: .8rem; max-width: 100%; padding: 1rem 5.5rem; }
+.lightbox img { width: auto; max-width: 100%; max-height: calc(100vh - 7rem); max-height: calc(100dvh - 7rem); border-radius: 12px; background: none; }
+.lightbox figcaption { display: flex; flex-wrap: wrap; justify-content: center; gap: .3rem 1.2rem; font-size: 1.05rem; text-align: center; }
+.lb-licznik { color: var(--orange-md); font-weight: 600; white-space: nowrap; }
+.lightbox button { position: absolute; display: grid; place-items: center; width: 3.5rem; height: 3.5rem; border: 0; border-radius: 50%; background: var(--orange); color: #fff; font: 600 2.2rem/1 'Inter', sans-serif; cursor: pointer; box-shadow: 0 4px 14px rgba(0,0,0,.3); }
+.lightbox button:hover { background: var(--orange-dk); }
+.lightbox button:focus-visible { outline: 3px solid #fff; outline-offset: 3px; }
+.lightbox .lb-zamknij { top: 1rem; right: 1rem; font-size: 1.5rem; }
+.lb-strzalka { top: 50%; transform: translateY(-50%); padding-bottom: .25rem; }
+.lb-poprz { left: 1rem; }
+.lb-nast { right: 1rem; }
+@media (max-width: 700px) {
+  .lightbox figure { padding: 4.5rem .75rem 5.5rem; }
+  .lightbox img { max-height: calc(100vh - 13rem); max-height: calc(100dvh - 13rem); }
+  .lb-strzalka { top: auto; bottom: 1rem; transform: none; }
+  .lb-poprz { left: calc(50% - 4.25rem); }
+  .lb-nast { right: calc(50% - 4.25rem); }
+}
+html.a11y-contrast .lightbox button { border: 2px solid #ff0; }
 
 .wkrotce { background: #fff; border: 2px dashed var(--orange-md); border-radius: 24px; padding: 3.5rem 2rem; text-align: center; max-width: 720px; margin: 0 auto; }
 .wkrotce > span { display: block; font-size: 3rem; margin-bottom: .6rem; }
