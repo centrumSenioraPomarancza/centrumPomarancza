@@ -30,22 +30,17 @@
     const okno = document.createElement('dialog');
     okno.className = 'lightbox';
     okno.setAttribute('aria-label', 'Powiększone zdjęcie');
-    okno.innerHTML = '<figure><img alt=""/><figcaption><span class="lb-opis"></span><span class="lb-licznik"></span></figcaption></figure>' +
+    okno.innerHTML = '<figure><img alt=""/></figure>' +
       '<button type="button" class="lb-zamknij" aria-label="Zamknij">✕</button>' +
       '<button type="button" class="lb-strzalka lb-poprz" aria-label="Poprzednie zdjęcie">‹</button>' +
       '<button type="button" class="lb-strzalka lb-nast" aria-label="Następne zdjęcie">›</button>';
     document.body.append(okno);
     const obraz = okno.querySelector('img');
-    const opis = okno.querySelector('.lb-opis');
-    const licznik = okno.querySelector('.lb-licznik');
     let nr = 0;
     const pokaz = i => {
       nr = (i + linki.length) % linki.length;
-      const alt = linki[nr].querySelector('img').alt;
+      obraz.alt = linki[nr].querySelector('img').alt;
       obraz.src = linki[nr].href;
-      obraz.alt = alt;
-      opis.textContent = alt;
-      licznik.textContent = `${nr + 1} / ${linki.length}`;
       [nr - 1, nr + 1].forEach(j => { new Image().src = linki[(j + linki.length) % linki.length].href; });
     };
     linki.forEach((a, i) => a.addEventListener('click', e => {
