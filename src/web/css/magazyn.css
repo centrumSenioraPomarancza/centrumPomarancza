@@ -1,16 +1,11 @@
-/* Centrum Seniora Pomarańcza - styl „Magazyn”: kremowe tło, Playfair + Inter, zdjęcia obok tekstu (napis nigdy nie leży na całym zdjęciu).
-   Pomarańcz zawsze jest głównym akcentem - kolory strony są w zmiennych poniżej. */
 :root {
   --orange: #f97316; --orange-dk: #ea580c; --orange-md: #fdba74; --orange-lt: #fff7ed;
   --heading: #2f3640; --text: #1f2937; --muted: #6b7280; --border: #e5e7eb; --cream: #fbf6ea;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-/* miejsce na pasek przewijania zawsze zarezerwowane - krótkie i długie strony mają nagłówek w tym samym miejscu */
 html { scroll-behavior: smooth; scrollbar-gutter: stable; }
-/* rozmiar w rem: szanuje ustawienie czcionki w przeglądarce i rośnie razem z opcją „Większy tekst” (która powiększa html) */
 body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--cream); line-height: 1.65; font-size: 1.0625rem; }
 a { color: inherit; text-decoration: none; }
-/* opis zdjęcia (alt) zostaje dla czytników ekranu, ale nie miga na ekranie w trakcie ładowania; w tym czasie widać spokojne tło */
 img { display: block; max-width: 100%; color: transparent; }
 main img { background: #efe8da; }
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
@@ -26,14 +21,11 @@ p + p { margin-top: 1rem; }
 .skip:focus { left: .5rem; }
 :focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 
-/* nagłówek: logo po lewej, menu na środku, telefon po prawej */
 .site-header { background: #fff; border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 50; }
 .site-header .wrap { max-width: 1320px; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; height: 116px; position: relative; }
-/* gdy brakuje miejsca, logo zmniejsza się proporcjonalnie zamiast spłaszczać */
 .site-header .logo { min-width: 80px; }
 .site-header .logo img { height: 100px; width: auto; object-fit: contain; object-position: left center; }
 .site-header nav { display: flex; align-items: center; gap: 1.4rem; font-weight: 500; font-size: .92rem; line-height: 1.25; white-space: nowrap; }
-/* dłuższe nazwy zakładek w dwóch wierszach */
 .site-header nav a span { display: block; text-align: center; }
 .site-header nav a { padding: .3rem 0; border-bottom: 2px solid transparent; }
 .site-header nav a:hover { color: var(--orange-dk); }
@@ -42,7 +34,6 @@ p + p { margin-top: 1rem; }
 .tel strong { font-size: 1.05rem; color: var(--orange-dk); }
 .menu-btn { display: none; white-space: nowrap; background: none; border: 2px solid var(--border); border-radius: 12px; padding: .5rem .8rem; font: inherit; font-weight: 600; color: var(--heading); cursor: pointer; }
 
-/* hero strony głównej: szerokie zdjęcie widoczne w całości, niska karta z tekstem nachodzi tylko na jego dolny skraj */
 .hero { padding: 2.5rem 0 2.5rem; }
 .hero-zdjecie { width: 100%; aspect-ratio: 2048/768; object-fit: cover; border-radius: 28px; }
 .hero-karta { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 1rem 3rem; align-items: center; background: #fff; border-radius: 22px; padding: 1.6rem 2.4rem; margin: -2.5rem 2.5rem 0; box-shadow: 0 18px 40px rgba(0,0,0,.1); }
@@ -52,7 +43,6 @@ p + p { margin-top: 1rem; }
 .hero-q { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-style: italic; }
 .hero p.sub { font-size: 1.1rem; }
 
-/* hero podstron: tytuł obok mniejszego zdjęcia w łuku */
 .page-hero { padding: 3.5rem 0 4rem; border-bottom: 1px solid var(--border); }
 .page-hero .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: center; }
 .page-hero h1 { font-size: 3rem; margin: .3rem 0 1rem; }
@@ -60,30 +50,25 @@ p + p { margin-top: 1rem; }
 .page-hero p.sub { font-size: 1.15rem; color: var(--muted); max-width: 560px; }
 .page-hero img { border-radius: 160px 160px 20px 20px; aspect-ratio: 5/4; object-fit: cover; width: 100%; }
 
-/* pasek usług */
 .uslugi { background: var(--heading); color: #fff; }
 .uslugi .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
 .uslugi div { padding: 1.4rem 1rem; text-align: center; font-weight: 500; border-right: 1px solid rgba(255,255,255,.12); }
 .uslugi div:last-child { border-right: 0; }
 .uslugi span { display: block; font-size: 1.5rem; }
 
-/* sekcje */
 .sekcja { padding: 5.5rem 0; }
-.sekcja.krem { background: var(--cream); } /* tło „Miód”: całe tło strony w jednym kolorze */
+.sekcja.krem { background: var(--cream); }
 .sekcja.pod-hero { padding-top: 3.5rem; }
 .sekcja-head { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
 .sekcja-head h2 { font-size: 2.4rem; }
 .sekcja-head p { color: var(--muted); margin-top: .8rem; }
 .sekcja-head.szeroka { max-width: 920px; }
-/* bez pojedynczych słów w ostatnim wierszu (wspiera to też skrypt w magazyn.js) */
 p, li, figcaption { text-wrap: pretty; }
 h1, h2, h3 { text-wrap: balance; }
-/* zabezpieczenie: długi wyraz łamie się zamiast wypychać stronę poza ekran telefonu */
 h1, h2, h3, p { overflow-wrap: break-word; }
 .rozklad > *, .page-hero .wrap > * { min-width: 0; }
 .lead { font-size: 1.2rem; max-width: 760px; margin: 0 auto 3rem; text-align: center; }
 
-/* rozkładówka: tekst + kolaż */
 .rozklad { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
 .rozklad h2 { font-size: 2.2rem; margin-bottom: 1.2rem; }
 .rozklad .btn { margin-top: 1.6rem; }
@@ -93,11 +78,9 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .kolaz img:first-child { grid-row: span 2; }
 .foto-luk img { border-radius: 24px 24px 200px 200px; aspect-ratio: 4/5; object-fit: cover; width: 100%; }
 
-/* karty z listą „✓” */
 .dla { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 .dla-kol { background: #fff; border-radius: 20px; padding: 2.4rem; border-top: 5px solid var(--orange); }
 .dla-kol h3 { font-size: 1.6rem; margin-bottom: 1rem; }
-/* trzy karty-linki pod hero strony głównej */
 .trzy { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
 .trzy .dla-kol { display: block; padding: 2rem; transition: transform .2s, box-shadow .2s; }
 .trzy .dla-kol:hover { transform: translateY(-3px); box-shadow: 0 12px 28px rgba(0,0,0,.08); }
@@ -108,11 +91,9 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .lista li:last-child { border-bottom: 0; }
 .lista li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 
-/* cytat */
 .cytat { max-width: 820px; margin: 0 auto; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.9rem; line-height: 1.35; color: var(--heading); }
 .cytat::before { content: '”'; display: block; font-size: 4.5rem; line-height: 1; height: 2.6rem; color: var(--orange); }
 
-/* karty ze zdjęciami (podpis pod zdjęciem, nie na nim) */
 .karty { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
 .karta { background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05); transition: transform .2s, box-shadow .2s; }
 a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,.1); }
@@ -122,7 +103,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .karta p { color: var(--muted); font-size: .95rem; }
 .karta .wiecej { display: inline-block; margin-top: .8rem; color: var(--orange-dk); font-weight: 600; font-size: .92rem; }
 
-/* plan dnia: oś czasu na ciemnym tle */
 .plan { background: var(--heading); color: #fff; }
 .plan h2 { color: #fff; }
 .plan .tag { color: var(--orange-md); }
@@ -133,7 +113,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .os div::after { content: ''; position: absolute; left: 50%; top: 2.55rem; width: 14px; height: 14px; margin-left: -7px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 0 4px var(--heading); }
 .os span { display: block; margin-top: 1.6rem; font-size: .95rem; color: #e5e7eb; }
 
-/* galeria mieszkań: jedno duże zdjęcie + siatka, podpisy pod zdjęciami */
 .fotki { display: grid; grid-template-columns: repeat(6, 1fr); gap: 1.4rem; }
 .fotki figure { grid-column: span 2; }
 .fotki figure:nth-child(n+4) { grid-column: span 3; }
@@ -144,12 +123,10 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .fotki figure:first-child img { aspect-ratio: auto; height: calc(100% - 5.5rem); min-height: 300px; }
 .fotki figcaption { padding: 1rem 1.2rem 1.2rem; font-size: .92rem; color: var(--muted); }
 .fotki figcaption strong { display: block; font-family: 'Playfair Display', serif; font-size: 1.15rem; color: var(--heading); margin-bottom: .2rem; }
-/* wariant z czterema równymi zdjęciami (rehabilitacja) */
 .fotki.cztery { grid-template-columns: repeat(4, 1fr); }
 .fotki.cztery figure { grid-column: auto; grid-row: auto; }
 .fotki.cztery figure img { aspect-ratio: 3/2; height: auto; min-height: 0; }
 
-/* galeria: kafle o stałej wysokości, jedno duże zdjęcie i dwa szerokie */
 .galeria { display: grid; grid-template-columns: repeat(3, 1fr); grid-auto-rows: 260px; grid-auto-flow: dense; gap: 1.2rem; }
 .galeria a { display: block; border-radius: 18px; overflow: hidden; box-shadow: 0 2px 10px rgba(0,0,0,.05); }
 .galeria a.duze { grid-column: span 2; grid-row: span 2; }
@@ -159,7 +136,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .galeria a:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
 .galeria-dopisek { margin-top: 2.2rem; text-align: center; font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.25rem; color: var(--orange-dk); }
 
-/* puste miejsce „wkrótce” */
 .wkrotce { background: #fff; border: 2px dashed var(--orange-md); border-radius: 24px; padding: 3.5rem 2rem; text-align: center; max-width: 720px; margin: 0 auto; }
 .wkrotce > span { display: block; font-size: 3rem; margin-bottom: .6rem; }
 .wkrotce h3 { font-size: 1.6rem; margin-bottom: .5rem; }
@@ -167,8 +143,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .wkrotce .btn { margin-top: 1.4rem; }
 .feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
 .feed:empty { display: none; }
-/* Aktualności, dwie kolumny. Lewa kolumna rozciąga się do wysokości karty FB: nagłówek u góry, przyciski i telefon u dołu,
-   ramka z listą wypełnia środek, a jej punkty rozkładają się równo w pionie. */
 .akt-uklad { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 460px); gap: 3.5rem; align-items: stretch; }
 .akt-info { display: flex; flex-direction: column; }
 .akt-info h2 { font-size: 2.4rem; margin-bottom: .8rem; }
@@ -180,7 +154,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .akt-dzieje li > span { flex-shrink: 0; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; background: var(--orange-lt); font-size: 1.45rem; }
 .akt-dzieje strong { display: block; color: var(--heading); font-size: 1.05rem; }
 .akt-dzieje small { display: block; color: var(--muted); font-size: .92rem; line-height: 1.4; }
-/* w lewej kolumnie przyciski stoją obok siebie, a gdy kolumna jest za wąska (np. pół ekranu) – jeden pod drugim, nadal równej szerokości */
 .akt-info .social-btns { margin-top: 0; align-self: stretch; display: grid; grid-auto-flow: row; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); max-width: 40rem; }
 .akt-fb .fb-ramka { margin: 0; max-width: none; }
 @media (max-width: 900px) {
@@ -193,17 +166,12 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
   .akt-dzieje li { padding: .7rem 0; }
 }
 
-/* Facebook Page Plugin – karta z pomarańczowym paskiem */
 .fb-ramka { max-width: 500px; margin: 2.4rem auto 0; background: #fff; border-radius: 18px; overflow: hidden; box-shadow: 0 0 0 1px var(--orange-md), 0 14px 34px rgba(234,88,12,.12); text-align: left; }
 .fb-ramka-head { display: flex; align-items: center; justify-content: space-between; gap: .8rem; padding: .85rem 1.1rem; background: linear-gradient(90deg, var(--orange), var(--orange-dk)); color: #fff; }
 .fb-ramka-tytul { display: inline-flex; align-items: center; gap: .55rem; font-weight: 600; }
 .fb-ramka-tytul svg { width: 1.2em; height: 1.2em; fill: currentColor; flex-shrink: 0; }
 .fb-ramka-head a { color: #fff; font-size: .9rem; font-weight: 600; padding: .3rem .8rem; border-radius: 999px; background: rgba(255,255,255,.18); white-space: nowrap; transition: background .2s; }
 .fb-ramka-head a:hover { background: rgba(255,255,255,.32); }
-/* --fb-ukryj: ile px nagłówka FB (Obserwuj / Udostępnij / liczba obserwujących) chowamy nad kartą.
-   Gdy wystaje kawałek nagłówka – zwiększ; gdy ucina górę pierwszego posta – zmniejsz.
-   Przycinamy dopiero po wyrenderowaniu (fb-xfbml-state="rendered"), więc link zapasowy zawsze jest widoczny. */
-/* --fb-wys = data-height z aktualnosci.html (zmieniać razem!). Ramka od razu ma docelową wysokość (wys − ukryty nagłówek), więc nic nie skacze przy wczytywaniu. */
 .fb-wtyczka { --fb-ukryj: 80px; --fb-wys: 720px; position: relative; overflow: hidden; height: calc(var(--fb-wys) - var(--fb-ukryj)); background: var(--orange-lt); line-height: 0; }
 .fb-wtyczka .fb-page[fb-xfbml-state="rendered"] { margin-top: calc(-1 * var(--fb-ukryj)); }
 .fb-wtyczka::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 36px; background: linear-gradient(rgba(255,255,255,0), #fff); pointer-events: none; }
@@ -211,8 +179,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"]) { display: flex !important; height: 100%; align-items: center; justify-content: center; }
 .fb-wtyczka blockquote { line-height: 1.5; padding: 1rem; text-align: center; }
 .fb-wtyczka blockquote a { color: var(--orange-dk); font-weight: 600; }
-/* Loader do czasu wyrenderowania wtyczki. Jeśli FB nie wczyta się w 10 s (adblock, brak sieci),
-   loader znika i pojawia się link zapasowy do strony na Facebooku. */
 .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"]) { position: relative; }
 .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { content: ""; position: absolute; top: 50%; left: 50%; width: 46px; height: 46px; margin: -44px 0 0 -23px; border-radius: 50%; border: 4px solid var(--orange-md); border-top-color: var(--orange-dk); animation: fb-kreci .9s linear infinite, fb-znika .3s 10s forwards; }
 .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::after { content: "Wczytujemy wpisy z Facebooka…"; position: absolute; top: 50%; left: 0; right: 0; margin-top: 18px; text-align: center; line-height: 1.4; font-size: .95rem; color: var(--muted); animation: fb-znika .3s 10s forwards; }
@@ -222,7 +188,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 @keyframes fb-pojawia { to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { animation-duration: 2.4s, .3s; } }
 @media (max-width: 520px) { .wkrotce { padding: 2.5rem 1rem; } .fb-ramka { margin-top: 1.8rem; } }
-/* przyciski FB / IG: równa szerokość (szerokość dłuższego) i równa wysokość */
 .social-btns { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: .8rem; margin-top: 1.4rem; }
 .wkrotce .social-btns .btn { margin-top: 0; }
 .social-btns .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; white-space: nowrap; }
@@ -231,7 +196,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 @media (max-width: 560px) { .social-btns { display: grid; grid-auto-flow: row; } .social-btns .btn { white-space: normal; } }
 .social-btns svg { width: 1.25em; height: 1.25em; fill: currentColor; flex-shrink: 0; }
 
-/* kontakt */
 .kontakt-karty { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
 .k-karta { background: #fff; border-radius: 20px; padding: 2rem; border-top: 5px solid var(--orange); }
 .k-karta span { font-size: 1.8rem; }
@@ -241,7 +205,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .mapa { margin-top: 1.6rem; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
 .mapa iframe { display: block; width: 100%; height: 380px; border: 0; }
 
-/* pasek zaproszenia przed stopką */
 .zaproszenie { background: var(--orange); color: #fff; padding: 3rem 0; }
 .zaproszenie .wrap { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
 .zaproszenie h2 { color: #fff; font-size: 2rem; }
@@ -249,7 +212,6 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .zaproszenie .btn { background: #fff; color: var(--orange-dk); }
 .zaproszenie .btn:hover { background: var(--heading); color: #fff; }
 
-/* stopka */
 .site-footer { background: var(--heading); color: #cbd2d9; padding: 3.5rem 0 1.5rem; font-size: .92rem; }
 .stopka-kol { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.12); }
 .site-footer img { height: 100px; background: #fff; border-radius: 10px; padding: 6px; margin-bottom: 1rem; }
@@ -259,13 +221,11 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .site-footer strong { color: #fff; }
 .stopka-dol { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1.4rem; font-size: .82rem; }
 
-/* panel dostępności */
 .a11y-btn { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--heading); color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
 .a11y-btn:hover { background: var(--orange-dk); }
 .a11y-btn { display: grid; place-items: center; padding: 0; }
 .a11y-btn svg { width: 62%; height: 62%; fill: currentColor; }
 .a11y-btn[aria-expanded="true"] { background: var(--orange-dk); }
-/* panel rozwija się tuż pod przyciskiem (prawa krawędź równo z przyciskiem, strzałka wskazuje przycisk) */
 .a11y-panel { position: absolute; right: 1.5rem; top: calc(50% + 23px + .7rem); z-index: 60; min-width: 16.25rem; width: max-content; max-width: calc(100vw - 2rem); background: #fff; border-radius: 18px; padding: 1.1rem; box-shadow: 0 16px 40px rgba(0,0,0,.18); display: none; }
 .a11y-panel::before { content: ""; position: absolute; top: -7px; right: 16px; width: 14px; height: 14px; background: #fff; transform: rotate(45deg); border-radius: 3px 0 0 0; }
 .a11y-panel.open { display: block; }
@@ -273,34 +233,25 @@ a.karta:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,
 .a11y-panel h3 { font-size: 1.1rem; margin-bottom: .6rem; }
 .a11y-panel button { display: flex; justify-content: space-between; width: 100%; font: inherit; font-size: .95rem; text-align: left; padding: .6rem .8rem; margin-bottom: .4rem; border-radius: 10px; border: 1px solid var(--border); background: #fff; color: var(--text); cursor: pointer; }
 .a11y-panel button[aria-pressed="true"] { background: var(--orange-lt); border-color: var(--orange); color: var(--orange-dk); font-weight: 600; }
-/* reset: wygląda jak pozostałe przyciski, oddzielony linią; wyszarzony, gdy nic nie jest włączone */
 .a11y-panel .a11y-reset { margin: .7rem 0 0; position: relative; }
 .a11y-panel .a11y-reset::before { content: ""; position: absolute; left: 0; right: 0; top: calc(-.35rem - 1px); border-top: 1px solid var(--border); }
 .a11y-panel button:not(:disabled):hover { border-color: var(--orange); }
 .a11y-panel .a11y-reset:disabled { opacity: .45; cursor: default; }
 .a11y-panel button > span { display: inline-flex; gap: .55rem; align-items: center; white-space: nowrap; }
 @media (max-width: 400px) { .a11y-panel button > span { white-space: normal; } }
-/* stała kolumna na ikonę – tekst w każdym wierszu zaczyna się w tym samym miejscu */
 .a11y-panel button > span > span { flex: 0 0 1.4em; text-align: center; }
 
-/* opcje panelu: klasy na <html> (ustawiane już w <head>, więc strona nie przeskakuje po wczytaniu) */
 html.a11y-large-text { font-size: 125%; }
-/* przy większym tekście menu zostaje w jednej linii nagłówka */
-/* nagłówek zostaje w dotychczasowym rozmiarze (wartości = zwykłe ÷ 1,25), inaczej menu, telefon i przycisk dostępności nie mieszczą się w jednej linii */
 @media (min-width: 1001px) { html.a11y-large-text .site-header nav { font-size: .736rem; } html.a11y-large-text .tel { font-size: .624rem; } html.a11y-large-text .tel strong { font-size: .84rem; } }
 html.a11y-spacing body { line-height: 2; letter-spacing: .06em; word-spacing: .16em; }
 html.a11y-spacing p + p { margin-top: 1.6rem; }
-/* nagłówek bez rozstrzelenia liter, inaczej menu, telefon i przycisk dostępności nie mieszczą się w jednej linii */
 html.a11y-spacing .site-header { letter-spacing: normal; word-spacing: normal; line-height: 1.65; }
 html.a11y-links a:not(.btn) { text-decoration: underline; text-underline-offset: 3px; }
-/* Wysoki kontrast w najpopularniejszym wariancie (jak na stronach urzędów / BIP): żółty tekst na czarnym tle.
-   Zdjęcia, ikony SVG i ramki zewnętrzne (Facebook, mapa) zostają bez zmian. */
 html.a11y-contrast { --heading: #ff0; --text: #ff0; --muted: #ff0; --cream: #000; --border: #ff0; --orange: #ff0; --orange-dk: #ff0; --orange-md: #ff0; --orange-lt: #000; }
 html.a11y-contrast *:not(img):not(svg):not(path):not(circle):not(iframe) { background-color: #000 !important; background-image: none !important; color: #ff0 !important; border-color: #ff0 !important; box-shadow: none !important; text-shadow: none !important; }
 html.a11y-contrast *::before, html.a11y-contrast *::after { color: #ff0 !important; border-color: #ff0 !important; box-shadow: none !important; }
 html.a11y-contrast .fb-wtyczka::after { display: none; }
 html.a11y-contrast .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { border-color: #555 !important; border-top-color: #ff0 !important; }
-/* linki zawsze podkreślone, karty i przyciski z żółtą ramką zamiast cienia */
 html.a11y-contrast a { text-decoration: underline; text-underline-offset: 3px; }
 html.a11y-contrast .btn, html.a11y-contrast .menu-btn, html.a11y-contrast .fb-ramka-head a { border: 2px solid #ff0 !important; text-decoration: none; }
 html.a11y-contrast .karta, html.a11y-contrast .dla-kol, html.a11y-contrast .k-karta, html.a11y-contrast .akt-dzieje, html.a11y-contrast .fb-ramka,
@@ -308,20 +259,16 @@ html.a11y-contrast .hero-karta, html.a11y-contrast .wkrotce, html.a11y-contrast 
 html.a11y-contrast .fb-ramka-head { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-header, html.a11y-contrast .page-hero, html.a11y-contrast .zaproszenie, html.a11y-contrast .uslugi { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-footer { border-top: 2px solid #ff0; }
-/* najechanie i aktywne elementy: odwrócone kolory (czarny na żółtym) */
 html.a11y-contrast a:hover, html.a11y-contrast button:not(:disabled):hover, html.a11y-contrast .btn:hover,
 html.a11y-contrast .a11y-btn, html.a11y-contrast .a11y-panel button[aria-pressed="true"] { background-color: #ff0 !important; color: #000 !important; }
-/* menu: bez podkreślenia, aktualna strona – gruba linia; karty, które są w całości linkiem, bez podkreślenia całego tekstu */
 html.a11y-contrast .site-header nav a, html.a11y-contrast .logo { text-decoration: none; border-bottom-color: transparent !important; }
 html.a11y-contrast .tel { text-decoration: none; }
 html.a11y-contrast .site-header nav a:hover { text-decoration: underline; }
 html.a11y-contrast .site-header nav a[aria-current="page"] { border-bottom: 3px solid #ff0 !important; }
 html.a11y-contrast a.karta, html.a11y-contrast a.dla-kol { text-decoration: none; }
 html.a11y-contrast a.karta .wiecej, html.a11y-contrast a.dla-kol .wiecej { text-decoration: underline; }
-/* w odwróconych elementach wszystko w środku przejmuje czarny napis na żółtym (bez czarnych prostokątów pod tekstem) */
 html.a11y-contrast a:hover *, html.a11y-contrast button:not(:disabled):hover *, html.a11y-contrast .a11y-btn *, html.a11y-contrast .a11y-panel button[aria-pressed="true"] * { background-color: transparent !important; color: inherit !important; }
 html.a11y-contrast :focus-visible { outline: 3px solid #fff !important; outline-offset: 3px; }
-/* logo ma ciemny napis – dostaje jasne tło, żeby było czytelne */
 html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10px; padding: 4px; }
 
 @media (max-width: 1260px) {
@@ -329,17 +276,14 @@ html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10p
 }
 @media (max-width: 1000px) {
   .menu-btn { display: block; margin-left: auto; }
-  /* na wąskim ekranie telefon wraca jako mały przycisk obok menu */
   .tel { display: flex; margin-left: auto; border: 2px solid var(--orange-md); border-radius: 12px; padding: .45rem .8rem; }
   .tel > span { display: none; }
   .tel strong { font-size: .95rem; }
   .tel + .menu-btn { margin-left: 0; }
   .site-header .wrap { gap: .6rem; }
-  /* przycisk dostępności zjeżdża w prawy dolny róg, żeby nie ściskać nagłówka; panel otwiera się nad nim */
   .site-header .a11y-btn { position: fixed; right: 1rem; bottom: calc(1rem + env(safe-area-inset-bottom)); width: 56px; height: 56px; font-size: 1.6rem; box-shadow: 0 8px 22px rgba(0,0,0,.25); }
   .a11y-panel { position: fixed; top: auto; right: 1rem; bottom: calc(1rem + 56px + .6rem + env(safe-area-inset-bottom)); max-width: calc(100vw - 2rem); max-height: calc(100vh - 160px); overflow-y: auto; }
   .a11y-panel::before { display: none; }
-  /* stopka kończy się nad przyciskiem, żeby nie zasłaniał ostatniej linijki */
   .site-footer { padding-bottom: 5.5rem; }
   .site-header nav { display: none; position: absolute; top: 116px; left: 0; right: 0; background: #fff; flex-direction: column; gap: 0; padding: .5rem 1.5rem 1rem; border-bottom: 1px solid var(--border); box-shadow: 0 12px 24px rgba(0,0,0,.08); font-size: 1.05rem; }
   .site-header nav.open { display: flex; }
@@ -384,7 +328,6 @@ html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10p
 }
 @media (max-width: 520px) {
   .wrap { padding: 0 1rem; }
-  /* na wąskim telefonie „Zadzwoń do nas” → „Zadzwoń”, żeby nagłówek mieścił się w ekranie */
   .tel-dop { display: none; }
   .fotki, .fotki.cztery { grid-template-columns: 1fr; }
   .fotki figure:first-child { grid-column: auto; }
@@ -393,7 +336,6 @@ html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10p
   .kolaz { grid-template-rows: 130px 130px; }
 }
 
-/* systemowe „ogranicz animacje”: bez płynnego przewijania, przejść i unoszenia kart (loader FB ma własną, wolniejszą wersję) */
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { transition: none !important; }
