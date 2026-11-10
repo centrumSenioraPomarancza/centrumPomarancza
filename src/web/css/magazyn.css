@@ -43,7 +43,8 @@ p + p { margin-top: 1rem; }
 .hero-q { border-left: 3px solid var(--orange); padding-left: 1rem; color: var(--muted); font-style: italic; }
 .hero p.sub { font-size: 1.1rem; }
 
-.page-hero { padding: 3.5rem 0 4rem; border-bottom: 1px solid var(--border); }
+.page-hero { padding: 3.5rem 0 0; }
+.page-hero + .sekcja { padding-top: 3.5rem; }
 .page-hero .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: center; }
 .page-hero h1 { font-size: 3rem; margin: .3rem 0 1rem; }
 .page-hero h1 em { color: var(--orange); font-style: italic; }
@@ -290,7 +291,7 @@ html.a11y-contrast .btn, html.a11y-contrast .menu-btn, html.a11y-contrast .fb-ra
 html.a11y-contrast .karta, html.a11y-contrast .dla-kol, html.a11y-contrast .akt-dzieje, html.a11y-contrast .fb-ramka,
 html.a11y-contrast .hero-karta, html.a11y-contrast .godziny, html.a11y-contrast .a11y-panel, html.a11y-contrast .fotki figure { border: 2px solid #ff0; }
 html.a11y-contrast .fb-ramka-head { border-bottom: 2px solid #ff0; }
-html.a11y-contrast .site-header, html.a11y-contrast .page-hero, html.a11y-contrast .zaproszenie, html.a11y-contrast .uslugi { border-bottom: 2px solid #ff0; }
+html.a11y-contrast .site-header, html.a11y-contrast .zaproszenie, html.a11y-contrast .uslugi { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-footer { border-top: 2px solid #ff0; }
 html.a11y-contrast a:hover, html.a11y-contrast button:not(:disabled):hover, html.a11y-contrast .btn:hover,
 html.a11y-contrast .a11y-btn, html.a11y-contrast .a11y-panel button[aria-pressed="true"] { background-color: #ff0 !important; color: #000 !important; }
@@ -334,7 +335,9 @@ html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10p
   .zajecia-foto { position: static; order: -1; }
   .zajecia-foto img { height: auto; aspect-ratio: 4/3; }
   .zajecia-foto img:not(.duze) { display: none; }
-  .hero, .page-hero { padding: 2.5rem 0 3rem; }
+  .hero { padding: 2.5rem 0 3rem; }
+  .page-hero { padding: 2.5rem 0 0; }
+  .page-hero + .sekcja { padding-top: 2.5rem; }
   .hero { padding-bottom: 1.5rem; }
   .sekcja.pod-hero { padding-top: 2.5rem; }
   .page-hero .wrap, .rozklad, .dla { grid-template-columns: 1fr; gap: 2.5rem; }
