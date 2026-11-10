@@ -49,6 +49,7 @@ p + p { margin-top: 1rem; }
 .page-hero h1 em { color: var(--orange); font-style: italic; }
 .page-hero p.sub { font-size: 1.15rem; color: var(--muted); max-width: 560px; }
 .page-hero img { border-radius: 160px 160px 20px 20px; aspect-ratio: 5/4; object-fit: cover; width: 100%; }
+.page-hero img.hero-logo { aspect-ratio: auto; object-fit: contain; border-radius: 0; max-width: 240px; justify-self: center; }
 
 .uslugi { background: var(--heading); color: #fff; }
 .uslugi .wrap { display: grid; grid-template-columns: repeat(4, 1fr); }
@@ -70,12 +71,15 @@ h1, h2, h3, p { overflow-wrap: break-word; }
 .lead { font-size: 1.2rem; max-width: 760px; margin: 0 auto 3rem; text-align: center; }
 
 .rozklad { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.rozklad.od-gory { align-items: start; }
 .rozklad h2 { font-size: 2.2rem; margin-bottom: 1.2rem; }
+.rozklad h3 { font-size: 1.4rem; margin: 1.6rem 0 .6rem; }
 .rozklad .btn { margin-top: 1.6rem; }
 .rozklad-foto { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 20px; }
 .kolaz { display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px; gap: 1rem; }
 .kolaz img { width: 100%; height: 100%; object-fit: cover; border-radius: 16px; }
 .kolaz img:first-child { grid-row: span 2; }
+.foto-pojedyncze { width: 100%; aspect-ratio: 3/2; object-fit: cover; border-radius: 20px; }
 .foto-luk img { border-radius: 24px 24px 200px 200px; aspect-ratio: 4/5; object-fit: cover; width: 100%; }
 
 .dla { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -157,11 +161,6 @@ html:has(.lightbox[open]) { overflow: hidden; }
 }
 html.a11y-contrast .lightbox button { border: 2px solid #ff0; }
 
-.wkrotce { background: #fff; border: 2px dashed var(--orange-md); border-radius: 24px; padding: 3.5rem 2rem; text-align: center; max-width: 720px; margin: 0 auto; }
-.wkrotce > span { display: block; font-size: 3rem; margin-bottom: .6rem; }
-.wkrotce h3 { font-size: 1.6rem; margin-bottom: .5rem; }
-.wkrotce p { color: var(--muted); }
-.wkrotce .btn { margin-top: 1.4rem; }
 .feed { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.6rem; }
 .feed:empty { display: none; }
 .akt-uklad { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 460px); gap: 3.5rem; align-items: stretch; }
@@ -208,20 +207,21 @@ html.a11y-contrast .lightbox button { border: 2px solid #ff0; }
 @keyframes fb-znika { to { opacity: 0; visibility: hidden; } }
 @keyframes fb-pojawia { to { opacity: 1; } }
 @media (prefers-reduced-motion: reduce) { .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { animation-duration: 2.4s, .3s; } }
-@media (max-width: 520px) { .wkrotce { padding: 2.5rem 1rem; } .fb-ramka { margin-top: 1.8rem; } }
+@media (max-width: 520px) { .fb-ramka { margin-top: 1.8rem; } }
 .social-btns { display: inline-grid; grid-auto-flow: column; grid-auto-columns: 1fr; gap: .8rem; margin-top: 1.4rem; }
-.wkrotce .social-btns .btn { margin-top: 0; }
 .social-btns .btn { display: inline-flex; align-items: center; justify-content: center; gap: .55rem; white-space: nowrap; }
 .social-btns .btn-solid { border: 2px solid var(--orange); }
 .social-btns .btn-solid:hover { border-color: var(--orange-dk); }
 @media (max-width: 560px) { .social-btns { display: grid; grid-auto-flow: row; } .social-btns .btn { white-space: normal; } }
 .social-btns svg { width: 1.25em; height: 1.25em; fill: currentColor; flex-shrink: 0; }
 
-.kontakt-karty { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
-.k-karta { background: #fff; border-radius: 20px; padding: 2rem; border-top: 5px solid var(--orange); }
-.k-karta span { font-size: 1.8rem; }
-.k-karta h3 { font-size: 1.3rem; margin: .5rem 0 .3rem; }
-.k-karta a { color: var(--orange-dk); font-weight: 600; word-break: break-word; }
+.kontakt-info { max-width: 720px; }
+.kontakt-info .lead { margin: 0 0 .8rem; text-align: left; }
+.kontakt-lista { list-style: none; margin: 2rem 0 0; padding: 0; display: grid; gap: 1.4rem; }
+.kontakt-lista li { display: flex; gap: 1rem; align-items: flex-start; }
+.kontakt-lista span { font-size: 1.6rem; line-height: 1.2; }
+.kontakt-lista h3 { font-size: 1.15rem; margin-bottom: .15rem; }
+.kontakt-lista a { color: var(--orange-dk); font-weight: 600; word-break: break-word; }
 .godziny { margin-top: 1.6rem; background: var(--heading); color: #fff; border-radius: 20px; padding: 1.4rem 2rem; display: flex; gap: 1rem; align-items: center; justify-content: center; flex-wrap: wrap; font-size: 1.05rem; }
 .mapa { margin-top: 1.6rem; border-radius: 20px; overflow: hidden; border: 1px solid var(--border); }
 .mapa iframe { display: block; width: 100%; height: 380px; border: 0; }
@@ -234,13 +234,15 @@ html.a11y-contrast .lightbox button { border: 2px solid #ff0; }
 .zaproszenie .btn:hover { background: var(--heading); color: #fff; }
 
 .site-footer { background: var(--heading); color: #cbd2d9; padding: 3.5rem 0 1.5rem; font-size: .92rem; }
-.stopka-kol { display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.12); }
+.stopka-kol { display: grid; grid-template-columns: 1.3fr 1fr; gap: 2.5rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,.12); }
 .site-footer img { height: 100px; width: auto; background: #fff; border-radius: 10px; padding: 6px; margin-bottom: 1rem; }
 .site-footer h3 { color: #fff; font-size: 1.1rem; margin-bottom: .8rem; }
 .site-footer li { list-style: none; padding: .2rem 0; }
 .site-footer a:hover { color: var(--orange-md); }
 .site-footer strong { color: #fff; }
 .stopka-dol { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding-top: 1.4rem; font-size: .82rem; }
+.site-footer.mini { padding-top: 1.5rem; }
+.site-footer.mini .stopka-dol { padding-top: 0; }
 
 .a11y-btn { position: fixed; right: 1.2rem; bottom: 1.2rem; z-index: 60; width: 56px; height: 56px; border-radius: 50%; border: 0; background: var(--heading); color: #fff; font-size: 1.6rem; cursor: pointer; box-shadow: 0 8px 22px rgba(0,0,0,.2); }
 .a11y-btn:hover { background: var(--orange-dk); }
@@ -275,8 +277,8 @@ html.a11y-contrast .fb-wtyczka::after { display: none; }
 html.a11y-contrast .fb-wtyczka .fb-page:not([fb-xfbml-state="rendered"])::before { border-color: #555 !important; border-top-color: #ff0 !important; }
 html.a11y-contrast a { text-decoration: underline; text-underline-offset: 3px; }
 html.a11y-contrast .btn, html.a11y-contrast .menu-btn, html.a11y-contrast .fb-ramka-head a { border: 2px solid #ff0 !important; text-decoration: none; }
-html.a11y-contrast .karta, html.a11y-contrast .dla-kol, html.a11y-contrast .k-karta, html.a11y-contrast .akt-dzieje, html.a11y-contrast .fb-ramka,
-html.a11y-contrast .hero-karta, html.a11y-contrast .wkrotce, html.a11y-contrast .godziny, html.a11y-contrast .a11y-panel, html.a11y-contrast .fotki figure { border: 2px solid #ff0; }
+html.a11y-contrast .karta, html.a11y-contrast .dla-kol, html.a11y-contrast .akt-dzieje, html.a11y-contrast .fb-ramka,
+html.a11y-contrast .hero-karta, html.a11y-contrast .godziny, html.a11y-contrast .a11y-panel, html.a11y-contrast .fotki figure { border: 2px solid #ff0; }
 html.a11y-contrast .fb-ramka-head { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-header, html.a11y-contrast .page-hero, html.a11y-contrast .zaproszenie, html.a11y-contrast .uslugi { border-bottom: 2px solid #ff0; }
 html.a11y-contrast .site-footer { border-top: 2px solid #ff0; }
@@ -327,9 +329,10 @@ html.a11y-contrast .site-header .logo img { background: #fff; border-radius: 10p
   .hero-karta { margin: -1.5rem .75rem 0; padding: 1.4rem 1.3rem; }
   .page-hero h1 { font-size: 2.2rem; }
   .page-hero img { aspect-ratio: 16/10; border-radius: 120px 120px 18px 18px; }
+  .page-hero img.hero-logo { aspect-ratio: auto; border-radius: 0; max-width: 180px; }
   .uslugi .wrap { grid-template-columns: 1fr 1fr; }
   .uslugi div:nth-child(2) { border-right: 0; }
-  .karty, .kontakt-karty, .stopka-kol, .trzy { grid-template-columns: 1fr; }
+  .karty, .stopka-kol, .trzy { grid-template-columns: 1fr; }
   .fotki, .fotki.cztery { grid-template-columns: 1fr 1fr; }
   .fotki figure, .fotki figure:nth-child(n+4) { grid-column: auto; }
   .fotki figure:first-child { grid-column: span 2; grid-row: auto; }
